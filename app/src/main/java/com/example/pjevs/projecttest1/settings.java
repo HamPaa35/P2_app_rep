@@ -26,4 +26,9 @@ public class settings extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    void test(){
+        
+    }
+
 }
