@@ -36,11 +36,15 @@ public class settings extends AppCompatActivity {
     }
 
     void Mathiastest(){
-        
+
     }
 
     void Kasperkigger(){
 
+    }
+
+    void samme(){
+        
     }
 
 }
