@@ -39,4 +39,8 @@ public class settings extends AppCompatActivity {
         
     }
 
+    void Kasperkigger(){
+
+    }
+
 }
