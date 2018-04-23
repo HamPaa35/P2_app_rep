@@ -12,36 +12,36 @@ public class Item {
         return name;
     }
 
-    public Category getItemCategory() {
-        return itemCategory;
-    }
-
-    public Date getExpartationDate() {
-        return expartationDate;
-    }
-
-    public Storage getStorageMethod() {
-        return storageMethod;
-    }
-
-    public Boolean getOpenClosed() {
-        return openClosed;
-    }
-
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Category getItemCategory() {
+        return itemCategory;
     }
 
     public void setItemCategory(Category itemCategory) {
         this.itemCategory = itemCategory;
     }
 
+    public Date getExpartationDate() {
+        return expartationDate;
+    }
+
     public void setExpartationDate(Date expartationDate) {
         this.expartationDate = expartationDate;
     }
 
+    public Storage getStorageMethod() {
+        return storageMethod;
+    }
+
     public void setStorageMethod(Storage storageMethod) {
         this.storageMethod = storageMethod;
+    }
+
+    public Boolean getOpenClosed() {
+        return openClosed;
     }
 
     public void setOpenClosed(Boolean openClosed) {
