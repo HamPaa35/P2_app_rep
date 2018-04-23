@@ -36,8 +36,4 @@ public class Category {
     public void setStorageMethod(Storage storageMethod) {
         this.storageMethod = storageMethod;
     }
-
-    void StorTest(){
-        
-    }
 }
