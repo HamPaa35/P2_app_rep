@@ -27,28 +27,4 @@ public class settings extends AppCompatActivity {
 
     }
 
-    void test(){
-
-    }
-
-    void Kaspertest(){
-
-    }
-
-    void Mathiastest(){
-        
-    }
-
-    void Kasperkigger(){
-
-    }
-
-    void Samme(){
-
-    }
-
-    void samme(){
-
-    }
-
 }
