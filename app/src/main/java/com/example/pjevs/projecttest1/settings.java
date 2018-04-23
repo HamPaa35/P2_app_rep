@@ -43,4 +43,8 @@ public class settings extends AppCompatActivity {
 
     }
 
+    void Samme(){
+
+    }
+
 }
