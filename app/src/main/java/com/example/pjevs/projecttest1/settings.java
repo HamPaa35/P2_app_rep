@@ -28,11 +28,15 @@ public class settings extends AppCompatActivity {
     }
 
     void test(){
-        
+
     }
 
     void Kaspertest(){
 
+    }
+
+    void Mathiastest(){
+        
     }
 
 }
