@@ -31,4 +31,8 @@ public class settings extends AppCompatActivity {
         
     }
 
+    void Kaspertest(){
+
+    }
+
 }
