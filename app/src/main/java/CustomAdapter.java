@@ -13,8 +13,8 @@ public class CustomAdapter extends ArrayAdapter<Item> {
     public CustomAdapter(@NonNull Context context, int resource) {
         super(context, resource);
 
-        private static class ArrayAdapter<List> Item;
-                Context mContex00t;
+         ArrayAdapter itemOfArrays[10] = new Item;
+                Context mContext;
 
         class ViewHolder {
         TextView txtName;
@@ -23,7 +23,7 @@ public class CustomAdapter extends ArrayAdapter<Item> {
         TextView storageMethod;
         TextView openClosed;
 
-        public CustomAdapter(ArrayAdapter<Item> data, Context context) {
+        public ViewHolder(ArrayAdapter<Item> data, Context context) {
             super(context, activity_item, data);
             this.Item = data;
             this.mContext = context;
