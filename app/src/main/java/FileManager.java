@@ -1,13 +1,14 @@
+
 import android.os.Environment;
 
 import com.opencsv.CSVWriter;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.text.SimpleDateFormat;
+import java.io.IOException;
 
 public class FileManager {
-    static void writeToFile(){
+    static void writeToFile() throws IOException {
         String baseDir = Environment.getExternalStorageDirectory().getAbsolutePath();
         String fileName = "AnalysisData.csv";
         String filePath = baseDir + File.separator + fileName;
@@ -21,7 +22,7 @@ public class FileManager {
         else {
             writer = new CSVWriter(new FileWriter(filePath));
         }
-        String[] data = {"Ship Name","Scientist Name", "...",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").formatter.format(date)});
+        String[] data = {"Ship Name","Scientist Name", "..."};
 
         writer.writeNext(data);
 
