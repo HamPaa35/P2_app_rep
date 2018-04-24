@@ -8,6 +8,14 @@ public class Item {
     Storage storageMethod;
     Boolean openClosed;
 
+    public Item(String name, Category itemCategory, Date expartationDate, Storage storageMethod, Boolean openClosed) {
+        this.name=name;
+        this.itemCategory=itemCategory;
+        this.expartationDate=expartationDate;
+        this.storageMethod=storageMethod;
+        this.openClosed=openClosed;
+    }
+
     public String getName() {
         return name;
     }
