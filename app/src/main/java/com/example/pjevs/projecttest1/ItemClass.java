@@ -1,5 +1,8 @@
 package com.example.pjevs.projecttest1;
 
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
 import java.util.Date;
 
 public class ItemClass extends FileManager{
@@ -16,7 +19,15 @@ public class ItemClass extends FileManager{
         this.expartationDate=expartationDate;
         this.storageMethod=storageMethod;
         this.openClosed=openClosed;
+        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, myStringArray);
     }
+
+    public int i = 0;
+
+    public String[] myStringArray = new String[i];
+
+    ArrayAdapter adapter;
+
 
     public String getName() {
         return name;
