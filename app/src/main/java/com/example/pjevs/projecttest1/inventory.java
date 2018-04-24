@@ -1,5 +1,6 @@
 package com.example.pjevs.projecttest1;
 
+
 import android.content.ClipData;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class inventory extends AppCompatActivity {
 
     private static final String TAG = "inventory";
@@ -22,7 +24,12 @@ public class inventory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String >(this, android.R.layout.simple_list_item_1, myStringArray);
+        ArrayList<Item> myStringArray;
+        myStringArray= new ArrayList<>();
+
+
+        ArrayAdapter<String> adapter;
+        adapter = new ArrayAdapter<String >(this, android.R.layout.simple_list_item_1, myStringArray);
 
         ListView foodList = (ListView) findViewById(R.id.foodList);
         foodList.setAdapter(adapter);
