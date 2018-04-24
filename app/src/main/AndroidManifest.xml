@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".inventory" />
         <activity android:name=".settings" />
-        <activity android:name=".additem"></activity>
+        <activity android:name=".additem" />
+        <activity android:name=".Item"></activity>
     </application>
 
 </manifest>

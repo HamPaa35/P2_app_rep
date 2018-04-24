@@ -35,6 +35,7 @@ public class inventory extends AppCompatActivity {
             }
         });
 
+
         Button addbtn = (Button) findViewById(R.id.addbtn);
         addbtn.setOnClickListener(new View.OnClickListener() {
             @Override
