@@ -1,4 +1,4 @@
-public class Category {
+public class Category extends FileManager {
 
     String name;
     int TypicalExperationOpen;

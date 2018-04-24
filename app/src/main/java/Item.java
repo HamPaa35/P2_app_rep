@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public class Item {
+public class Item extends FileManager{
 
     String name;
     Category itemCategory;
