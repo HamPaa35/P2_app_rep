@@ -15,7 +15,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
+
 public class inventory extends AppCompatActivity {
+
+    ListView foodList;
+
+    String Items[] = {
+            "test1", "test2", "evenMore"
+    };
 
     private static final String TAG = "inventory";
 
@@ -25,8 +33,9 @@ public class inventory extends AppCompatActivity {
         setContentView(R.layout.activity_inventory);
 
 
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(inventory.this, android.R.layout.simple_list_item_1, Items);
 
-        ListView foodList = (ListView) findViewById(R.id.foodList);
+        foodList.setAdapter(adapter);
 
 
 
