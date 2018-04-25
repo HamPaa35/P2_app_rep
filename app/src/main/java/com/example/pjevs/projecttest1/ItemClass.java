@@ -9,7 +9,7 @@ import java.util.Date;
 
 public class ItemClass extends FileManager{
 
-    String name;
+    public static String name;
     Category itemCategory;
     Date expirationDate;
     Storage storageMethod;
@@ -25,7 +25,7 @@ public class ItemClass extends FileManager{
 
 
 
-    public String getName() {
+    public static String getName() {
         return name;
     }
 
