@@ -11,14 +11,14 @@ public class ItemClass extends FileManager{
 
     String name;
     Category itemCategory;
-    Date expartationDate;
+    Date expirationDate;
     Storage storageMethod;
     Boolean openClosed;
 
     public ItemClass(String name, Category itemCategory, Date expartationDate, Storage storageMethod, Boolean openClosed) {
         this.name=name;
         this.itemCategory=itemCategory;
-        this.expartationDate=expartationDate;
+        this.expirationDate =expartationDate;
         this.storageMethod=storageMethod;
         this.openClosed=openClosed;
     }
@@ -41,12 +41,12 @@ public class ItemClass extends FileManager{
         this.itemCategory = itemCategory;
     }
 
-    public Date getExpartationDate() {
-        return expartationDate;
+    public Date getExpirationDate() {
+        return expirationDate;
     }
 
-    public void setExpartationDate(Date expartationDate) {
-        this.expartationDate = expartationDate;
+    public void setExpirationDate(Date expirationDate) {
+        this.expirationDate = expirationDate;
     }
 
     public Storage getStorageMethod() {

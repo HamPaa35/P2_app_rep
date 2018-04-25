@@ -1,14 +1,32 @@
 package com.example.pjevs.projecttest1;
 
+import android.content.Context;
 import android.os.Environment;
 import com.opencsv.CSVWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class FileManager {
-    static void writeToFile() throws IOException /*throws IOException*/ {
-        String csv = "test.csv";
+    static void writeToFile() throws IOException {
+        /*InputStream is = this.getResources().openRawResource(R.raw.test);
+        File file = new File(this.getFilesDir(), "test.csv");
+
+        String filename = "myfile";
+        String fileContents = "Hello world!";
+        FileOutputStream outputStream;
+
+        try {
+            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+            outputStream.write(fileContents.getBytes());
+            outputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }*/
+
+        /*String csv = "test.csv";
         CSVWriter writer = new CSVWriter(new FileWriter(csv));
 
         String [] country = "India#China#United States".split("#");
