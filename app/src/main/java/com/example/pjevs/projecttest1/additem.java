@@ -20,7 +20,7 @@ import java.util.Calendar;
 
 public class additem extends AppCompatActivity {
 
-    String[] items;
+
 
     private static final String TAG = "MainActivity";
 

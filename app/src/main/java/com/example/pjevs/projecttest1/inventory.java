@@ -19,53 +19,42 @@ import java.util.List;
 
 public class inventory extends AppCompatActivity {
 
-    ListView foodList;
-
-    String Items[] = {
-            "test1", "test2", "evenMore"
-    };
-
-    private static final String TAG = "inventory";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory);
 
+        //Button to open the additem class
+        Button addBtn = (Button) findViewById(R.id.addbtn);
+        addBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAddItem();
+            }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(inventory.this, android.R.layout.simple_list_item_1, Items);
+            public void openAddItem(){
+                Intent intent = new Intent(getApplicationContext(), additem.class);
+                startActivity(intent);
+            }
+        });
 
-        foodList.setAdapter(adapter);
-
-
-
-
-
-        Button overviewbtn = (Button) findViewById(R.id.overviewbtn);
-        overviewbtn.setOnClickListener(new View.OnClickListener() {
+        //Button to open the Overview
+        Button overViewBtn = (Button) findViewById(R.id.overviewbtn);
+        overViewBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openOverview();
             }
-        });
 
-
-        Button addbtn = (Button) findViewById(R.id.addbtn);
-        addbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addNewItem();
+            public void openOverview(){
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
             }
+
         });
     }
-public void addNewItem(){
-        Intent intent = new Intent(this, additem.class);
-        startActivity(intent);
-}
-    public void openOverview(){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
+
 
 
 }
