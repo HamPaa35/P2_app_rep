@@ -26,7 +26,7 @@ public class inventory extends AppCompatActivity {
         setContentView(R.layout.activity_inventory);
         ListView foodList = (ListView) findViewById(R.id.foodList);
 
-        ItemClass test1 = new ItemClass("Muslinger", "Alt godt fra Havet","26-5-2018", "Freezer", "CLosed");
+        ItemClass test1 = new ItemClass("Muslinger", "Alt godt fra Havet","26-5-2018", "Freezer", "Closed");
 
 
         ArrayList<ItemClass> itemList = new ArrayList<>();

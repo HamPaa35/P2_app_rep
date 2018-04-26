@@ -23,9 +23,7 @@ public class ItemClass extends FileManager{
         this.openClosed=openClosed;
     }
 
-    public ItemClass(String muslinger, String alt_godt_fra_havet, String s, String freezer, String cLosed) {
-        super();
-    }
+
 
 
     public static String getName() {
