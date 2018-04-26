@@ -24,6 +24,16 @@ public class inventory extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory);
+        ListView foodList = (ListView) findViewById(R.id.foodList);
+
+        ItemClass test1 = new ItemClass("Muslinger", "Alt godt fra Havet","26-5-2018", "Freezer", "CLosed");
+
+
+        ArrayList<ItemClass> itemList = new ArrayList<>();
+        itemList.add(test1);
+
+        itemListAdapter adapter = new itemListAdapter(this, R.layout.activity_item, itemList);
+        foodList.setAdapter(adapter);
 
         //Button to open the additem class
         Button addBtn = (Button) findViewById(R.id.addbtn);

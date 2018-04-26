@@ -1,13 +1,38 @@
 package com.example.pjevs.projecttest1;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+public class Item {
+    private String itemname;
+            private String categoryName;
+            private String expirationDate;
 
-public class Item extends AppCompatActivity {
+    public String getItemname() {
+        return itemname;
+    }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_item);
+    public void setItemname(String itemname) {
+        this.itemname = itemname;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public String getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(String expirationDate) {
+        this.expirationDate = expirationDate;
+    }
+
+    public Item(String itemname, String categoryName, String expirationDate) {
+        this.itemname = itemname;
+
+        this.categoryName = categoryName;
+        this.expirationDate = expirationDate;
     }
 }

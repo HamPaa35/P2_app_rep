@@ -45,5 +45,22 @@
             android:layout_alignParentTop="true"
             android:layout_alignStart="@+id/textView"
             android:text="Tekst 3" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="109dp"
+            android:text="Tekst4" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="132dp"
+            android:text="Tekst5" />
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
