@@ -10,20 +10,23 @@
         android:id="@+id/overviewbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:onClick="openOverview"
         android:text="Overview"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/addbtn"
         android:layout_width="wrap_content"
         android:layout_height="49dp"
-        android:layout_marginBottom="4dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="68dp"
+        android:layout_marginEnd="16dp"
+        android:onClick="openAddItem"
         android:text="Add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -38,5 +41,22 @@
         android:scrollbars="horizontal"
         app:layout_constraintTop_toTopOf="parent" />
 
-<include layout="@layout/activity_item"/>
+    <Button
+        android:id="@+id/settingsbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="42dp"
+        android:onClick="openSettings"
+        android:text="Settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/overviewbtn" />
+
+    <include
+        layout="@layout/activity_item"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

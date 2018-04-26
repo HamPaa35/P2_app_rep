@@ -13,18 +13,28 @@ public class settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        Button overviewbtn2 = (Button) findViewById(R.id.overviewbtn2);
+        /*Button overviewbtn2 = (Button) findViewById(R.id.overviewbtn2);
         overviewbtn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openOverview();
             }
-        });
+        });*/
     }
-    public void openOverview(){
+    public void openOverview(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
 
+    public void openInventory(View view){
+        Intent intent = new Intent(this, inventory.class);
+        startActivity(intent);
+
+    }
+
+    public void openAddItem(View view){
+        Intent intent = new Intent(getApplicationContext(), additem.class);
+        startActivity(intent);
     }
 
 }

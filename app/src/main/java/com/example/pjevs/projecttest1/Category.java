@@ -2,10 +2,17 @@ package com.example.pjevs.projecttest1;
 
 public class Category extends FileManager {
 
-    String name;
-    int TypicalExperationOpen;
-    int TypicalExperationClosed;
-    Storage storageMethod;
+    private String name;
+    private int TypicalExpirationOpen;
+    private int TypicalExpirationClosed;
+    private String storageMethod;
+
+    public Category (String name, int TypicalExpirationOpen, int TypicalExpirationClosed, Storage storageMethod){
+        this.name = name;
+        this.TypicalExpirationOpen = TypicalExpirationOpen;
+        this.TypicalExpirationClosed = TypicalExpirationClosed;
+        this.storageMethod = storageMethod.getName();
+    }
 
     public String getName() {
         return name;
@@ -15,27 +22,35 @@ public class Category extends FileManager {
         this.name = name;
     }
 
-    public int getTypicalExperationOpen() {
-        return TypicalExperationOpen;
+    public int getTypicalExpirationOpen() {
+        return TypicalExpirationOpen;
     }
 
-    public void setTypicalExperationOpen(int typicalExperationOpen) {
-        TypicalExperationOpen = typicalExperationOpen;
+    public void setTypicalExpirationOpen(int typicalExpirationOpen) {
+        TypicalExpirationOpen = typicalExpirationOpen;
     }
 
-    public int getTypicalExperationClosed() {
-        return TypicalExperationClosed;
+    public int getTypicalExpirationClosed() {
+        return TypicalExpirationClosed;
     }
 
-    public void setTypicalExperationClosed(int typicalExperationClosed) {
-        TypicalExperationClosed = typicalExperationClosed;
+    public void setTypicalExpirationClosed(int typicalExpirationClosed) {
+        TypicalExpirationClosed = typicalExpirationClosed;
     }
 
-    public Storage getStorageMethod() {
+    public String getStorageMethod() {
         return storageMethod;
     }
 
-    public void setStorageMethod(Storage storageMethod) {
+    public void setStorageMethod(String storageMethod) {
         this.storageMethod = storageMethod;
+    }
+
+    @Override
+    public String toString() {
+        String category = ("Name " + name + "Typical expiration when opened: " + TypicalExpirationOpen +
+        "Typical expiration when closed: " + TypicalExpirationClosed + "Is typically stored in: " +
+                storageMethod);
+        return category;
     }
 }

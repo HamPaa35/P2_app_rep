@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -19,7 +20,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class additem extends AppCompatActivity {
-
 
 
     private static final String TAG = "MainActivity";
@@ -32,35 +32,22 @@ public class additem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_additem);
 
-       
-    Button cancelBtn = (Button) findViewById(R.id.cancelBtn);
+    /*Button cancelBtn = (Button) findViewById(R.id.cancelBtn);
     cancelBtn.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
         openInventory();
         }
-    });
+    });*/
 
+    mDisplayDate = (TextView) findViewById(R.id.Date);
 
-
-       /* Button finishBtn = (Button) findViewById(R.id.finishBtn);
-        finishBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Tilføj som instance til Inventory listen
-            }
-          */
-
-
-
-        mDisplayDate = (TextView) findViewById(R.id.Date);
-
-        ArrayList<String> foods = new ArrayList<>();
-        foods.add("Mælk");
-        foods.add("Brød");
-        foods.add("Frugt");
-        foods.add("Grøntsager");
-        foods.add("Alt godt fra havet");
+    ArrayList<String> foods = new ArrayList<>();
+    foods.add("Mælk");
+    foods.add("Brød");
+    foods.add("Frugt");
+    foods.add("Grøntsager");
+    foods.add("Alt godt fra havet");
 
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,8 +67,6 @@ public class additem extends AppCompatActivity {
 
             }
         });
-
-
 
         mDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -103,10 +88,12 @@ public class additem extends AppCompatActivity {
         dropdown2.setAdapter(adapter2);
 
     }
-    private void openInventory(){
-        Intent intent = new Intent(this, inventory.class);
-        startActivity(intent);
-    }}
+
+    public void closeAddItem(View view){
+        finish();
+    }
+
+}
 
 
 

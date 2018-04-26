@@ -11,11 +11,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "itemsAndCategories.db";
     public static final String TABLE_ITEMS = "items";
-    public static final String COLUM_NAME = "name";
-    public static final String COLUM_ITEMCATEGORY = "itemCategory";
-    public static final String COLUM_DATE = "expirationDate";
-    public static final String COLUM_STORAGEMETHOD = "storageMethod";
-    public static final String COLUM_OPENCLOSED = "openClosed";
+    public static final String COLUMN_ID = "_id";
+    public static final String COLUMN_NAME = "name";
+    public static final String COLUMN_ITEMCATEGORY = "itemCategory";
+    public static final String COLUMN_DATE = "expirationDate";
+    public static final String COLUMN_STORAGEMETHOD = "storageMethod";
+    public static final String COLUMN_OPENCLOSED = "openClosed";
 
     public DatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
@@ -23,8 +24,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String quary = "CREATE TABLE " + TABLE_ITEMS +
-                "(" + COLUM_NAME + " TEXT" + ");";
+        String quary = "CREATE TABLE " + TABLE_ITEMS + "(" +
+                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_NAME + " TEXT" + ");";
         db.execSQL(quary);
     }
 
@@ -36,7 +38,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public void addItem (ItemClass item){
         ContentValues values = new ContentValues();
-        values.put(COLUM_NAME, ItemClass.getName());
+        values.put(COLUMN_NAME, ItemClass.getName());
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLE_ITEMS, null, values);
         db.close();
@@ -44,7 +46,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public void deleteItem (String itemName){
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("DELETE FROM " + TABLE_ITEMS + " WHERE " + COLUM_NAME + "=\"" + itemName + "\";");
+        db.execSQL("DELETE FROM " + TABLE_ITEMS + " WHERE " + COLUMN_NAME + "=\"" + itemName + "\";");
     }
 
     public String databaseToString(){
@@ -56,9 +58,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         c.moveToFirst();
 
         while(!c.isAfterLast()){
-            if(c.getString(c.getColumnIndex("name")) != null);
-            dbString += c.getString(c.getColumnIndex("name"));
-            dbString += "\n";
+            if(c.getString(c.getColumnIndex("name")) != null) {
+                dbString += c.getString(c.getColumnIndex("name"));
+                dbString += "\n";
+            }
         }
         db.close();
         return dbString;

@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button inventorybtn = (Button) findViewById(R.id.inventorybtn);
+        /*Button inventorybtn = (Button) findViewById(R.id.inventorybtn);
         inventorybtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,19 +35,33 @@ public class MainActivity extends AppCompatActivity {
         }
     });
 
-
-
+        Button testbtn = (Button) findViewById(R.id.testAddButton);
+        settingsbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openTest();
+            }
+        });*/
     }
 
-public void openInventory(){
+    public void openInventory(View view){
         Intent intent = new Intent(this, inventory.class);
         startActivity(intent);
 
 }
 
-public void openSettings(){
+    public void openSettings(View view){
         Intent intent = new Intent(this, settings.class);
         startActivity(intent);
-
 }
+
+    public void openTest(View view){
+        Intent intent = new Intent(this, Test.class);
+        startActivity(intent);
+    }
+
+    public void openAddItem(View view){
+        Intent intent = new Intent(getApplicationContext(), additem.class);
+        startActivity(intent);
+    }
 }

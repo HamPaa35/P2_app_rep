@@ -26,7 +26,9 @@ public class inventory extends AppCompatActivity {
         setContentView(R.layout.activity_inventory);
         ListView foodList = (ListView) findViewById(R.id.foodList);
 
-        ItemClass test1 = new ItemClass("Muslinger", "Alt godt fra Havet","26-5-2018", "Freezer", "Closed");
+        Storage fridge = new Storage("Fridge");
+        Category altGodtFraHavet = new Category("Alt godt fra havet", 3, 1, fridge);
+        ItemClass test1 = new ItemClass("Muslinger", altGodtFraHavet,"26-5-2018", fridge, true);
 
 
         ArrayList<ItemClass> itemList = new ArrayList<>();
@@ -35,36 +37,39 @@ public class inventory extends AppCompatActivity {
         itemListAdapter adapter = new itemListAdapter(this, R.layout.activity_item, itemList);
         foodList.setAdapter(adapter);
 
-        //Button to open the additem class
+        /*Button to open the additem class
         Button addBtn = (Button) findViewById(R.id.addbtn);
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openAddItem();
             }
+        });*/
 
-            public void openAddItem(){
-                Intent intent = new Intent(getApplicationContext(), additem.class);
-                startActivity(intent);
-            }
-        });
-
-        //Button to open the Overview
+        /*Button to open the Overview
         Button overViewBtn = (Button) findViewById(R.id.overviewbtn);
         overViewBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openOverview();
             }
-
-            public void openOverview(){
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-            }
-
-        });
+        }
+        );*/
     }
 
+    public void openOverview(View view){
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+    }
 
+    public void openAddItem(View view){
+        Intent intent = new Intent(getApplicationContext(), additem.class);
+        startActivity(intent);
+    }
+
+    public void openSettings(View view){
+        Intent intent = new Intent(this, settings.class);
+        startActivity(intent);
+    }
 
 }

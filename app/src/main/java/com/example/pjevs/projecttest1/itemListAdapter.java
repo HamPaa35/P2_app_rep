@@ -30,12 +30,12 @@ public class itemListAdapter extends ArrayAdapter<ItemClass> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
       String name = getItem(position).getName();
-      Category itemcategory = getItem(position).getItemCategory();
-      Date expirationDate = getItem(position).getExpirationDate();
-      Storage storageMethod = getItem(position).getStorageMethod();
-      Boolean openClosed = getItem(position).getOpenClosed();
+      String itemcategory = getItem(position).getItemCategory();
+      String expirationDate = getItem(position).getExpirationDate();
+      String storageMethod = getItem(position).getStorageMethod();
+      String openClosed = getItem(position).getOpenClosed();
 
-      ItemClass ItemClass = new ItemClass(name, itemcategory, expirationDate, storageMethod, openClosed);
+      //ItemClass ItemClass = new ItemClass(name, itemcategory, expirationDate, storageMethod, openClosed);
 
       LayoutInflater inflater = LayoutInflater.from(mContext);
       convertView = inflater.inflate(mResources,parent,false);

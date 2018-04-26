@@ -10,21 +10,22 @@ import java.util.Date;
 public class ItemClass extends FileManager{
 
     public static String name;
-    Category itemCategory;
-    Date expirationDate;
-    Storage storageMethod;
+    String itemCategory;
+    String expirationDate;
+    String storageMethod;
     Boolean openClosed;
 
-    public ItemClass(String name, Category itemCategory, Date expartationDate, Storage storageMethod, Boolean openClosed) {
-        this.name=name;
-        this.itemCategory=itemCategory;
-        this.expirationDate =expartationDate;
-        this.storageMethod=storageMethod;
-        this.openClosed=openClosed;
+    public ItemClass(String name) {
+        this.name = name;
     }
 
-
-
+    public ItemClass(String name, Category itemCategory, String expartationDate, Storage storageMethod, Boolean openClosed) {
+        this.name = name;
+        this.itemCategory = itemCategory.getName();
+        this.expirationDate =expartationDate;
+        this.storageMethod = storageMethod.getName();
+        this.openClosed=openClosed;
+    }
 
     public static String getName() {
         return name;
@@ -34,32 +35,37 @@ public class ItemClass extends FileManager{
         this.name = name;
     }
 
-    public Category getItemCategory() {
+    public String getItemCategory() {
         return itemCategory;
     }
 
-    public void setItemCategory(Category itemCategory) {
-        this.itemCategory = itemCategory;
-    }
+    //public void setItemCategory(String itemCategory) {
+    //    this.itemCategory = itemCategory.getName();
+    //}
 
-    public Date getExpirationDate() {
+    public String getExpirationDate() {
         return expirationDate;
     }
 
-    public void setExpirationDate(Date expirationDate) {
+    public void setExpirationDate(String expirationDate) {
         this.expirationDate = expirationDate;
     }
 
-    public Storage getStorageMethod() {
+    public String getStorageMethod() {
         return storageMethod;
     }
 
-    public void setStorageMethod(Storage storageMethod) {
-        this.storageMethod = storageMethod;
-    }
+    //public void setStorageMethod(Storage storageMethod) {
+    //    this.storageMethod = storageMethod;
+    //}
 
-    public Boolean getOpenClosed() {
-        return openClosed;
+    public String getOpenClosed() {
+        if (openClosed){
+            return "Open";
+        }
+        else {
+            return "Closed";
+        }
     }
 
     public void setOpenClosed(Boolean openClosed) {
