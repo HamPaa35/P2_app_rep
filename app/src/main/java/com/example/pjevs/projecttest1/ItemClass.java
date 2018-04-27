@@ -22,13 +22,13 @@ public class ItemClass extends FileManager{
     public ItemClass(String name, Category itemCategory, String expartationDate, Storage storageMethod, Boolean openClosed) {
         this.name = name;
         this.itemCategory = itemCategory.getName();
-        this.expirationDate =expartationDate;
+        this.expirationDate = expartationDate;
         this.storageMethod = storageMethod.getName();
-        this.openClosed=openClosed;
+        this.openClosed = openClosed;
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public void setName(String name) {
