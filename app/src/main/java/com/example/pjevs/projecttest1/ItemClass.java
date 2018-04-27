@@ -27,6 +27,12 @@ public class ItemClass extends FileManager{
         this.openClosed = openClosed;
     }
 
+    public ItemClass(String name, String exportationDate, String openClosed) {
+        this.name = name;
+        this.expirationDate = exportationDate;
+        this.openClosed = openClosed;
+    }
+
     public static String getName() {
         return name;
     }

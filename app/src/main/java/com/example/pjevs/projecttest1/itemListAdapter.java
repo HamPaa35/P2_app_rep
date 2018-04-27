@@ -32,27 +32,21 @@ public class itemListAdapter extends ArrayAdapter<ItemClass> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
       String name = getItem(position).getName();
-      String itemCategory = getItem(position).getItemCategory();
       String expirationDate = getItem(position).getExpirationDate();
-      String storageMethod = getItem(position).getStorageMethod();
       String openClosed = getItem(position).getOpenClosed();
 
-      ItemClass itemClass = new ItemClass(name, itemCategory, expirationDate, storageMethod, openClosed);
+      ItemClass itemClass = new ItemClass(name, expirationDate, openClosed);
 
       LayoutInflater inflater = LayoutInflater.from(mContext);
       convertView = inflater.inflate(mResources,parent,false);
 
-      TextView tvName = (TextView) convertView.findViewById(R.id.textView);
-      TextView tvItemCategory = (TextView) convertView.findViewById(R.id.textView3);
-      TextView tvDate = (TextView) convertView.findViewById(R.id.textView4);
-      TextView tvStorage = (TextView) convertView.findViewById(R.id.textView5);
-      TextView tvOpenClosed = (TextView) convertView.findViewById(R.id.textView6);
+      TextView tvName = (TextView) convertView.findViewById(R.id.textView1);
+      TextView tvDate = (TextView) convertView.findViewById(R.id.textView2);
+      TextView tvOpenClosed = (TextView) convertView.findViewById(R.id.textView3);
 
       tvName.setText(name);
-      tvItemCategory.setText((CharSequence) itemCategory);
-      tvDate.setText((CharSequence) expirationDate);
-      tvStorage.setText((CharSequence) storageMethod);
-      tvStorage.setText((CharSequence) tvOpenClosed);
+      tvDate.setText(expirationDate);
+      tvOpenClosed.setText(openClosed);
 
       return convertView;
   }
