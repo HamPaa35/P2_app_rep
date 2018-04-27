@@ -9,11 +9,11 @@ import java.util.Date;
 
 public class ItemClass extends FileManager{
 
-    public static String name;
-    String itemCategory;
-    String expirationDate;
-    String storageMethod;
-    Boolean openClosed;
+    private String name;
+    private String itemCategory;
+    private String expirationDate;
+    private String storageMethod;
+    private Boolean openClosed;
 
     public ItemClass(String name) {
         this.name = name;
@@ -27,8 +27,8 @@ public class ItemClass extends FileManager{
         this.openClosed=openClosed;
     }
 
-    public static String getName() {
-        return name;
+    public String getName() {
+        return this.name;
     }
 
     public void setName(String name) {

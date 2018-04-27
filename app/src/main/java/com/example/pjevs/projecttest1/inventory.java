@@ -28,7 +28,7 @@ public class inventory extends AppCompatActivity {
 
         Storage fridge = new Storage("Fridge");
         Category altGodtFraHavet = new Category("Alt godt fra havet", 3, 1, fridge);
-        ItemClass test1 = new ItemClass("Muslinger", altGodtFraHavet,"26-5-2018", fridge, true);
+        ItemClass test1 = new ItemClass("Muslinger", altGodtFraHavet,"26-05-2018", fridge, true);
 
 
         ArrayList<ItemClass> itemList = new ArrayList<>();
