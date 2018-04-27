@@ -17,8 +17,10 @@ import java.util.Date;
 
 public class itemListAdapter extends ArrayAdapter<ItemClass> {
 
-  private Context mContext;
-  int mResources;
+    private static final String TAG = "itemListAdapter";
+
+    private Context mContext;
+    int mResources;
 
   public itemListAdapter(Context context, int resource, ArrayList<ItemClass> objects) {
       super(context, resource, objects);
@@ -30,12 +32,12 @@ public class itemListAdapter extends ArrayAdapter<ItemClass> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
       String name = getItem(position).getName();
-      String itemcategory = getItem(position).getItemCategory();
+      String itemCategory = getItem(position).getItemCategory();
       String expirationDate = getItem(position).getExpirationDate();
       String storageMethod = getItem(position).getStorageMethod();
       String openClosed = getItem(position).getOpenClosed();
 
-      //ItemClass ItemClass = new ItemClass(name, itemcategory, expirationDate, storageMethod, openClosed);
+      ItemClass itemClass = new ItemClass(name, itemCategory, expirationDate, storageMethod, openClosed);
 
       LayoutInflater inflater = LayoutInflater.from(mContext);
       convertView = inflater.inflate(mResources,parent,false);
@@ -47,7 +49,7 @@ public class itemListAdapter extends ArrayAdapter<ItemClass> {
       TextView tvOpenClosed = (TextView) convertView.findViewById(R.id.textView6);
 
       tvName.setText(name);
-      tvItemCategory.setText((CharSequence) itemcategory);
+      tvItemCategory.setText((CharSequence) itemCategory);
       tvDate.setText((CharSequence) expirationDate);
       tvStorage.setText((CharSequence) storageMethod);
       tvStorage.setText((CharSequence) tvOpenClosed);

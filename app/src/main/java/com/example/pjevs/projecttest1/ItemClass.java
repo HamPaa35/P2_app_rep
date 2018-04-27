@@ -9,25 +9,25 @@ import java.util.Date;
 
 public class ItemClass extends FileManager{
 
-    private String name;
+    private static String name;
     private String itemCategory;
     private String expirationDate;
     private String storageMethod;
-    private Boolean openClosed;
+    private String openClosed;
 
     public ItemClass(String name) {
         this.name = name;
     }
 
-    public ItemClass(String name, Category itemCategory, String expartationDate, Storage storageMethod, Boolean openClosed) {
+    public ItemClass(String name, Category itemCategory, String exportationDate, Storage storageMethod, String openClosed) {
         this.name = name;
         this.itemCategory = itemCategory.getName();
-        this.expirationDate = expartationDate;
+        this.expirationDate = exportationDate;
         this.storageMethod = storageMethod.getName();
         this.openClosed = openClosed;
     }
 
-    public String getName() {
+    public static String getName() {
         return name;
     }
 
@@ -60,15 +60,10 @@ public class ItemClass extends FileManager{
     //}
 
     public String getOpenClosed() {
-        if (openClosed){
-            return "Open";
-        }
-        else {
-            return "Closed";
-        }
+        return openClosed;
     }
 
-    public void setOpenClosed(Boolean openClosed) {
+    public void setOpenClosed(String openClosed) {
         this.openClosed = openClosed;
     }
 }
