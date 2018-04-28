@@ -65,14 +65,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String query = "SELECT * FROM " + TABLE_ITEMS + " WHERE 1";
 
         Cursor c = db.rawQuery(query, null);
-        c.moveToFirst();
-        //This is properly the error
-        while(!c.isAfterLast()){
-            if(c.getString(c.getColumnIndex("name")) != null) {
+        if (c.moveToFirst()){
+            do{
                 dbString += c.getString(c.getColumnIndex("name"));
                 dbString += "\n";
-            }
+            }while (c.moveToNext());
         }
+        /*//This is properly the error
+        while(!c.isAfterLast()){
+            if(c.getString(c.getColumnIndex("name")) != null) {
+
+            }
+        }*/
         db.close();
         return dbString;
     }

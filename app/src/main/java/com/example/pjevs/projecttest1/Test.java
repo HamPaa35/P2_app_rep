@@ -29,6 +29,12 @@ public class Test extends AppCompatActivity {
         itemInput.setText("");
     }
 
+    public void deleteButtonClicked(View view){
+        String inputText = itemInput.getText().toString();
+        dbHandler.deleteItem(inputText);
+        printDatabase();
+    }
+
     public void addButtonClicked(View view){
         ItemClass item = new ItemClass(itemInput.getText().toString());
         dbHandler.addItem(item);

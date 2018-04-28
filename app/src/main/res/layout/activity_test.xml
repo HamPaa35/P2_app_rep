@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="49dp"
         android:layout_marginEnd="31dp"
-        android:layout_marginStart="29dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="72dp"
         android:onClick="addButtonClicked"
         android:text="add"
@@ -47,5 +47,16 @@
         app:layout_constraintBottom_toTopOf="@+id/spinner1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addItemBox" />
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="49dp"
+        android:layout_marginEnd="24dp"
+        android:onClick="deleteButtonClicked"
+        android:text="Delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
