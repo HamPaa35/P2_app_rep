@@ -28,17 +28,19 @@ public class inventory extends AppCompatActivity {
         Log.d(TAG, "onCreate: Started");
         ListView foodList = (ListView) findViewById(R.id.foodList);
 
-        //Storage fridge = new Storage("Fridge");
-        //Category altGodtFraHavet = new Category("Alt godt fra havet", 3, 1, fridge);
-        ItemClass test1 = new ItemClass("Muslinger","26-05-2018", "Open");
+        Storage fridge = new Storage("Fridge");
+        Storage freezer = new Storage("Freezer");
+        Category altGodtFraHavet = new Category("Alt godt fra havet", 3, 1, fridge);
+        Category altGodtFralandet = new Category("Alt godt fra landet", 3, 1, fridge);
+        ItemClass test1 = new ItemClass("Muslinger", altGodtFraHavet, "26-05-2018", fridge, "Open");
         ItemClass test2 = new ItemClass("Muslinger2","26-05-2019", "Closed");
         ItemClass test3 = new ItemClass("Muslinger3","26-05-2020", "Open");
         ItemClass test4 = new ItemClass("Muslinger","26-05-2018", "Open");
-        ItemClass test5 = new ItemClass("Muslinger2","26-05-2019", "Closed");
+        ItemClass test5 = new ItemClass("Muslinger", altGodtFraHavet, "26-05-2018", fridge, "Open");
         ItemClass test6 = new ItemClass("Muslinger3","26-05-2020", "Open");
         ItemClass test7 = new ItemClass("Muslinger","26-05-2018", "Open");
         ItemClass test8 = new ItemClass("Muslinger2","26-05-2019", "Closed");
-        ItemClass test9 = new ItemClass("Muslinger3","26-05-2020", "Open");
+        ItemClass test9 = new ItemClass("Muslinger", altGodtFralandet, "26-05-2018", freezer, "Open");
 
         ArrayList<ItemClass> itemList = new ArrayList<>();
         itemList.add(test1);

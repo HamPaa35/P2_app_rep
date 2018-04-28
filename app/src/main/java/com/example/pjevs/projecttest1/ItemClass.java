@@ -45,9 +45,9 @@ public class ItemClass extends FileManager{
         return itemCategory;
     }
 
-    //public void setItemCategory(String itemCategory) {
-    //    this.itemCategory = itemCategory.getName();
-    //}
+    public void setItemCategory(Category itemCategory) {
+        this.itemCategory = itemCategory.getName();
+    }
 
     public String getExpirationDate() {
         return expirationDate;
@@ -61,9 +61,9 @@ public class ItemClass extends FileManager{
         return storageMethod;
     }
 
-    //public void setStorageMethod(Storage storageMethod) {
-    //    this.storageMethod = storageMethod;
-    //}
+    public void setStorageMethod(Storage storageMethod) {
+        this.storageMethod = storageMethod.getName();
+    }
 
     public String getOpenClosed() {
         return openClosed;

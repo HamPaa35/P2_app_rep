@@ -34,8 +34,8 @@ public class itemListAdapter extends ArrayAdapter<ItemClass> {
       String name = getItem(position).getName();
       String expirationDate = getItem(position).getExpirationDate();
       String openClosed = getItem(position).getOpenClosed();
-
-      ItemClass itemClass = new ItemClass(name, expirationDate, openClosed);
+      String itemCategory = getItem(position).getItemCategory();
+      String itemStorage = getItem(position).getStorageMethod();
 
       LayoutInflater inflater = LayoutInflater.from(mContext);
       convertView = inflater.inflate(mResources,parent,false);
@@ -43,10 +43,14 @@ public class itemListAdapter extends ArrayAdapter<ItemClass> {
       TextView tvName = (TextView) convertView.findViewById(R.id.textView1);
       TextView tvDate = (TextView) convertView.findViewById(R.id.textView2);
       TextView tvOpenClosed = (TextView) convertView.findViewById(R.id.textView3);
+      TextView tvCategory = (TextView) convertView.findViewById(R.id.textView4);
+      TextView tvStorage = (TextView) convertView.findViewById(R.id.textView5);
 
       tvName.setText(name);
       tvDate.setText(expirationDate);
       tvOpenClosed.setText(openClosed);
+      tvCategory.setText(itemCategory);
+      tvStorage.setText(itemStorage);
 
       return convertView;
   }
