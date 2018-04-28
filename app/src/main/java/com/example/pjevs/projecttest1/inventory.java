@@ -27,7 +27,7 @@ public class inventory extends AppCompatActivity {
         setContentView(R.layout.activity_inventory);
         Log.d(TAG, "onCreate: Started");
         ListView foodList = (ListView) findViewById(R.id.foodList);
-
+        //A lot of placeholder items, this will need to be a loop at some point
         Storage fridge = new Storage("Fridge");
         Storage freezer = new Storage("Freezer");
         Category altGodtFraHavet = new Category("Alt godt fra havet", 3, 1, fridge);
@@ -52,12 +52,12 @@ public class inventory extends AppCompatActivity {
         itemList.add(test7);
         itemList.add(test8);
         itemList.add(test9);
-
+        //Here all the items are added to the listView, using the activity_item layout
         itemListAdapter adapter = new itemListAdapter(this, R.layout.activity_item, itemList);
         foodList.setAdapter(adapter);
 
     }
-
+    //These just open new activities based on a button press
     public void openOverview(View view){
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);

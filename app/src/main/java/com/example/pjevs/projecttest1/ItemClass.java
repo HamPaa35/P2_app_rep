@@ -8,13 +8,13 @@ import java.util.Date;
 
 
 public class ItemClass extends FileManager{
-
+    //The variables of the ItemClass
     private static String name;
     private String itemCategory;
     private String expirationDate;
     private String storageMethod;
     private String openClosed;
-
+    //These constructors needs to be cleaned up at some point
     public ItemClass(String name) {
         this.name = name;
     }

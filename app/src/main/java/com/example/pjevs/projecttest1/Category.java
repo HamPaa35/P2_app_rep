@@ -2,11 +2,13 @@ package com.example.pjevs.projecttest1;
 
 public class Category extends FileManager {
 
+    //The attributes for the Category class
     private String name;
     private int TypicalExpirationOpen;
     private int TypicalExpirationClosed;
     private String storageMethod;
 
+    //The constructor of the Category class
     public Category (String name, int TypicalExpirationOpen, int TypicalExpirationClosed, Storage storageMethod){
         this.name = name;
         this.TypicalExpirationOpen = TypicalExpirationOpen;

@@ -88,7 +88,7 @@ public class additem extends AppCompatActivity {
         dropdown2.setAdapter(adapter2);
 
     }
-
+    //Goes back to the most recent activity
     public void closeAddItem(View view){
         finish();
     }

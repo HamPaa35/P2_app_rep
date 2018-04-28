@@ -27,7 +27,7 @@ public class itemListAdapter extends ArrayAdapter<ItemClass> {
       mContext = context;
       mResources = resource;
   }
-
+  //Here the activity_Item is passed the right information to display in the inventory and the text is set
   @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
