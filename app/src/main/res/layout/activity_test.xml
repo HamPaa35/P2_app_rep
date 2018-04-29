@@ -19,7 +19,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/cancelBtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner2" />
+        app:layout_constraintTop_toBottomOf="@+id/storageSpinner" />
 
     <EditText
         android:id="@+id/addItemBox"
@@ -44,7 +44,7 @@
         android:layout_marginEnd="163dp"
         android:layout_marginTop="74dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/spinner1"
+        app:layout_constraintBottom_toTopOf="@+id/categorySpinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addItemBox" />
 

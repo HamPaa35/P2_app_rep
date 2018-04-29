@@ -9,12 +9,18 @@ import java.util.Date;
 
 public class ItemClass extends FileManager{
     //The variables of the ItemClass
+    private static int _id;
     private static String name;
-    private String itemCategory;
-    private String expirationDate;
-    private String storageMethod;
-    private String openClosed;
+    private static String itemCategory;
+    private static String expirationDate;
+    private static String storageMethod;
+    private static String openClosed;
     //These constructors needs to be cleaned up at some point
+
+    public ItemClass(){
+
+    }
+
     public ItemClass(String name) {
         this.name = name;
     }
@@ -33,6 +39,15 @@ public class ItemClass extends FileManager{
         this.openClosed = openClosed;
     }
 
+
+    public static int get_id() {
+        return _id;
+    }
+
+    public static void set_id(int _id) {
+        ItemClass._id = _id;
+    }
+
     public static String getName() {
         return name;
     }
@@ -41,15 +56,15 @@ public class ItemClass extends FileManager{
         this.name = name;
     }
 
-    public String getItemCategory() {
+    public static String getItemCategory() {
         return itemCategory;
     }
 
-    public void setItemCategory(Category itemCategory) {
-        this.itemCategory = itemCategory.getName();
+    public void setItemCategory(String itemCategory) {
+        this.itemCategory = itemCategory;
     }
 
-    public String getExpirationDate() {
+    public static String getExpirationDate() {
         return expirationDate;
     }
 
@@ -57,15 +72,15 @@ public class ItemClass extends FileManager{
         this.expirationDate = expirationDate;
     }
 
-    public String getStorageMethod() {
+    public static String getStorageMethod() {
         return storageMethod;
     }
 
-    public void setStorageMethod(Storage storageMethod) {
-        this.storageMethod = storageMethod.getName();
+    public void setStorageMethod(String storageMethod) {
+        this.storageMethod = storageMethod;
     }
 
-    public String getOpenClosed() {
+    public static String getOpenClosed() {
         return openClosed;
     }
 

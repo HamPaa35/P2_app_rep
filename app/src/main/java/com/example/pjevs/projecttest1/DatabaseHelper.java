@@ -32,7 +32,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String quary = "CREATE TABLE " + TABLE_ITEMS + "(" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_NAME + " TEXT" + ");";
+                COLUMN_NAME + " TEXT" +
+                ");";
         db.execSQL(quary);
     }
 

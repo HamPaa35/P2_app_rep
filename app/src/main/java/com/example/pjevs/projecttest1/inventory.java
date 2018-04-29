@@ -32,7 +32,7 @@ public class inventory extends AppCompatActivity {
         Storage freezer = new Storage("Freezer");
         Category altGodtFraHavet = new Category("Alt godt fra havet", 3, 1, fridge);
         Category altGodtFralandet = new Category("Alt godt fra landet", 3, 1, fridge);
-        ItemClass test1 = new ItemClass("Muslinger", altGodtFraHavet, "26-05-2018", fridge, "Open");
+        /*ItemClass test1 = new ItemClass("Muslinger", altGodtFraHavet, "26-05-2018", fridge, "Open");
         ItemClass test2 = new ItemClass("Muslinger2","26-05-2019", "Closed");
         ItemClass test3 = new ItemClass("Muslinger3","26-05-2020", "Open");
         ItemClass test4 = new ItemClass("Muslinger","26-05-2018", "Open");
@@ -40,10 +40,27 @@ public class inventory extends AppCompatActivity {
         ItemClass test6 = new ItemClass("Muslinger3","26-05-2020", "Open");
         ItemClass test7 = new ItemClass("Muslinger","26-05-2018", "Open");
         ItemClass test8 = new ItemClass("Muslinger2","26-05-2019", "Closed");
-        ItemClass test9 = new ItemClass("Muslinger", altGodtFralandet, "26-05-2018", freezer, "Open");
+        ItemClass test9 = new ItemClass("Muslinger", altGodtFralandet, "26-05-2018", freezer, "Open");*/
+
 
         ArrayList<ItemClass> itemList = new ArrayList<>();
-        itemList.add(test1);
+        for(int i = 0; i < 100; i++){
+            ItemClass item = new ItemClass();
+            item.setName("Musling" + i);
+            item.setItemCategory(altGodtFraHavet.getName());
+            item.setExpirationDate("26-" + i +"-2019");
+            item.setOpenClosed("Closed");
+            item.setStorageMethod(fridge.getName());
+
+            itemList.add(item);
+        }
+
+
+
+
+
+
+        /*itemList.add(test1);
         itemList.add(test2);
         itemList.add(test3);
         itemList.add(test4);
@@ -51,7 +68,7 @@ public class inventory extends AppCompatActivity {
         itemList.add(test6);
         itemList.add(test7);
         itemList.add(test8);
-        itemList.add(test9);
+        itemList.add(test9);*/
         //Here all the items are added to the listView, using the activity_item layout
         itemListAdapter adapter = new itemListAdapter(this, R.layout.activity_item, itemList);
         foodList.setAdapter(adapter);
