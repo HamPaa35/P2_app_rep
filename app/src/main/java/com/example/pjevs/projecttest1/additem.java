@@ -19,6 +19,7 @@ import java.util.Calendar;
 public class additem extends AppCompatActivity {
 
     String hej;
+    String balls;
     Storage fridge = new Storage("Fridge");
     Storage freezer = new Storage("Freezer");
     Storage cupBoard = new Storage("Cupboard");
