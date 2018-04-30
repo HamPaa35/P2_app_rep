@@ -55,11 +55,6 @@ public class inventory extends AppCompatActivity {
             itemList.add(item);
         }
 
-
-
-
-
-
         /*itemList.add(test1);
         itemList.add(test2);
         itemList.add(test3);
