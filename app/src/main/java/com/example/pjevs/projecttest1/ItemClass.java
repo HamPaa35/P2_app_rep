@@ -3,11 +3,12 @@ package com.example.pjevs.projecttest1;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.io.Serializable;
 import java.util.Date;
 
 
 
-public class ItemClass extends FileManager{
+public class ItemClass extends FileManager implements Serializable{
     //The variables of the ItemClass
     private static int _id;
     private static String name;

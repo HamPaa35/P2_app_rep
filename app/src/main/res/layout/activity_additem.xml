@@ -60,6 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
+        android:onClick="finnishButton"
         android:text="Finish"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -91,31 +92,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/testView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="174dp"
-        android:layout_marginStart="176dp"
-        android:text="TextView"
-        android:textSize="8sp"
-        app:layout_constraintBottom_toTopOf="@+id/cancelBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <Switch
         android:id="@+id/switch1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="34dp"
         android:layout_marginEnd="131dp"
         android:layout_marginStart="131dp"
         android:checked="false"
         android:text="Closed/Open"
         android:textOff="Closed"
         android:textOn="Open"
-        app:layout_constraintBottom_toTopOf="@+id/testView"
+        app:layout_constraintBottom_toTopOf="@+id/cancelBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

@@ -1,6 +1,7 @@
 package com.example.pjevs.projecttest1;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
@@ -23,7 +24,6 @@ public class additem extends AppCompatActivity {
     Storage cupBoard = new Storage("Cupboard");
     Category altGodtFraHavet = new Category("Alt godt fra havet", 3, 1, fridge);
     Category altGodtFralandet = new Category("Alt godt fra landet", 3, 1, freezer);
-    public ItemClass test = new ItemClass();
 
     private static final String TAG = "MainActivity";
 
@@ -31,12 +31,19 @@ public class additem extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     private EditText itemName;
     private Switch openClosedSwitch;
-    private TextView testView;
+
+    public ItemClass test = new ItemClass();
+
+    Spinner storageDropdown;
+    Spinner categoryDropdown;
+
+    private String expirationDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_additem);
+
 
     /*Button cancelBtn = (Button) findViewById(R.id.cancelBtn);
     cancelBtn.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +55,6 @@ public class additem extends AppCompatActivity {
     itemName = (EditText) findViewById(R.id.addItemName);
     mDisplayDate = (TextView) findViewById(R.id.Date);
     openClosedSwitch =(Switch) findViewById(R.id.switch1);
-    testView = (TextView) findViewById(R.id.testView);
 
     /*ArrayList<String> foods = new ArrayList<>();
     foods.add("Mælk");
@@ -56,8 +62,6 @@ public class additem extends AppCompatActivity {
     foods.add("Frugt");
     foods.add("Grøntsager");
     foods.add("Alt godt fra havet");*/
-
-    setItemName();
 
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,8 +88,7 @@ public class additem extends AppCompatActivity {
                 month = month + 1;
                 String date = day + "/" + month + "/" + year;
                 mDisplayDate.setText(date);
-                test.setExpirationDate(date);
-                updateTest();
+                expirationDate = date;
             }
         };
 
@@ -106,41 +109,39 @@ public class additem extends AppCompatActivity {
 
     public void setItemName(){
         test.setName(itemName.getText().toString());
-
-        updateTest();
     }
 
     public void categoryDropdown(){
-        Spinner categoryDropdown = findViewById(R.id.categorySpinner);
+        categoryDropdown = findViewById(R.id.categorySpinner);
         String[] items = new String[]{altGodtFraHavet.getName(), altGodtFralandet.getName()};
         ArrayAdapter<String> categoryAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         categoryDropdown.setAdapter(categoryAdapter);
-        test.setItemCategory(categoryDropdown.getSelectedItem().toString());
-
-        updateTest();
     }
 
     public void storageDropdown(){
-        Spinner storageDropdown = findViewById(R.id.storageSpinner);
+        storageDropdown = findViewById(R.id.storageSpinner);
         String[] storing = new String[]{fridge.getName(), freezer.getName(), cupBoard.getName()};
         ArrayAdapter<String> storageAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, storing);
         storageDropdown.setAdapter(storageAdapter);
-        test.setStorageMethod(storageDropdown.getSelectedItem().toString());
-
-        updateTest();
     }
 
     public void openClosedSwitch(){
         test.setOpenClosed(checkSwitch());
-
-        updateTest();
     }
 
-    public void updateTest(){
-        testView.setText("1" + test.getName() + "2" + test.getItemCategory() + "3" + test.getExpirationDate() + "4" + test.getStorageMethod() + "5" + test.getOpenClosed());
+    public void updateItem(){
+        setItemName();
+        test.setItemCategory(categoryDropdown.getSelectedItem().toString());
+        test.setExpirationDate(expirationDate);
+        test.setStorageMethod(storageDropdown.getSelectedItem().toString());
+        test.setOpenClosed(checkSwitch());
+    }
+
+    public void finnishButton(View view){
+        updateItem();
+        Intent i = new Intent(this, inventory.class);
+        i.putExtra("AddedItem", test);
+        startActivity(i);
     }
 
 }
-
-
-
