@@ -20,6 +20,7 @@ public class additem extends AppCompatActivity {
 
     String hej;
     String balls;
+    String ballSack;
     Storage fridge = new Storage("Fridge");
     Storage freezer = new Storage("Freezer");
     Storage cupBoard = new Storage("Cupboard");
