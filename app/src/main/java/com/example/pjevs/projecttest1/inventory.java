@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -20,6 +21,9 @@ import java.util.List;
 public class inventory extends AppCompatActivity {
 
     private static final String TAG = "Inventory";
+    int _ID = 0;
+    ArrayList<ItemClass> itemList = new ArrayList<>();
+    Intent addItemIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,31 +32,24 @@ public class inventory extends AppCompatActivity {
         Log.d(TAG, "onCreate: Started");
         ListView foodList = (ListView) findViewById(R.id.foodList);
 
-        Intent addItemIntent = getIntent();
-        ItemClass addedItem = (ItemClass)addItemIntent.getSerializableExtra("addedItem");
-
         //A lot of placeholder items, this will need to be a loop at some point
         Storage fridge = new Storage("Fridge");
         Storage freezer = new Storage("Freezer");
         Category altGodtFraHavet = new Category("Alt godt fra havet", 3, 1, fridge);
         Category altGodtFralandet = new Category("Alt godt fra landet", 3, 1, fridge);
 
-        ArrayList<ItemClass> itemList = new ArrayList<>();
+        addItemIntent = getIntent();
 
-        itemList.add(addedItem);
-
-        //itemList.add(test1);
-        /*itemList.add(test2);
-        itemList.add(test3);
-        itemList.add(test4);
-        itemList.add(test5);
-        itemList.add(test6);
-        itemList.add(test7);
-        itemList.add(test8);
-        itemList.add(test9);*/
-        //Here all the items are added to the listView, using the activity_item layout
         itemListAdapter adapter = new itemListAdapter(this, R.layout.activity_item, itemList);
+        itemList.add((ItemClass)addItemIntent.getSerializableExtra("addedItem"));
         foodList.setAdapter(adapter);
+
+        foodList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
 
     }
     //These just open new activities based on a button press
@@ -66,9 +63,8 @@ public class inventory extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openSettings(View view){
+    public void openSettings(View view) {
         Intent intent = new Intent(this, settings.class);
         startActivity(intent);
     }
-
 }

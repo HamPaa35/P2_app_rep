@@ -47,7 +47,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //This method adds the the item with its name to the dataBase
     public void addItem (ItemClass item){
         ContentValues values = new ContentValues();
-        values.put(COLUMN_NAME, ItemClass.getName());
+        values.put(COLUMN_NAME, item.getName());
+        values.put(COLUMN_ITEMCATEGORY, item.getItemCategory());
+        values.put(COLUMN_DATE, item.getExpirationDate());
+        values.put(COLUMN_STORAGEMETHOD, item.getStorageMethod());
+        values.put(COLUMN_OPENCLOSED, item.getOpenClosed());
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLE_ITEMS, null, values);
         db.close();
@@ -69,6 +73,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (c.moveToFirst()){
             do{
                 dbString += c.getString(c.getColumnIndex("name"));
+                dbString += c.getString(c.getColumnIndex("itemCategory"));
+                dbString += c.getString(c.getColumnIndex("expirationDate"));
+                dbString += c.getString(c.getColumnIndex("storageMethod"));
+                dbString += c.getString(c.getColumnIndex("openClosed"));
                 dbString += "\n";
             }while (c.moveToNext());
         }

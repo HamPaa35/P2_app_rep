@@ -23,7 +23,6 @@ public class additem extends AppCompatActivity {
     Storage cupBoard = new Storage("Cupboard");
     Category altGodtFraHavet = new Category("Alt godt fra havet", 3, 1, fridge);
     Category altGodtFralandet = new Category("Alt godt fra landet", 3, 1, freezer);
-
     private static final String TAG = "MainActivity";
 
     private TextView mDisplayDate;
