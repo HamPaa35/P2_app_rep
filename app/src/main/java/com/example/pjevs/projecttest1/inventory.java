@@ -2,15 +2,18 @@ package com.example.pjevs.projecttest1;
 
 
 import android.content.ClipData;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +33,7 @@ public class inventory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory);
         Log.d(TAG, "onCreate: Started");
-        ListView foodList = (ListView) findViewById(R.id.foodList);
+        final ListView foodList = (ListView) findViewById(R.id.foodList);
 
         //A lot of placeholder items, this will need to be a loop at some point
         Storage fridge = new Storage("Fridge");
@@ -47,7 +50,7 @@ public class inventory extends AppCompatActivity {
         foodList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                //Intent til infoside, hvor man kan edit sit instance.
             }
         });
 

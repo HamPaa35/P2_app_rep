@@ -15,7 +15,7 @@ public class Category extends FileManager {
         this.TypicalExpirationClosed = TypicalExpirationClosed;
         this.storageMethod = storageMethod.getName();
     }
-
+// Getter- and setter-methods
     public String getName() {
         return name;
     }

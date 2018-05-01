@@ -15,16 +15,17 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.Calendar;
-
+//This class is controlling what is shown on the "additem" activity
 public class additem extends AppCompatActivity {
 
+    //Initializing preset storages and categories
     Storage fridge = new Storage("Fridge");
     Storage freezer = new Storage("Freezer");
     Storage cupBoard = new Storage("Cupboard");
     Category altGodtFraHavet = new Category("Alt godt fra havet", 3, 1, fridge);
     Category altGodtFralandet = new Category("Alt godt fra landet", 3, 1, freezer);
     private static final String TAG = "MainActivity";
-
+//The setup of the category- and the datepickspinner
     private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     private EditText itemName;
@@ -43,24 +44,11 @@ public class additem extends AppCompatActivity {
         setContentView(R.layout.activity_additem);
 
 
-    /*Button cancelBtn = (Button) findViewById(R.id.cancelBtn);
-    cancelBtn.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-        openInventory();
-        }
-    });*/
     itemName = (EditText) findViewById(R.id.addItemName);
     mDisplayDate = (TextView) findViewById(R.id.Date);
     openClosedSwitch =(Switch) findViewById(R.id.switch1);
 
-    /*ArrayList<String> foods = new ArrayList<>();
-    foods.add("Mælk");
-    foods.add("Brød");
-    foods.add("Frugt");
-    foods.add("Grøntsager");
-    foods.add("Alt godt fra havet");*/
-
+        //Setup of the layout of the picked date
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,7 +67,7 @@ public class additem extends AppCompatActivity {
 
             }
         });
-
+        //The listener which calls the time from the system. The month-number in the program would show January as 0, hence the "month + 1"
         mDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
@@ -98,7 +86,7 @@ public class additem extends AppCompatActivity {
     public void closeAddItem(View view){
         finish();
     }
-
+    //This function decides the return of "openClosedSwitch".
     public String checkSwitch(){
         if(openClosedSwitch.isChecked()){ return "Open";}
         else return "Closed";
@@ -108,25 +96,25 @@ public class additem extends AppCompatActivity {
     public void setItemName(){
         test.setName(itemName.getText().toString());
     }
-
+    //This function tells what is shown in the categorySpinner
     public void categoryDropdown(){
         categoryDropdown = findViewById(R.id.categorySpinner);
         String[] items = new String[]{altGodtFraHavet.getName(), altGodtFralandet.getName()};
         ArrayAdapter<String> categoryAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         categoryDropdown.setAdapter(categoryAdapter);
     }
-
+    //This function tells what is shown in the storingDropdown
     public void storageDropdown(){
         storageDropdown = findViewById(R.id.storageSpinner);
         String[] storing = new String[]{fridge.getName(), freezer.getName(), cupBoard.getName()};
         ArrayAdapter<String> storageAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, storing);
         storageDropdown.setAdapter(storageAdapter);
     }
-
+    //Hvad sker der her?
     public void openClosedSwitch(){
         test.setOpenClosed(checkSwitch());
     }
-
+    //This function let's you update an instance
     public void updateItem(){
         setItemName();
         test.setItemCategory(categoryDropdown.getSelectedItem().toString());
@@ -134,7 +122,7 @@ public class additem extends AppCompatActivity {
         test.setStorageMethod(storageDropdown.getSelectedItem().toString());
         test.setOpenClosed(checkSwitch());
     }
-
+    //This function makes it possible to add the instance in the inventory
     public void finnishButton(View view){
         updateItem();
         Intent i = new Intent(this, inventory.class);

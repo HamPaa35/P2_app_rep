@@ -1,4 +1,4 @@
-package com.example.pjevs.projecttest1;
+/*package com.example.pjevs.projecttest1;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -15,14 +15,6 @@ public class CustomAdapter extends ArrayAdapter<Item> {
     public CustomAdapter(@NonNull Context context, int resource) {
         super(context, resource);
 
+    }}
 
-
-
-
-
-        }
-
-
-        }
-
-
+*/
