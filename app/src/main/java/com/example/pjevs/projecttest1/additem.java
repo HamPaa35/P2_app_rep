@@ -25,7 +25,7 @@ public class additem extends AppCompatActivity {
     Category altGodtFraHavet = new Category("Alt godt fra havet", 3, 1, fridge);
     Category altGodtFralandet = new Category("Alt godt fra landet", 3, 1, freezer);
     private static final String TAG = "MainActivity";
-//The setup of the category- and the datepickspinner
+//The setup of the category- and the datePicker
     private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     private EditText itemName;

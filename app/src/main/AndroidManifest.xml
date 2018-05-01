@@ -19,7 +19,8 @@
         <activity android:name=".inventory" />
         <activity android:name=".settings" />
         <activity android:name=".additem" />
-        <activity android:name=".Test"></activity>
+        <activity android:name=".Test" />
+        <activity android:name=".editItem"></activity>
     </application>
 
 </manifest>

@@ -64,4 +64,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), additem.class);
         startActivity(intent);
     }
+
+    public void openEditItemTestTestTest(View view){
+        Intent intent = new Intent(getApplicationContext(), editItem.class);
+        startActivity(intent);
+    }
 }
