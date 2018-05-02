@@ -1,5 +1,7 @@
 package com.example.pjevs.projecttest1;
 
+import android.database.sqlite.SQLiteDatabase;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,12 +21,12 @@ public class Test extends AppCompatActivity {
 
         itemInput = (EditText) findViewById(R.id.addItemBox);
         itemList = (TextView) findViewById(R.id.itemText);
-        dbHandler = new DatabaseHelper(this, null, null, 1);
+        dbHandler = ((customApplication)getApplication()).dbHandler;
         printDatabase();
     }
 
     private void printDatabase() {
-        String dbString = dbHandler.databaseToString();
+        String dbString = dbHandler.dbNameToString();
         itemList.setText(dbString);
         itemInput.setText("");
     }

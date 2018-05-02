@@ -25,8 +25,10 @@ public class inventory extends AppCompatActivity {
 
     private static final String TAG = "Inventory";
     int _ID = 0;
-    ArrayList<ItemClass> itemList = new ArrayList<>();
+    ArrayList<ItemClass> itemList = ItemClass.getItemList();
     Intent addItemIntent;
+    ItemClass testOfDb;
+    DatabaseHelper dbHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,16 +37,20 @@ public class inventory extends AppCompatActivity {
         Log.d(TAG, "onCreate: Started");
         final ListView foodList = (ListView) findViewById(R.id.foodList);
 
+        dbHandler = ((customApplication)getApplication()).dbHandler;
+
         //A lot of placeholder items, this will need to be a loop at some point
         Storage fridge = new Storage("Fridge");
         Storage freezer = new Storage("Freezer");
         Category altGodtFraHavet = new Category("Alt godt fra havet", 3, 1, fridge);
         Category altGodtFralandet = new Category("Alt godt fra landet", 3, 1, fridge);
 
-        addItemIntent = getIntent();
+        //addItemIntent = getIntent();
+        //testOfDb = new ItemClass(dbHandler.dbNameToString(), dbHandler.dbCategoryToString(), dbHandler.dbExpirationDateToString(), dbHandler.dbStorageMethodToString(), dbHandler.dbOpenClosedToString());
 
         itemListAdapter adapter = new itemListAdapter(this, R.layout.activity_item, itemList);
-        itemList.add((ItemClass)addItemIntent.getSerializableExtra("addedItem"));
+        //itemList.add(testOfDb);
+        //itemList.add((ItemClass)addItemIntent.getSerializableExtra("addedItem"));
         foodList.setAdapter(adapter);
 
         foodList.setOnItemClickListener(new AdapterView.OnItemClickListener() {

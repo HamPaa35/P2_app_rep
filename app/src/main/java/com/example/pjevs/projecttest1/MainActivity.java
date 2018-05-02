@@ -18,36 +18,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        /*Button inventorybtn = (Button) findViewById(R.id.inventorybtn);
-        inventorybtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openInventory();
-            }
-        });
-
-    Button settingsbtn = (Button) findViewById(R.id.settingsbtn);
-    settingsbtn.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            openSettings();
-        }
-    });
-
-        Button testbtn = (Button) findViewById(R.id.testAddButton);
-        settingsbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openTest();
-            }
-        });*/
     }
 
     public void openInventory(View view){
         Intent intent = new Intent(this, inventory.class);
         startActivity(intent);
-
 }
 
     public void openSettings(View view){

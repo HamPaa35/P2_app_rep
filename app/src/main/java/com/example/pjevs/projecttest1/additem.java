@@ -31,6 +31,7 @@ public class additem extends AppCompatActivity {
     private EditText itemName;
     private Switch openClosedSwitch;
 
+    DatabaseHelper dbHandler;
     public ItemClass test = new ItemClass();
 
     Spinner storageDropdown;
@@ -42,6 +43,7 @@ public class additem extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_additem);
+        dbHandler = ((customApplication)getApplication()).dbHandler;
 
 
     itemName = (EditText) findViewById(R.id.addItemName);
@@ -80,7 +82,7 @@ public class additem extends AppCompatActivity {
 
         categoryDropdown();
         storageDropdown();
-        openClosedSwitch();
+        //openClosedSwitch();
     }
     //Goes back to the most recent activity
     public void closeAddItem(View view){
@@ -93,8 +95,8 @@ public class additem extends AppCompatActivity {
 
     }
 
-    public void setItemName(){
-        test.setName(itemName.getText().toString());
+    public String itemName(){
+        return itemName.getText().toString();
     }
     //This function tells what is shown in the categorySpinner
     public void categoryDropdown(){
@@ -110,24 +112,33 @@ public class additem extends AppCompatActivity {
         ArrayAdapter<String> storageAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, storing);
         storageDropdown.setAdapter(storageAdapter);
     }
+
     //Hvad sker der her?
+    /*public void openClosedSwitch(){
     public void openClosedSwitch(){
         test.setOpenClosed(checkSwitch());
     }
     //This function let's you update an instance
     public void updateItem(){
-        setItemName();
+        itemName();
         test.setItemCategory(categoryDropdown.getSelectedItem().toString());
         test.setExpirationDate(expirationDate);
         test.setStorageMethod(storageDropdown.getSelectedItem().toString());
         test.setOpenClosed(checkSwitch());
-    }
+    }*/
     //This function makes it possible to add the instance in the inventory
     public void finnishButton(View view){
-        updateItem();
-        Intent i = new Intent(this, inventory.class);
-        i.putExtra("AddedItem", test);
-        startActivity(i);
+        ItemClass addedItem = new ItemClass(itemName(), categoryDropdown.getSelectedItem().toString(), expirationDate, storageDropdown.getSelectedItem().toString(), checkSwitch());
+        dbHandler.addItem(addedItem);
+        openInventory();
+        //Intent i = new Intent(this, inventory.class);
+        //i.putExtra("AddedItem", test);
+        //startActivity(i);
+    }
+
+    public void openInventory(){
+        Intent intent = new Intent(this, inventory.class);
+        startActivity(intent);
     }
 
 }

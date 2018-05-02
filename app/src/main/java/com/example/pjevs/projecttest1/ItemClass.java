@@ -4,18 +4,20 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 
 
 
 public class ItemClass extends FileManager implements Serializable{
     //The variables of the ItemClass
-    private static int _id;
-    private static String name;
-    private static String itemCategory;
-    private static String expirationDate;
-    private static String storageMethod;
-    private static String openClosed;
+    private int _id;
+    private String name;
+    private String itemCategory;
+    private String expirationDate;
+    private String storageMethod;
+    private String openClosed;
+    private static ArrayList<ItemClass> itemList = new ArrayList<>();
     //These constructors needs to be cleaned up at some point
 
     public ItemClass(){
@@ -32,24 +34,29 @@ public class ItemClass extends FileManager implements Serializable{
         this.expirationDate = exportationDate;
         this.storageMethod = storageMethod.getName();
         this.openClosed = openClosed;
+
+        itemList.add(this);
     }
 
-    public ItemClass(String name, String exportationDate, String openClosed) {
+    public ItemClass(String name, String itemCategory, String exportationDate, String storageMethod, String openClosed) {
         this.name = name;
+        this.itemCategory = itemCategory;
         this.expirationDate = exportationDate;
+        this.storageMethod = storageMethod;
         this.openClosed = openClosed;
+
+        itemList.add(this);
     }
 
-
-    public static int get_id() {
+    public int get_id() {
         return _id;
     }
 
-    public static void set_id(int _id) {
-        ItemClass._id = _id;
+    public void set_id(int _id) {
+        this._id = _id;
     }
 
-    public static String getName() {
+    public String getName() {
         return name;
     }
 
@@ -57,7 +64,7 @@ public class ItemClass extends FileManager implements Serializable{
         this.name = name;
     }
 
-    public static String getItemCategory() {
+    public String getItemCategory() {
         return itemCategory;
     }
 
@@ -65,7 +72,7 @@ public class ItemClass extends FileManager implements Serializable{
         this.itemCategory = itemCategory;
     }
 
-    public static String getExpirationDate() {
+    public String getExpirationDate() {
         return expirationDate;
     }
 
@@ -73,7 +80,7 @@ public class ItemClass extends FileManager implements Serializable{
         this.expirationDate = expirationDate;
     }
 
-    public static String getStorageMethod() {
+    public String getStorageMethod() {
         return storageMethod;
     }
 
@@ -81,11 +88,19 @@ public class ItemClass extends FileManager implements Serializable{
         this.storageMethod = storageMethod;
     }
 
-    public static String getOpenClosed() {
+    public String getOpenClosed() {
         return openClosed;
     }
 
     public void setOpenClosed(String openClosed) {
         this.openClosed = openClosed;
+    }
+
+    public static ArrayList<ItemClass> getItemList() {
+        return itemList;
+    }
+
+    public static void setItemList(ArrayList<ItemClass> itemList) {
+        ItemClass.itemList = itemList;
     }
 }

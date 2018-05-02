@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.Cursor;
 import android.content.ContentValues;
 
+import java.util.ArrayList;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     //This is needed in case the dataBase changes version, this is so the app can reference the new or old version
@@ -32,7 +34,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String quary = "CREATE TABLE " + TABLE_ITEMS + "(" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_NAME + " TEXT" +
+                COLUMN_NAME + " TEXT," +
+                COLUMN_ITEMCATEGORY + " TEXT," +
+                COLUMN_DATE + " TEXT," +
+                COLUMN_STORAGEMETHOD + " TEXT," +
+                COLUMN_OPENCLOSED + " TEXT" +
                 ");";
         db.execSQL(quary);
     }
@@ -63,8 +69,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DELETE FROM " + TABLE_ITEMS + " WHERE " + COLUMN_NAME + "=\"" + itemName + "\";");
     }
 
-    //This does not work at all
-    public String databaseToString(){
+    public ArrayList<String> getItemList(){
+            ArrayList<String> itemList = new ArrayList<>();
+            SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.query(TABLE_ITEMS, new String[]{COLUMN_NAME, COLUMN_ITEMCATEGORY, COLUMN_DATE}, null, null, null,null,null);
+        while (cursor.moveToNext()){
+            int index = cursor.getColumnIndex(COLUMN_NAME);
+            itemList.add(cursor.getString(index));
+        }
+        cursor.close();
+        db.close();
+        return  itemList;
+    }
+
+    public String dbNameToString(){
         String dbString = "";
         SQLiteDatabase db = getWritableDatabase();
         String query = "SELECT * FROM " + TABLE_ITEMS + " WHERE 1";
@@ -73,21 +91,100 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (c.moveToFirst()){
             do{
                 dbString += c.getString(c.getColumnIndex("name"));
-                dbString += c.getString(c.getColumnIndex("itemCategory"));
-                dbString += c.getString(c.getColumnIndex("expirationDate"));
-                dbString += c.getString(c.getColumnIndex("storageMethod"));
-                dbString += c.getString(c.getColumnIndex("openClosed"));
-                dbString += "\n";
             }while (c.moveToNext());
         }
-        /*//This is properly the error
+        //This is properly the error
         while(!c.isAfterLast()){
             if(c.getString(c.getColumnIndex("name")) != null) {
 
             }
-        }*/
+        }
         db.close();
         return dbString;
     }
 
+    public String dbCategoryToString(){
+        String dbString = "";
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_ITEMS + " WHERE 1";
+
+        Cursor c = db.rawQuery(query, null);
+        if (c.moveToFirst()){
+            do{
+                dbString += c.getString(c.getColumnIndex("itemCategory"));
+
+            }while (c.moveToNext());
+        }
+        //This is properly the error
+        while(!c.isAfterLast()){
+            if(c.getString(c.getColumnIndex("name")) != null) {
+
+            }
+        }
+        db.close();
+        return dbString;
+    }
+
+    public String dbExpirationDateToString(){
+        String dbString = "";
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_ITEMS + " WHERE 1";
+
+        Cursor c = db.rawQuery(query, null);
+        if (c.moveToFirst()){
+            do{
+                dbString += c.getString(c.getColumnIndex("expirationDate"));
+            }while (c.moveToNext());
+        }
+        //This is properly the error
+        while(!c.isAfterLast()){
+            if(c.getString(c.getColumnIndex("name")) != null) {
+
+            }
+        }
+        db.close();
+        return dbString;
+    }
+
+    public String dbStorageMethodToString(){
+        String dbString = "";
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_ITEMS + " WHERE 1";
+
+        Cursor c = db.rawQuery(query, null);
+        if (c.moveToFirst()){
+            do{
+                dbString += c.getString(c.getColumnIndex("storageMethod"));
+            }while (c.moveToNext());
+        }
+        //This is properly the error
+        while(!c.isAfterLast()){
+            if(c.getString(c.getColumnIndex("name")) != null) {
+
+            }
+        }
+        db.close();
+        return dbString;
+    }
+
+    public String dbOpenClosedToString(){
+        String dbString = "";
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_ITEMS + " WHERE 1";
+
+        Cursor c = db.rawQuery(query, null);
+        if (c.moveToFirst()){
+            do{
+                dbString += c.getString(c.getColumnIndex("openClosed"));
+            }while (c.moveToNext());
+        }
+        //This is properly the error
+        while(!c.isAfterLast()){
+            if(c.getString(c.getColumnIndex("name")) != null) {
+
+            }
+        }
+        db.close();
+        return dbString;
+    }
 }
