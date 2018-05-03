@@ -25,6 +25,7 @@ public class editItem extends AppCompatActivity {
 
 //From here : Attributes to categoryPicker
 Spinner categoryDropper;
+Spinner storageDropper;
     Storage fridge = new Storage("Fridge");
     Storage freezer = new Storage("Freezer");
     Storage cupBoard = new Storage("Cupboard");
@@ -67,16 +68,27 @@ Spinner categoryDropper;
             };
 
 
+categoryDropper();
+storageDropper();
+
 
         }
     //To here : DatePicker in TextView
-    public void categoryDropper(){
+    public void categoryDropper() {
         categoryDropper = findViewById(R.id.categoryPicker);
         String[] items = new String[]{altGodtFraHavet.getName(), altGodtFralandet.getName()};
         ArrayAdapter<String> categoryAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         categoryDropper.setAdapter(categoryAdapter);
     }
-// From here : categorySpinner
+
+    public void storageDropper(){
+        storageDropper = findViewById(R.id.storageDropper);
+        String[] storing = new String[] {freezer.getName(), fridge.getName(), cupBoard.getName()};
+        ArrayAdapter<String> storingAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, storing);
+        storageDropper.setAdapter(storingAdapter);
+
+    }
+
 
 
 
