@@ -14,16 +14,18 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 //This class is controlling what is shown on the "additem" activity
 public class additem extends AppCompatActivity {
+
+    ArrayList<String> categoryListArrString = Category.getCategoryToStringArrList();
+    String[] categoryListString = categoryListArrString.toArray(new String[categoryListArrString.size()]);
 
     //Initializing preset storages and categories
     Storage fridge = new Storage("Fridge");
     Storage freezer = new Storage("Freezer");
     Storage cupBoard = new Storage("Cupboard");
-    Category altGodtFraHavet = new Category("Alt godt fra havet", "3", "1", fridge.getName());
-    Category altGodtFralandet = new Category("Alt godt fra landet", "3", "1", freezer.getName());
     private static final String TAG = "MainActivity";
 //The setup of the category- and the datePicker
     private TextView mDisplayDate;
@@ -101,14 +103,13 @@ public class additem extends AppCompatActivity {
     //This function tells what is shown in the categorySpinner
     public void categoryDropdown(){
         categoryDropdown = findViewById(R.id.categorySpinner);
-        String[] items = new String[]{altGodtFraHavet.getName(), altGodtFralandet.getName()};
-        ArrayAdapter<String> categoryAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        ArrayAdapter<String> categoryAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, categoryListString);
         categoryDropdown.setAdapter(categoryAdapter);
     }
     //This function tells what is shown in the storingDropdown
     public void storageDropdown(){
         storageDropdown = findViewById(R.id.storageSpinner);
-        String[] storing = new String[]{fridge.getName(), freezer.getName(), cupBoard.getName()};
+        String[] storing = new String[]{freezer.getName(), fridge.getName(), cupBoard.getName()};
         ArrayAdapter<String> storageAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, storing);
         storageDropdown.setAdapter(storageAdapter);
     }

@@ -20,17 +20,10 @@ public class CategoriesActivity extends AppCompatActivity {
 
         final ListView categoryListView = (ListView) findViewById(R.id.categoryList);
 
-        //A lot of placeholder items, this will need to be a loop at some pointStorage fridge = new Storage("Fridge");
-        Storage freezer = new Storage("Freezer");
-        Category altGodtFraHavet = new Category("Alt godt fra havet", "1 Days", "2 Days", freezer.getName());
-        Category altGodtFraLandet = new Category("Alt godt fra landet", "3 Days", "4 Days", freezer.getName());
-
         //addItemIntent = getIntent();
         //testOfDb = new ItemClass(dbHandler.dbNameToString(), dbHandler.dbCategoryToString(), dbHandler.dbExpirationDateToString(), dbHandler.dbStorageMethodToString(), dbHandler.dbOpenClosedToString());
 
         categoryListAdapter adapter = new categoryListAdapter(this, R.layout.activity_category, categoryList);
-        categoryList.add(altGodtFraHavet);
-        categoryList.add(altGodtFraLandet);
         //itemList.add((ItemClass)addItemIntent.getSerializableExtra("addedItem"));
         categoryListView.setAdapter(adapter);
 

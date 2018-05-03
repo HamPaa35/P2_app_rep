@@ -61,6 +61,14 @@ public class Category extends FileManager {
         Category.categoryList = itemList;
     }
 
+    public static ArrayList<String> getCategoryToStringArrList(){
+        ArrayList<String> categoryToStringArrList = new ArrayList<String>();
+        for(Category category : categoryList){
+            categoryToStringArrList.add(category.getName());
+        }
+        return categoryToStringArrList;
+    }
+
     @Override
     public String toString() {
         String category = ("Name " + name + "Typical expiration when opened: " + TypicalExpirationOpen +

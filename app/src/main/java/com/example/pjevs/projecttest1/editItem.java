@@ -12,10 +12,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class editItem extends AppCompatActivity {
-
+    ArrayList<String> categoryListArrString = Category.getCategoryToStringArrList();
+    String[] categoryListString = categoryListArrString.toArray(new String[categoryListArrString.size()]);
 //From here : Attributes to DatePicker in TextView
     private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
@@ -29,8 +31,6 @@ Spinner storageDropper;
     Storage fridge = new Storage("Fridge");
     Storage freezer = new Storage("Freezer");
     Storage cupBoard = new Storage("Cupboard");
-    Category altGodtFraHavet = new Category("Alt godt fra havet", "3", "1", fridge.getName());
-    Category altGodtFralandet = new Category("Alt godt fra landet", "3", "1", freezer.getName());
 
 
 //To Here : Attributes to categoryPicker
@@ -76,8 +76,7 @@ storageDropper();
     //To here : DatePicker in TextView
     public void categoryDropper() {
         categoryDropper = findViewById(R.id.categoryPicker);
-        String[] items = new String[]{altGodtFraHavet.getName(), altGodtFralandet.getName()};
-        ArrayAdapter<String> categoryAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        ArrayAdapter<String> categoryAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, categoryListString);
         categoryDropper.setAdapter(categoryAdapter);
     }
 
