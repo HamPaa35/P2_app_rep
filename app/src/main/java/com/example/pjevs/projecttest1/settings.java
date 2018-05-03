@@ -12,14 +12,6 @@ public class settings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-
-        /*Button overviewbtn2 = (Button) findViewById(R.id.overviewbtn2);
-        overviewbtn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openOverview();
-            }
-        });*/
     }
     public void openOverview(View view){
         Intent intent = new Intent(this, MainActivity.class);
@@ -34,6 +26,21 @@ public class settings extends AppCompatActivity {
 
     public void openAddItem(View view){
         Intent intent = new Intent(getApplicationContext(), additem.class);
+        startActivity(intent);
+    }
+
+    public void openGeneralSettings(View view){
+        Intent intent = new Intent(getApplicationContext(), GeneralSettings.class);
+        startActivity(intent);
+    }
+
+    public void openNotifications(View view){
+        Intent intent = new Intent(getApplicationContext(), Notifications.class);
+        startActivity(intent);
+    }
+
+    public void openCategoriesActivity(View view){
+        Intent intent = new Intent(getApplicationContext(), CategoriesActivity.class);
         startActivity(intent);
     }
 

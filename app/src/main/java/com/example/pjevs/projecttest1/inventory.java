@@ -18,13 +18,12 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import static android.widget.Toast.LENGTH_LONG;
 
 
 public class inventory extends AppCompatActivity {
 
     private static final String TAG = "Inventory";
-    int _ID = 0;
     ArrayList<ItemClass> itemList = ItemClass.getItemList();
     Intent addItemIntent;
     ItemClass testOfDb;
@@ -38,12 +37,11 @@ public class inventory extends AppCompatActivity {
         final ListView foodList = (ListView) findViewById(R.id.foodList);
 
         dbHandler = ((customApplication)getApplication()).dbHandler;
-
         //A lot of placeholder items, this will need to be a loop at some point
-        Storage fridge = new Storage("Fridge");
+        /*Storage fridge = new Storage("Fridge");
         Storage freezer = new Storage("Freezer");
         Category altGodtFraHavet = new Category("Alt godt fra havet", 3, 1, fridge);
-        Category altGodtFralandet = new Category("Alt godt fra landet", 3, 1, fridge);
+        Category altGodtFralandet = new Category("Alt godt fra landet", 3, 1, fridge);*/
 
         //addItemIntent = getIntent();
         //testOfDb = new ItemClass(dbHandler.dbNameToString(), dbHandler.dbCategoryToString(), dbHandler.dbExpirationDateToString(), dbHandler.dbStorageMethodToString(), dbHandler.dbOpenClosedToString());

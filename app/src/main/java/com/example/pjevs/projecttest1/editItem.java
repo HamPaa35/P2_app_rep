@@ -28,8 +28,8 @@ Spinner categoryDropper;
     Storage fridge = new Storage("Fridge");
     Storage freezer = new Storage("Freezer");
     Storage cupBoard = new Storage("Cupboard");
-    Category altGodtFraHavet = new Category("Alt godt fra havet", 3, 1, fridge);
-    Category altGodtFralandet = new Category("Alt godt fra landet", 3, 1, freezer);
+    Category altGodtFraHavet = new Category("Alt godt fra havet", "3", "1", fridge.getName());
+    Category altGodtFralandet = new Category("Alt godt fra landet", "3", "1", freezer.getName());
 
 
 //To Here : Attributes to categoryPicker
@@ -39,7 +39,7 @@ Spinner categoryDropper;
         setContentView(R.layout.activity_edit_item);
 //From here : DatePicker in TextView
        mDisplayDate = (TextView) findViewById(R.id.datePicker);
-       itemName = (EditText) findViewById(R.id.addItemName);
+       itemName = (EditText) findViewById(R.id.addCategoryName);
 
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
             @Override

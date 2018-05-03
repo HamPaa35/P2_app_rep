@@ -1,19 +1,24 @@
 package com.example.pjevs.projecttest1;
 
+import java.util.ArrayList;
+
 public class Category extends FileManager {
 
     //The attributes for the Category class
     private String name;
-    private int TypicalExpirationOpen;
-    private int TypicalExpirationClosed;
+    private String TypicalExpirationOpen;
+    private String TypicalExpirationClosed;
     private String storageMethod;
+    private static ArrayList<Category> categoryList = new ArrayList<Category>();
 
     //The constructor of the Category class
-    public Category (String name, int TypicalExpirationOpen, int TypicalExpirationClosed, Storage storageMethod){
+    public Category (String name, String TypicalExpirationOpen, String TypicalExpirationClosed, String storageMethod){
         this.name = name;
         this.TypicalExpirationOpen = TypicalExpirationOpen;
         this.TypicalExpirationClosed = TypicalExpirationClosed;
-        this.storageMethod = storageMethod.getName();
+        this.storageMethod = storageMethod;
+
+        categoryList.add(this);
     }
 // Getter- and setter-methods
     public String getName() {
@@ -24,19 +29,19 @@ public class Category extends FileManager {
         this.name = name;
     }
 
-    public int getTypicalExpirationOpen() {
+    public String getTypicalExpirationOpen() {
         return TypicalExpirationOpen;
     }
 
-    public void setTypicalExpirationOpen(int typicalExpirationOpen) {
-        TypicalExpirationOpen = typicalExpirationOpen;
+    public void setTypicalExpirationOpen(String typicalExpirationOpen) {
+        this.TypicalExpirationOpen = typicalExpirationOpen;
     }
 
-    public int getTypicalExpirationClosed() {
+    public String getTypicalExpirationClosed() {
         return TypicalExpirationClosed;
     }
 
-    public void setTypicalExpirationClosed(int typicalExpirationClosed) {
+    public void setTypicalExpirationClosed(String typicalExpirationClosed) {
         TypicalExpirationClosed = typicalExpirationClosed;
     }
 
@@ -46,6 +51,14 @@ public class Category extends FileManager {
 
     public void setStorageMethod(String storageMethod) {
         this.storageMethod = storageMethod;
+    }
+
+    public static ArrayList<Category> getCategoryList() {
+        return categoryList;
+    }
+
+    public static void setItemList(ArrayList<Category> itemList) {
+        Category.categoryList = itemList;
     }
 
     @Override

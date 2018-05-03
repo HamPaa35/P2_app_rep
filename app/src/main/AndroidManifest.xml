@@ -10,18 +10,38 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:label="Overview">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".inventory" />
-        <activity android:name=".settings" />
-        <activity android:name=".additem" />
-        <activity android:name=".Test" />
-        <activity android:name=".editItem"></activity>
+        <activity
+            android:name=".inventory"
+            android:label="Inventory" />
+        <activity
+            android:name=".settings"
+            android:label="Settings" />
+        <activity
+            android:name=".additem"
+            android:label="Add new item" />
+        <activity
+            android:name=".Test"
+            android:label="test af DB" />
+        <activity
+            android:name=".editItem"
+            android:label="Edit you item" />
+        <activity android:name=".GeneralSettings"
+            android:label="General settings"/>
+        <activity android:name=".Notifications"
+            android:label="Notification settings"/>
+        <activity android:name=".AddCategoryActivity"
+            android:label="Add new category"/>
+        <activity android:name=".CategoriesActivity"
+            android:label="All categories"
+            ></activity>
     </application>
 
 </manifest>

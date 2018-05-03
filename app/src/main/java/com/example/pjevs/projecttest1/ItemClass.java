@@ -10,6 +10,7 @@ import java.util.Date;
 
 
 public class ItemClass extends FileManager implements Serializable{
+
     //The variables of the ItemClass
     private int _id;
     private String name;

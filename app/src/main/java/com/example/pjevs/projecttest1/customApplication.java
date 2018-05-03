@@ -10,6 +10,7 @@ public class customApplication extends Application {
     public void onCreate() {
         super.onCreate();
         dbHandler = new DatabaseHelper(this, null, null, 1);
+        ItemClass.setItemList(dbHandler.savedItems());
     }
 }
 

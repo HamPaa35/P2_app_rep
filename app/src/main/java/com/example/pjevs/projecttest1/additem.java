@@ -22,8 +22,8 @@ public class additem extends AppCompatActivity {
     Storage fridge = new Storage("Fridge");
     Storage freezer = new Storage("Freezer");
     Storage cupBoard = new Storage("Cupboard");
-    Category altGodtFraHavet = new Category("Alt godt fra havet", 3, 1, fridge);
-    Category altGodtFralandet = new Category("Alt godt fra landet", 3, 1, freezer);
+    Category altGodtFraHavet = new Category("Alt godt fra havet", "3", "1", fridge.getName());
+    Category altGodtFralandet = new Category("Alt godt fra landet", "3", "1", freezer.getName());
     private static final String TAG = "MainActivity";
 //The setup of the category- and the datePicker
     private TextView mDisplayDate;
@@ -46,7 +46,7 @@ public class additem extends AppCompatActivity {
         dbHandler = ((customApplication)getApplication()).dbHandler;
 
 
-    itemName = (EditText) findViewById(R.id.addItemName);
+    itemName = (EditText) findViewById(R.id.addCategoryName);
     mDisplayDate = (TextView) findViewById(R.id.Date);
     openClosedSwitch =(Switch) findViewById(R.id.switch1);
 
