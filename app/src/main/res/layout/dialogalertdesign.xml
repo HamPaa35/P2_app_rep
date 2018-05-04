@@ -43,7 +43,7 @@
             android:text="Delete" />
 
         <TextView
-            android:id="@+id/itemName"
+            android:id="@+id/itemNameDialog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"

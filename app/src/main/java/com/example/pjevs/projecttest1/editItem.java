@@ -8,9 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -19,37 +21,46 @@ import java.util.Calendar;
 public class editItem extends AppCompatActivity {
     ArrayList<String> categoryListArrString = Category.getCategoryToStringArrList();
     String[] categoryListString = categoryListArrString.toArray(new String[categoryListArrString.size()]);
-//From here : Attributes to DatePicker in TextView
+    //From here : Attributes to DatePicker in TextView
     private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
-    private TextView itemNameTest;
     private EditText itemName;
     private String expirationDate;
+    private Button cancelButton;
+    private Button finishButton;
+    private Switch openClosed;
     //To here : Attributes to DatePicker in TextView
 
-//From here : Attributes to categoryPicker
-Spinner categoryDropper;
-Spinner storageDropper;
+    //From here : Attributes to categoryPicker
+    Spinner categoryDropper;
+    Spinner storageDropper;
+
     Storage fridge = new Storage("Fridge");
     Storage freezer = new Storage("Freezer");
     Storage cupBoard = new Storage("Cupboard");
 
 
-//To Here : Attributes to categoryPicker
+    //To Here : Attributes to categoryPicker
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_item);
-//From here : DatePicker in TextView
-        itemNameTest = (TextView) findViewById(R.id.itemName);
-       mDisplayDate = (TextView) findViewById(R.id.datePicker);
-       itemName = (EditText) findViewById(R.id.addCategoryName);
+
+        //From here : DatePicker in TextView
+        mDisplayDate = (TextView) findViewById(R.id.datePicker);
+        itemName = (EditText) findViewById(R.id.editTextEditItem);
+        cancelButton = (Button) findViewById(R.id.cancelBtnEdit);
+        finishButton = (Button) findViewById(R.id.finishBtnEdit);
+        openClosed = (Switch) findViewById(R.id.switchEdit);
 
         Intent itemToEdit = getIntent();
-
         ItemClass itemToBeEdited = (ItemClass) itemToEdit.getSerializableExtra("Item to edit");
-
-        itemNameTest.setText(itemToBeEdited.getName());
+        itemName.setText(itemToBeEdited.getName());
+        if (itemToBeEdited.getExpirationDate() == "") {
+            mDisplayDate.setText("Expiration date");
+        } else {
+            mDisplayDate.setText(itemToBeEdited.getExpirationDate());
+        }
 
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,25 +74,26 @@ Spinner storageDropper;
                         mDateSetListener, year, month, day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
-                }
-                });
+            }
+        });
 
-            mDateSetListener = new DatePickerDialog.OnDateSetListener() {
-                @Override
-                public void onDateSet(DatePicker view, int year, int month, int day) {
-                    month = month + 1;
-                    String date = day + "/" + month + "/" + year;
-                    mDisplayDate.setText(date);
-                    expirationDate = date;
-                }
-            };
-
-
-categoryDropper();
-storageDropper();
+        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int day) {
+                month = month + 1;
+                String date = day + "/" + month + "/" + year;
+                mDisplayDate.setText(date);
+                expirationDate = date;
+            }
+        };
 
 
-        }
+        categoryDropper();
+        storageDropper();
+
+
+    }
+
     //To here : DatePicker in TextView
     public void categoryDropper() {
         categoryDropper = findViewById(R.id.categoryPicker);
@@ -89,19 +101,42 @@ storageDropper();
         categoryDropper.setAdapter(categoryAdapter);
     }
 
-    public void storageDropper(){
+    public void storageDropper() {
         storageDropper = findViewById(R.id.storageDropper);
-        String[] storing = new String[] {freezer.getName(), fridge.getName(), cupBoard.getName()};
+        String[] storing = new String[]{freezer.getName(), fridge.getName(), cupBoard.getName()};
         ArrayAdapter<String> storingAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, storing);
         storageDropper.setAdapter(storingAdapter);
 
     }
 
+    public void finnishButton(View view) {
+        ItemClass addedItem = new ItemClass(itemName(), categoryDropper.getSelectedItem().toString(), expirationDate, storageDropper.getSelectedItem().toString(), checkSwitch());
+        openInventory();
+        //Intent i = new Intent(this, inventory.class);
+        //i.putExtra("AddedItem", test);
+        //startActivity(i);
+    }
 
+    public void openInventory() {
+        Intent intent = new Intent(this, inventory.class);
+        startActivity(intent);
+    }
 
+    public String itemName(){
+        return itemName.getText().toString();
+    }
 
+    public String checkSwitch(){
+        if(openClosed.isChecked()){ return "Open";}
+        else return "Closed";
 
     }
+
+    public void closeAddItem(View view){
+        finish();
+    }
+
+}
 
 
 

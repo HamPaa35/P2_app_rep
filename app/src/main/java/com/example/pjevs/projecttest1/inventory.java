@@ -18,6 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -124,9 +125,12 @@ public class inventory extends AppCompatActivity {
         View promptView = layoutInflater.inflate(R.layout.dialogalertdesign, null);
 
         final AlertDialog alertD = new AlertDialog.Builder(this).create();
+        TextView dialogName = (TextView) promptView.findViewById(R.id.itemNameDialog);
         Button editBtn = (Button) promptView.findViewById(R.id.editBtn);
         Button cancelBtn = (Button) promptView.findViewById(R.id.cancelBtn);
         Button delBtn = (Button) promptView.findViewById(R.id.delBtn);
+
+        dialogName.setText(ItemClass.getItemList().get(itemPosition).getName());
 
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -166,6 +170,7 @@ public class inventory extends AppCompatActivity {
         Intent i = new Intent(this, editItem.class);
         i.putExtra("Item to edit", ItemClass.getItemList().get(itemPosition));
         startActivity(i);
+        ItemClass.getItemList().remove(itemPosition);
     }
 
 

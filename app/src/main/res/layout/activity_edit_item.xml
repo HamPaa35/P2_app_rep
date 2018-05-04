@@ -52,15 +52,58 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.333" />
 
-    <TextView
-        android:id="@+id/itemName"
+    <EditText
+        android:id="@+id/editTextEditItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="164dp"
-        android:layout_marginStart="162dp"
-        android:layout_marginTop="41dp"
-        android:text="TextView"
+        android:layout_marginEnd="85dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Item name"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/switchEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="131dp"
+        android:layout_marginStart="131dp"
+        android:layout_marginTop="127dp"
+        android:checked="false"
+        android:text="Closed/Open"
+        android:textOff="Closed"
+        android:textOn="Open"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/datePicker" />
+
+    <Button
+        android:id="@+id/finishBtnEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:onClick="finnishButton"
+        android:text="Finish"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/cancelBtnEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginStart="148dp"
+        android:onClick="closeAddItem"
+        android:text="Cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/finishBtn"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
