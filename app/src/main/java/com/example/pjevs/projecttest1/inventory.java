@@ -147,6 +147,7 @@ public class inventory extends AppCompatActivity {
             public void onClick(View v) {
                 ItemClass.getItemList().remove(itemPosition);
                 adapter.notifyDataSetChanged();
+                openInventory();
                 //Toast.makeText(inventory.this, "Item deleted, trust me!", Toast.LENGTH_SHORT).show();
             }
         });
@@ -163,7 +164,7 @@ public class inventory extends AppCompatActivity {
         startActivity(intent);*/
 
         Intent i = new Intent(this, editItem.class);
-        i.putExtra("Item to edit", itemList.get(itemPosition));
+        i.putExtra("Item to edit", ItemClass.getItemList().get(itemPosition));
         startActivity(i);
     }
 
