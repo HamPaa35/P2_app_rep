@@ -5,6 +5,7 @@ import android.content.ClipData;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +20,10 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +37,7 @@ public class inventory extends AppCompatActivity {
     Intent addItemIntent;
     ItemClass testOfDb;
     DatabaseHelper dbHandler;
+    itemListAdapter adapter;
 
 
 
@@ -45,6 +51,8 @@ public class inventory extends AppCompatActivity {
         Log.d(TAG, "onCreate: Started");
         final ListView foodList = (ListView) findViewById(R.id.foodList);
 
+        //loadData();
+
         dbHandler = ((customApplication)getApplication()).dbHandler;
         //A lot of placeholder items, this will need to be a loop at some point
         /*Storage fridge = new Storage("Fridge");
@@ -55,7 +63,7 @@ public class inventory extends AppCompatActivity {
         //addItemIntent = getIntent();
         //testOfDb = new ItemClass(dbHandler.dbNameToString(), dbHandler.dbCategoryToString(), dbHandler.dbExpirationDateToString(), dbHandler.dbStorageMethodToString(), dbHandler.dbOpenClosedToString());
 
-        itemListAdapter adapter = new itemListAdapter(this, R.layout.activity_item, itemList);
+        adapter = new itemListAdapter(this, R.layout.activity_item, ItemClass.getItemList());
         //itemList.add(testOfDb);
         //itemList.add((ItemClass)addItemIntent.getSerializableExtra("addedItem"));
         foodList.setAdapter(adapter);
@@ -73,18 +81,45 @@ public class inventory extends AppCompatActivity {
                 //Toast.makeText(getApplicationContext(), "Ja det virker, og kom så tilbage til arbejdet!", Toast.LENGTH_SHORT).show();
                 //Toast.makeText(inventory.this, "Sorry, but you fucked up the dialog. You can go home now.", Toast.LENGTH_LONG).show();
                 //editItemPushed();
-                dialog();
+                dialog(position);
 
             }
         });
 
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        //saveData();
+    }
+
+    /*public void saveData(){
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(ItemClass.getItemList());
+        editor.putString("Item list", json);
+        editor.apply();
+    }*/
+
+    /*private void loadData(){
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("Item list", null);
+        Type type = new TypeToken<ArrayList<ItemClass>>() {}.getType();
+        ArrayList<ItemClass> tempLoad;
+        tempLoad = gson.fromJson(json, type);
+        ItemClass.setItemList(tempLoad);
+
+    }*/
+
     private void openInventory(){
         Intent intent = new Intent(getApplicationContext(), inventory.class);
         startActivity(intent);
     }
 
-    private void dialog() {
+    private void dialog(final int itemPosition) {
         LayoutInflater layoutInflater = LayoutInflater.from(this);
         View promptView = layoutInflater.inflate(R.layout.dialogalertdesign, null);
 
@@ -96,7 +131,7 @@ public class inventory extends AppCompatActivity {
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            editItemPushed();
+            editItemPushed(itemPosition);
             }
         });
 
@@ -110,7 +145,8 @@ public class inventory extends AppCompatActivity {
         delBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                itemList.remove(itemList);
+                ItemClass.getItemList().remove(itemPosition);
+                adapter.notifyDataSetChanged();
                 //Toast.makeText(inventory.this, "Item deleted, trust me!", Toast.LENGTH_SHORT).show();
             }
         });
@@ -121,9 +157,14 @@ public class inventory extends AppCompatActivity {
     }
 
 
-    private void editItemPushed() {
-        Intent intent = new Intent(getApplicationContext(), editItem.class);
-        startActivity(intent);
+    private void editItemPushed(int itemPosition) {
+
+        /*Intent intent = new Intent(getApplicationContext(), editItem.class);
+        startActivity(intent);*/
+
+        Intent i = new Intent(this, editItem.class);
+        i.putExtra("Item to edit", itemList.get(itemPosition));
+        startActivity(i);
     }
 
 
@@ -143,4 +184,4 @@ public class inventory extends AppCompatActivity {
         startActivity(intent);
     }
 
-        }
+}

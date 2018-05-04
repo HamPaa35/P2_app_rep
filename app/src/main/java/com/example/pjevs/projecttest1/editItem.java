@@ -1,6 +1,7 @@
 package com.example.pjevs.projecttest1;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +22,7 @@ public class editItem extends AppCompatActivity {
 //From here : Attributes to DatePicker in TextView
     private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
+    private TextView itemNameTest;
     private EditText itemName;
     private String expirationDate;
     //To here : Attributes to DatePicker in TextView
@@ -39,8 +41,15 @@ Spinner storageDropper;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_item);
 //From here : DatePicker in TextView
+        itemNameTest = (TextView) findViewById(R.id.itemName);
        mDisplayDate = (TextView) findViewById(R.id.datePicker);
        itemName = (EditText) findViewById(R.id.addCategoryName);
+
+        Intent itemToEdit = getIntent();
+
+        ItemClass itemToBeEdited = (ItemClass) itemToEdit.getSerializableExtra("Item to edit");
+
+        itemNameTest.setText(itemToBeEdited.getName());
 
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
             @Override
