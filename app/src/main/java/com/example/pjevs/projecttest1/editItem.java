@@ -25,10 +25,13 @@ public class editItem extends AppCompatActivity {
     private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     private EditText itemName;
+    private String expirationDatepicked;
     private String expirationDate;
     private Button cancelButton;
     private Button finishButton;
     private Switch openClosed;
+    int itemPosition;
+    private ItemClass itemToBeEdited;
     //To here : Attributes to DatePicker in TextView
 
     //From here : Attributes to categoryPicker
@@ -54,12 +57,14 @@ public class editItem extends AppCompatActivity {
         openClosed = (Switch) findViewById(R.id.switchEdit);
 
         Intent itemToEdit = getIntent();
-        ItemClass itemToBeEdited = (ItemClass) itemToEdit.getSerializableExtra("Item to edit");
+        itemPosition = (Integer) itemToEdit.getSerializableExtra("Item position");
+        itemToBeEdited = (ItemClass) itemToEdit.getSerializableExtra("Item to edit");
+        expirationDate = itemToBeEdited.getExpirationDate();
         itemName.setText(itemToBeEdited.getName());
         if (itemToBeEdited.getExpirationDate() == "") {
             mDisplayDate.setText("Expiration date");
         } else {
-            mDisplayDate.setText(itemToBeEdited.getExpirationDate());
+            mDisplayDate.setText(expirationDate);
         }
 
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
@@ -83,8 +88,8 @@ public class editItem extends AppCompatActivity {
                 month = month + 1;
                 String date = day + "/" + month + "/" + year;
                 mDisplayDate.setText(date);
-                expirationDate = date;
-            }
+                expirationDatepicked = date;
+                }
         };
 
 
@@ -101,6 +106,15 @@ public class editItem extends AppCompatActivity {
         categoryDropper.setAdapter(categoryAdapter);
     }
 
+    public String expirationDate (){
+        if(expirationDatepicked == ""){
+            return expirationDate;
+        }
+        else{
+            return expirationDatepicked;
+        }
+    }
+
     public void storageDropper() {
         storageDropper = findViewById(R.id.storageDropper);
         String[] storing = new String[]{freezer.getName(), fridge.getName(), cupBoard.getName()};
@@ -110,7 +124,8 @@ public class editItem extends AppCompatActivity {
     }
 
     public void finnishButton(View view) {
-        ItemClass addedItem = new ItemClass(itemName(), categoryDropper.getSelectedItem().toString(), expirationDate, storageDropper.getSelectedItem().toString(), checkSwitch());
+        ItemClass addedItem = new ItemClass(itemName(), categoryDropper.getSelectedItem().toString(), expirationDate(), storageDropper.getSelectedItem().toString(), checkSwitch());
+        ItemClass.getItemList().remove(itemPosition);
         openInventory();
         //Intent i = new Intent(this, inventory.class);
         //i.putExtra("AddedItem", test);

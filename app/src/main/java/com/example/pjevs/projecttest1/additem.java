@@ -104,6 +104,7 @@ public class additem extends AppCompatActivity {
     public void categoryDropdown(){
         categoryDropdown = findViewById(R.id.categorySpinner);
         ArrayAdapter<String> categoryAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, categoryListString);
+        categoryDropdown.setPrompt("Pick a category");
         categoryDropdown.setAdapter(categoryAdapter);
     }
     //This function tells what is shown in the storingDropdown
@@ -111,6 +112,7 @@ public class additem extends AppCompatActivity {
         storageDropdown = findViewById(R.id.storageSpinner);
         String[] storing = new String[]{freezer.getName(), fridge.getName(), cupBoard.getName()};
         ArrayAdapter<String> storageAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, storing);
+        storageDropdown.setPrompt("Pick a storage method");
         storageDropdown.setAdapter(storageAdapter);
     }
 

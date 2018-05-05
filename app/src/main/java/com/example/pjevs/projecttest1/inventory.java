@@ -169,8 +169,8 @@ public class inventory extends AppCompatActivity {
 
         Intent i = new Intent(this, editItem.class);
         i.putExtra("Item to edit", ItemClass.getItemList().get(itemPosition));
+        i.putExtra("Item position", itemPosition);
         startActivity(i);
-        ItemClass.getItemList().remove(itemPosition);
     }
 
 
