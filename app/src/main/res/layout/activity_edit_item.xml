@@ -39,7 +39,7 @@
 
     <Spinner
         android:id="@+id/storageDropper"
-        android:layout_width="368dp"
+        android:layout_width="395dp"
         android:layout_height="47dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
@@ -103,7 +103,8 @@
         android:onClick="closeAddItem"
         android:text="Cancel"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/finishBtn"
+        app:layout_constraintEnd_toStartOf="@+id/finishBtnEdit"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

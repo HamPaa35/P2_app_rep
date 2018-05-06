@@ -44,4 +44,9 @@ public class settings extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openStatistics(View view){
+        Intent intent = new Intent(this, statisticsActivity.class);
+        startActivity(intent);
+    }
+
 }

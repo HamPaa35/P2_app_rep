@@ -1,12 +1,7 @@
 package com.example.pjevs.projecttest1;
 
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
-
 
 
 public class ItemClass extends FileManager implements Serializable{
@@ -18,6 +13,10 @@ public class ItemClass extends FileManager implements Serializable{
     private String expirationDate;
     private String storageMethod;
     private String openClosed;
+    private int spinnerCatPos;
+    private int spinnerStorPos;
+    static int consumedCounter = 0;
+    static int trashedCounter = 0;
     private static ArrayList<ItemClass> itemList = new ArrayList<>();
     //These constructors needs to be cleaned up at some point
 
@@ -29,22 +28,26 @@ public class ItemClass extends FileManager implements Serializable{
         this.name = name;
     }
 
-    public ItemClass(String name, Category itemCategory, String exportationDate, Storage storageMethod, String openClosed) {
+    public ItemClass(String name, Category itemCategory, String exportationDate, Storage storageMethod, String openClosed, int spinnerCatPos, int spinnerStorPos) {
         this.name = name;
         this.itemCategory = itemCategory.getName();
         this.expirationDate = exportationDate;
         this.storageMethod = storageMethod.getName();
         this.openClosed = openClosed;
+        this.spinnerCatPos = spinnerCatPos;
+        this.spinnerStorPos = spinnerStorPos;
 
         itemList.add(this);
     }
 
-    public ItemClass(String name, String itemCategory, String exportationDate, String storageMethod, String openClosed) {
+    public ItemClass(String name, String itemCategory, String exportationDate, String storageMethod, String openClosed, int spinnerCatPos, int spinnerStorPos) {
         this.name = name;
         this.itemCategory = itemCategory;
         this.expirationDate = exportationDate;
         this.storageMethod = storageMethod;
         this.openClosed = openClosed;
+        this.spinnerCatPos = spinnerCatPos;
+        this.spinnerStorPos = spinnerStorPos;
 
         itemList.add(this);
     }
@@ -95,6 +98,22 @@ public class ItemClass extends FileManager implements Serializable{
 
     public void setOpenClosed(String openClosed) {
         this.openClosed = openClosed;
+    }
+
+    public int getSpinnerCatPos() {
+        return spinnerCatPos;
+    }
+
+    public void setSpinnerCatPos(int spinnerCatPos) {
+        this.spinnerCatPos = spinnerCatPos;
+    }
+
+    public int getSpinnerStorPos() {
+        return spinnerStorPos;
+    }
+
+    public void setSpinnerStorPos(int spinnerStorPos) {
+        this.spinnerStorPos = spinnerStorPos;
     }
 
     public static ArrayList<ItemClass> getItemList() {

@@ -18,6 +18,17 @@ public class customApplication extends Application {
         super.onCreate();
         dbHandler = new DatabaseHelper(this, null, null, 1);
         ItemClass.setItemList(dbHandler.savedItems());
+
+        //Initializing preset storages and categories
+        Storage fridge = new Storage("Fridge");
+        Storage freezer = new Storage("Freezer");
+        Storage cupBoard = new Storage("Cupboard");
+
+
+        Category brød = new Category("Brød", "5", "7", "Cupboard", 2);
+        Category kød = new Category("Kød", "5", "7", "Fridge", 0);
+        Category ærter = new Category("Ærter", "30", "35", "Freezer", 1);
+
     }
 }
 

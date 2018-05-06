@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:label="Overview">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,16 +33,28 @@
             android:label="test af DB" />
         <activity
             android:name=".editItem"
-            android:label="Edit you item" />
-        <activity android:name=".GeneralSettings"
-            android:label="General settings"/>
-        <activity android:name=".Notifications"
-            android:label="Notification settings"/>
-        <activity android:name=".AddCategoryActivity"
-            android:label="Add new category"/>
-        <activity android:name=".CategoriesActivity"
-            android:label="All categories"
-            ></activity>
+            android:label="Edit your item" />
+        <activity
+            android:name=".GeneralSettings"
+            android:label="General settings" />
+        <activity
+            android:name=".Notifications"
+            android:label="Notification settings" />
+        <activity
+            android:name=".AddCategoryActivity"
+            android:label="Add new category" />
+        <activity
+            android:name=".CategoriesActivity"
+            android:label="All categories" />
+        <activity
+            android:name=".statisticsActivity"
+            android:label="Waste statistics"/>
+        <activity
+            android:name=".editCategory"
+            android:label="Edit your category"
+            >
+
+        </activity>
     </application>
 
 </manifest>

@@ -19,14 +19,14 @@ import java.util.Calendar;
 //This class is controlling what is shown on the "additem" activity
 public class additem extends AppCompatActivity {
 
+    //Category Brød = new Category("Brød", "5", "7", "Cupboard");
+
     ArrayList<String> categoryListArrString = Category.getCategoryToStringArrList();
     String[] categoryListString = categoryListArrString.toArray(new String[categoryListArrString.size()]);
 
-    //Initializing preset storages and categories
-    Storage fridge = new Storage("Fridge");
-    Storage freezer = new Storage("Freezer");
-    Storage cupBoard = new Storage("Cupboard");
-    private static final String TAG = "MainActivity";
+    ArrayList<String> storageListArrString = Storage.getStorageToStringArrList();
+    String[] storageListString = storageListArrString.toArray(new String[storageListArrString.size()]);
+
 //The setup of the category- and the datePicker
     private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
@@ -39,7 +39,7 @@ public class additem extends AppCompatActivity {
     Spinner storageDropdown;
     Spinner categoryDropdown;
 
-    private String expirationDate;
+    private String expirationDate = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,10 +110,10 @@ public class additem extends AppCompatActivity {
     //This function tells what is shown in the storingDropdown
     public void storageDropdown(){
         storageDropdown = findViewById(R.id.storageSpinner);
-        String[] storing = new String[]{freezer.getName(), fridge.getName(), cupBoard.getName()};
-        ArrayAdapter<String> storageAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, storing);
+        ArrayAdapter<String> storageAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, storageListString);
         storageDropdown.setPrompt("Pick a storage method");
         storageDropdown.setAdapter(storageAdapter);
+        storageDropdown.setSelection(Category.getCategoryList().get(categoryDropdown.getSelectedItemPosition()).getSpinnerStorPos());
     }
 
     //Hvad sker der her?
@@ -131,7 +131,7 @@ public class additem extends AppCompatActivity {
     }*/
     //This function makes it possible to add the instance in the inventory
     public void finnishButton(View view){
-        ItemClass addedItem = new ItemClass(itemName(), categoryDropdown.getSelectedItem().toString(), expirationDate, storageDropdown.getSelectedItem().toString(), checkSwitch());
+        ItemClass addedItem = new ItemClass(itemName(), categoryDropdown.getSelectedItem().toString(), expirationDate, storageDropdown.getSelectedItem().toString(), checkSwitch(), categoryDropdown.getSelectedItemPosition(), storageDropdown.getSelectedItemPosition());
         dbHandler.addItem(addedItem);
         openInventory();
         //Intent i = new Intent(this, inventory.class);

@@ -129,6 +129,7 @@ public class inventory extends AppCompatActivity {
         Button editBtn = (Button) promptView.findViewById(R.id.editBtn);
         Button cancelBtn = (Button) promptView.findViewById(R.id.cancelBtn);
         Button delBtn = (Button) promptView.findViewById(R.id.delBtn);
+        Button consumedBtn = (Button) promptView.findViewById(R.id.buttonDialogConsumed);
 
         dialogName.setText(ItemClass.getItemList().get(itemPosition).getName());
 
@@ -151,8 +152,18 @@ public class inventory extends AppCompatActivity {
             public void onClick(View v) {
                 ItemClass.getItemList().remove(itemPosition);
                 adapter.notifyDataSetChanged();
+                ItemClass.trashedCounter++;
                 openInventory();
-                //Toast.makeText(inventory.this, "Item deleted, trust me!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        consumedBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ItemClass.getItemList().remove(itemPosition);
+                adapter.notifyDataSetChanged();
+                ItemClass.consumedCounter++;
+                openInventory();
             }
         });
 
@@ -187,6 +198,11 @@ public class inventory extends AppCompatActivity {
 
     public void openSettings(View view) {
         Intent intent = new Intent(this, settings.class);
+        startActivity(intent);
+    }
+
+    public void openStatistics(View view){
+        Intent intent = new Intent(this, statisticsActivity.class);
         startActivity(intent);
     }
 
