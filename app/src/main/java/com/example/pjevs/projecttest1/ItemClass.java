@@ -123,4 +123,6 @@ public class ItemClass extends FileManager implements Serializable{
     public static void setItemList(ArrayList<ItemClass> itemList) {
         ItemClass.itemList = itemList;
     }
+
+
 }

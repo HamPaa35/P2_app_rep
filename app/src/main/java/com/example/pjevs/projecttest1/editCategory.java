@@ -56,6 +56,7 @@ public class editCategory extends AppCompatActivity {
     public void finnishButton(View view) {
         Category editedCategory = new Category(catName.getText().toString(), catOpenExsp.getText().toString(), catClosedExsp.getText().toString(), storageDropper.getSelectedItem().toString(), storageDropper.getSelectedItemPosition());
         Category.getCategoryList().remove(catPosition);
+        FileManager.saveCatData(this);
         openCategoriesActivity();
         //Intent i = new Intent(this, inventory.class);
         //i.putExtra("AddedItem", test);
