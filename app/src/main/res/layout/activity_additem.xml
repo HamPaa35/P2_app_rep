@@ -90,6 +90,8 @@
         android:layout_marginStart="84dp"
         android:ems="10"
         android:hint="Item name"
+
+        android:textColorHint="@color/colorText"
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/categoryPicker"
         app:layout_constraintEnd_toEndOf="parent"

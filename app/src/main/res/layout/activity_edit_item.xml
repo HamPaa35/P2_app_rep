@@ -62,6 +62,7 @@
         android:layout_marginStart="84dp"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:textColorHint="@color/colorText"
         android:hint="Item name"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,6 +78,7 @@
         android:layout_marginTop="127dp"
         android:checked="false"
         android:text="Closed/Open"
+        android:textColor="@color/colorText"
         android:textOff="Closed"
         android:textOn="Open"
         app:layout_constraintEnd_toEndOf="parent"
@@ -84,15 +86,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/datePicker" />
 
-    <ImageButton
+    <Button
         android:id="@+id/finishBtnEdit"
-        android:layout_width="55dp"
+        android:layout_width="127dp"
         android:layout_height="55dp"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
-        android:onClick="finnishButton"
+        android:background="#00000000"
 
+        android:onClick="finnishButton"
         android:src="@android:drawable/ic_menu_add"
+        android:text="Save item"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -100,14 +104,15 @@
         android:id="@+id/cancelBtnEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginStart="148dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="40dp"
+        android:background="#00000000"
         android:onClick="closeAddItem"
         android:text="Cancel"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/finishBtnEdit"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.012"
         app:layout_constraintStart_toStartOf="parent" />
 
 

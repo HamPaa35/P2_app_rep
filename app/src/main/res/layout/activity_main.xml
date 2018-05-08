@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginStart="8dp"
+        android:background="#00000000"
         android:onClick="openInventory"
         android:text="Inventory"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
+        android:background="#00000000"
         android:onClick="openSettings"
         android:text="Settings"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -34,6 +36,7 @@
         android:layout_height="49dp"
         android:layout_marginBottom="4dp"
         android:layout_marginEnd="8dp"
+        android:background="#00000000"
         android:onClick="openAddItem"
         android:text="Add"
         app:layout_constraintBottom_toTopOf="@+id/settingsbtn"
@@ -46,6 +49,7 @@
         android:layout_marginBottom="70dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
+        android:background="#00000000"
         android:onClick="openTest"
         android:text="add test"
         app:layout_constraintBottom_toTopOf="@+id/settingsbtn"
@@ -54,22 +58,12 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/editItemTest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:onClick="openEditItemTestTestTest"
-        android:text="editItemTestButtom"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/buttonStatistics"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
+        android:background="#00000000"
         android:onClick="openStatistics"
         android:text="Statistics"
         app:layout_constraintBottom_toBottomOf="parent"
