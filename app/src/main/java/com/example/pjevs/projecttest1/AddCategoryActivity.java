@@ -64,6 +64,7 @@ public class AddCategoryActivity extends AppCompatActivity {
     }
     public void finnishButton(View view){
         Category addedCategory = new Category(getCategoryName(), getCategoryExpirationOpen(), getCategoryExpirationClosed() ,storageDropdown.getSelectedItem().toString(), storageDropdown.getSelectedItemPosition());
+        FileManager.saveCatData(this);
         openCategories();
     }
 

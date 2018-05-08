@@ -133,6 +133,7 @@ public class additem extends AppCompatActivity {
     public void finnishButton(View view){
         ItemClass addedItem = new ItemClass(itemName(), categoryDropdown.getSelectedItem().toString(), expirationDate, storageDropdown.getSelectedItem().toString(), checkSwitch(), categoryDropdown.getSelectedItemPosition(), storageDropdown.getSelectedItemPosition());
         dbHandler.addItem(addedItem);
+        FileManager.saveItemData(this);
         openInventory();
         //Intent i = new Intent(this, inventory.class);
         //i.putExtra("AddedItem", test);

@@ -16,7 +16,7 @@ import java.util.Locale;
 
 public class CategoriesActivity extends AppCompatActivity {
 
-    ArrayList<Category> categoryList = Category.getCategoryList();
+    //ArrayList<Category> categoryList = Category.getCategoryList();
 
     categoryListAdapter adapter;
 
@@ -24,11 +24,11 @@ public class CategoriesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categories);
-
-
         final ListView categoryListView = (ListView) findViewById(R.id.categoryList);
 
-        adapter = new categoryListAdapter(this, R.layout.activity_category, categoryList);
+        FileManager.loadCatData(getApplicationContext());
+
+        adapter = new categoryListAdapter(this, R.layout.activity_category, Category.getCategoryList());
         categoryListView.setAdapter(adapter);
 
         categoryListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -73,6 +73,7 @@ public class CategoriesActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Category.getCategoryList().remove(catPosition);
                 adapter.notifyDataSetChanged();
+                FileManager.saveCatData(getApplicationContext());
                 openCategoriesActivity();
             }
         });

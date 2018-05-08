@@ -134,6 +134,7 @@ public class editItem extends AppCompatActivity {
     public void finnishButton(View view) {
         ItemClass addedItem = new ItemClass(itemName(), categoryDropper.getSelectedItem().toString(), expirationDate(), storageDropper.getSelectedItem().toString(), checkSwitch(), categoryDropper.getSelectedItemPosition(), storageDropper.getSelectedItemPosition());
         ItemClass.getItemList().remove(itemPosition);
+        FileManager.saveItemData(this);
         openInventory();
         //Intent i = new Intent(this, inventory.class);
         //i.putExtra("AddedItem", test);

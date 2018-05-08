@@ -16,6 +16,9 @@ public class statisticsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
 
+        FileManager.loadTrashCount(this);
+        FileManager.loadConsumedCount(this);
+
         trashedStats = findViewById(R.id.textViewTrashedStat);
         consumedStats = findViewById(R.id.textViewConsumedStats);
 
