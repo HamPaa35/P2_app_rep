@@ -29,9 +29,6 @@
             android:name=".additem"
             android:label="Add new item" />
         <activity
-            android:name=".Test"
-            android:label="test af DB" />
-        <activity
             android:name=".editItem"
             android:label="Edit your item" />
         <activity

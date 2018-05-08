@@ -12,13 +12,16 @@ import java.util.ArrayList;
 
 public class editCategory extends AppCompatActivity {
 
+    //The initialisation of the different storage methods, to be used in the storage drop down
     ArrayList<String> storageListArrString = Storage.getStorageToStringArrList();
     String[] storageListString = storageListArrString.toArray(new String[storageListArrString.size()]);
 
+    //The setup of the Views in the activity
     EditText catName;
     EditText catOpenExsp;
     EditText catClosedExsp;
     Spinner storageDropper;
+
 
     private int catPosition;
     private Category catToBeEdited;
@@ -53,14 +56,12 @@ public class editCategory extends AppCompatActivity {
         storageDropper.setSelection(catToBeEdited.getSpinnerStorPos());
     }
 
+    //Takes the info added to the category and adds it to the array and database
     public void finnishButton(View view) {
         Category editedCategory = new Category(catName.getText().toString(), catOpenExsp.getText().toString(), catClosedExsp.getText().toString(), storageDropper.getSelectedItem().toString(), storageDropper.getSelectedItemPosition());
         Category.getCategoryList().remove(catPosition);
         FileManager.saveCatData(this);
         openCategoriesActivity();
-        //Intent i = new Intent(this, inventory.class);
-        //i.putExtra("AddedItem", test);
-        //startActivity(i);
     }
 
     public void closeAddItem(View view){

@@ -14,13 +14,10 @@ import java.util.ArrayList;
 public class customApplication extends Application {
 
     public static boolean setupState;
-    DatabaseHelper dbHandler;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        dbHandler = new DatabaseHelper(this, null, null, 1);
-        ItemClass.setItemList(dbHandler.savedItems());
         FileManager.loadSetup(this);
 
         //Initializing preset storages and categories
@@ -44,7 +41,6 @@ public class customApplication extends Application {
 
             FileManager.saveSetup(this);
         }
-
     }
 }
 

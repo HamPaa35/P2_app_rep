@@ -16,8 +16,6 @@ import java.util.Locale;
 
 public class CategoriesActivity extends AppCompatActivity {
 
-    //ArrayList<Category> categoryList = Category.getCategoryList();
-
     categoryListAdapter adapter;
 
     @Override
@@ -35,11 +33,8 @@ public class CategoriesActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 dialog(position);
-
             }
         });
-
-
     }
 
     private void dialog(final int catPosition) {

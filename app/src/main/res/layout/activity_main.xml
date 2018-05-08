@@ -43,21 +43,6 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/testAddButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="70dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
-        android:background="#00000000"
-        android:onClick="openTest"
-        android:text="add test"
-        app:layout_constraintBottom_toTopOf="@+id/settingsbtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
         android:id="@+id/buttonStatistics"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

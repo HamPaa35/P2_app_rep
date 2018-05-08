@@ -20,16 +20,7 @@ import java.util.ArrayList;
 public class inventory extends AppCompatActivity {
 
     private static final String TAG = "Inventory";
-    //ArrayList<ItemClass> itemList = ItemClass.getItemList();
-    Intent addItemIntent;
-    ItemClass testOfDb;
-    DatabaseHelper dbHandler;
     itemListAdapter adapter;
-
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,34 +31,13 @@ public class inventory extends AppCompatActivity {
 
         FileManager.loadItemData(this);
 
-        //dbHandler = ((customApplication)getApplication()).dbHandler;
-        //A lot of placeholder items, this will need to be a loop at some point
-        /*Storage fridge = new Storage("Fridge");
-        Storage freezer = new Storage("Freezer");
-        Category altGodtFraHavet = new Category("Alt godt fra havet", 3, 1, fridge);
-        Category altGodtFralandet = new Category("Alt godt fra landet", 3, 1, fridge);*/
-
-        //addItemIntent = getIntent();
-        //testOfDb = new ItemClass(dbHandler.dbNameToString(), dbHandler.dbCategoryToString(), dbHandler.dbExpirationDateToString(), dbHandler.dbStorageMethodToString(), dbHandler.dbOpenClosedToString());
-
         adapter = new itemListAdapter(this, R.layout.activity_item, ItemClass.getItemList());
-        //itemList.add(testOfDb);
-        //itemList.add((ItemClass)addItemIntent.getSerializableExtra("addedItem"));
+
         foodList.setAdapter(adapter);
-
-
-
-
-
 
         foodList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Intent til infoside, hvor man kan edit sit instance.
-                //Åben editItem
-                //Toast.makeText(getApplicationContext(), "Ja det virker, og kom så tilbage til arbejdet!", Toast.LENGTH_SHORT).show();
-                //Toast.makeText(inventory.this, "Sorry, but you fucked up the dialog. You can go home now.", Toast.LENGTH_LONG).show();
-                //editItemPushed();
                 dialog(position);
 
             }
@@ -143,10 +113,6 @@ public class inventory extends AppCompatActivity {
 
 
     private void editItemPushed(int itemPosition) {
-
-        /*Intent intent = new Intent(getApplicationContext(), editItem.class);
-        startActivity(intent);*/
-
         Intent i = new Intent(this, editItem.class);
         i.putExtra("Item to edit", ItemClass.getItemList().get(itemPosition));
         i.putExtra("Item position", itemPosition);

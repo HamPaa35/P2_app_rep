@@ -28,20 +28,10 @@ public class MainActivity extends AppCompatActivity {
     public void openSettings(View view){
         Intent intent = new Intent(this, settings.class);
         startActivity(intent);
-}
-
-    public void openTest(View view){
-        Intent intent = new Intent(this, Test.class);
-        startActivity(intent);
     }
 
     public void openAddItem(View view){
         Intent intent = new Intent(getApplicationContext(), additem.class);
-        startActivity(intent);
-    }
-
-    public void openEditItemTestTestTest(View view){
-        Intent intent = new Intent(getApplicationContext(), editItem.class);
         startActivity(intent);
     }
 

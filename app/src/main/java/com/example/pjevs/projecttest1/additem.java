@@ -19,38 +19,33 @@ import java.util.Calendar;
 //This class is controlling what is shown on the "additem" activity
 public class additem extends AppCompatActivity {
 
-    //Category Brød = new Category("Brød", "5", "7", "Cupboard");
-
+    //Initialises the arrays used for the dropdown menus
     ArrayList<String> categoryListArrString = Category.getCategoryToStringArrList();
     String[] categoryListString = categoryListArrString.toArray(new String[categoryListArrString.size()]);
 
     ArrayList<String> storageListArrString = Storage.getStorageToStringArrList();
     String[] storageListString = storageListArrString.toArray(new String[storageListArrString.size()]);
 
-//The setup of the category- and the datePicker
+    //The setup of the different views in the activity
     private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     private EditText itemName;
     private Switch openClosedSwitch;
-
-    DatabaseHelper dbHandler;
-    public ItemClass test = new ItemClass();
-
     Spinner storageDropdown;
     Spinner categoryDropdown;
 
+    //This is used for an if else statement further down
     private String expirationDate = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_additem);
-        dbHandler = ((customApplication)getApplication()).dbHandler;
 
-
-    itemName = (EditText) findViewById(R.id.addCategoryName);
-    mDisplayDate = (TextView) findViewById(R.id.Date);
-    openClosedSwitch =(Switch) findViewById(R.id.switch1);
+        //The views are connected to the Views in the Activity
+        itemName = (EditText) findViewById(R.id.addCategoryName);
+        mDisplayDate = (TextView) findViewById(R.id.Date);
+        openClosedSwitch = (Switch) findViewById(R.id.switch1);
 
         //Setup of the layout of the picked date
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
@@ -67,8 +62,6 @@ public class additem extends AppCompatActivity {
 
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
-
-
             }
         });
         //The listener which calls the time from the system. The month-number in the program would show January as 0, hence the "month + 1"
@@ -84,12 +77,13 @@ public class additem extends AppCompatActivity {
 
         categoryDropdown();
         storageDropdown();
-        //openClosedSwitch();
     }
+
     //Goes back to the most recent activity
     public void closeAddItem(View view){
         finish();
     }
+
     //This function decides the return of "openClosedSwitch".
     public String checkSwitch(){
         if(openClosedSwitch.isChecked()){ return "Open";}
@@ -100,6 +94,7 @@ public class additem extends AppCompatActivity {
     public String itemName(){
         return itemName.getText().toString();
     }
+
     //This function tells what is shown in the categorySpinner
     public void categoryDropdown(){
         categoryDropdown = findViewById(R.id.categorySpinner);
@@ -107,6 +102,7 @@ public class additem extends AppCompatActivity {
         categoryDropdown.setPrompt("Pick a category");
         categoryDropdown.setAdapter(categoryAdapter);
     }
+
     //This function tells what is shown in the storingDropdown
     public void storageDropdown(){
         storageDropdown = findViewById(R.id.storageSpinner);
@@ -116,28 +112,11 @@ public class additem extends AppCompatActivity {
         storageDropdown.setSelection(Category.getCategoryList().get(categoryDropdown.getSelectedItemPosition()).getSpinnerStorPos());
     }
 
-    //Hvad sker der her?
-    /*public void openClosedSwitch(){
-    public void openClosedSwitch(){
-        test.setOpenClosed(checkSwitch());
-    }
-    //This function let's you update an instance
-    public void updateItem(){
-        itemName();
-        test.setItemCategory(categoryDropdown.getSelectedItem().toString());
-        test.setExpirationDate(expirationDate);
-        test.setStorageMethod(storageDropdown.getSelectedItem().toString());
-        test.setOpenClosed(checkSwitch());
-    }*/
-    //This function makes it possible to add the instance in the inventory
+    //Takes the info added to the category and adds it to the array and database
     public void finnishButton(View view){
         ItemClass addedItem = new ItemClass(itemName(), categoryDropdown.getSelectedItem().toString(), expirationDate, storageDropdown.getSelectedItem().toString(), checkSwitch(), categoryDropdown.getSelectedItemPosition(), storageDropdown.getSelectedItemPosition());
-        dbHandler.addItem(addedItem);
         FileManager.saveItemData(this);
         openInventory();
-        //Intent i = new Intent(this, inventory.class);
-        //i.putExtra("AddedItem", test);
-        //startActivity(i);
     }
 
     public void openInventory(){

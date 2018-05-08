@@ -136,9 +136,6 @@ public class editItem extends AppCompatActivity {
         ItemClass.getItemList().remove(itemPosition);
         FileManager.saveItemData(this);
         openInventory();
-        //Intent i = new Intent(this, inventory.class);
-        //i.putExtra("AddedItem", test);
-        //startActivity(i);
     }
 
     public void openInventory() {

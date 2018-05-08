@@ -25,7 +25,8 @@ public class Category extends FileManager implements Serializable {
 
         categoryList.add(this);
     }
-// Getter- and setter-methods
+
+    // Getter- and setter-methods
     public String getName() {
         return name;
     }
