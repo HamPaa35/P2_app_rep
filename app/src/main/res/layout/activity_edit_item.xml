@@ -6,15 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".editItem">
 
+
     <TextView
         android:id="@+id/datePicker"
         android:layout_width="wrap_content"
-        android:layout_height="24dp"
+        android:layout_height="35dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Edit date"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -82,14 +84,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/datePicker" />
 
-    <Button
+    <ImageButton
         android:id="@+id/finishBtnEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:onClick="finnishButton"
-        android:text="Finish"
+
+        android:src="@android:drawable/ic_menu_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -106,5 +109,7 @@
         app:layout_constraintEnd_toStartOf="@+id/finishBtnEdit"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
+
+
 
 </android.support.constraint.ConstraintLayout>

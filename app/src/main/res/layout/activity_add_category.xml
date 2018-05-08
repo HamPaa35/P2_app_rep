@@ -20,7 +20,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.401" />
+        app:layout_constraintVertical_bias="0.578" />
 
     <Button
         android:id="@+id/finishBtn"
@@ -29,7 +29,7 @@
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:onClick="finnishButton"
-        android:text="Finish"
+        android:text="Save Category"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -38,12 +38,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginStart="148dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
         android:onClick="closeAddCategory"
         android:text="Cancel"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/finishBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -52,6 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="85dp"
         android:layout_marginStart="84dp"
+        android:layout_marginTop="88dp"
         android:ems="10"
         android:hint="Category name"
         android:inputType="text"
@@ -87,5 +89,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/categoryExpirationOpen" />
+
+    <TextView
+        android:id="@+id/newCategoryHeadline"
+        android:layout_width="269dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="New Category"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>

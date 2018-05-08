@@ -21,8 +21,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+//import com.google.gson.Gson;
+//import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -132,6 +132,8 @@ public class inventory extends AppCompatActivity {
         Button consumedBtn = (Button) promptView.findViewById(R.id.buttonDialogConsumed);
 
         dialogName.setText(ItemClass.getItemList().get(itemPosition).getName());
+
+
 
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
