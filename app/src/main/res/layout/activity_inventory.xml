@@ -36,7 +36,7 @@
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_toEndOf="@+id/buttonStatistics"
         android:background="#00000000"
         android:elevation="0dp"
@@ -44,28 +44,25 @@
         android:scaleType="centerCrop"
         android:src="@drawable/home"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/settingsbtn" />
+        app:layout_constraintStart_toEndOf="@+id/buttonStatistics" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="112dp"
         android:layout_height="55dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
         android:layout_toEndOf="@+id/inventoryImageView"
         android:background="#00000000"
         android:text="Inventory"
         android:textColor="@color/colorTextHeadlines"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/overviewbtn" />
+        app:layout_constraintStart_toEndOf="@+id/inventoryImageView" />
 
     <include
         android:id="@+id/include2"
         layout="@layout/activity_item"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
@@ -74,13 +71,12 @@
         android:layout_height="55dp"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:background="#00000000"
         android:onClick="openStatistics"
         android:scaleType="centerCrop"
         android:src="@drawable/statistics"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        tools:layout_editor_absoluteX="16dp" />
 
     <ImageButton
         android:id="@+id/settingsbtn"
@@ -95,7 +91,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/settings"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonStatistics" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/inventoryImageView"
@@ -105,8 +101,8 @@
         android:layout_marginStart="8dp"
         android:layout_toEndOf="@+id/overviewbtn"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/overviewbtn"
         app:srcCompat="@drawable/inventory" />
 
 
