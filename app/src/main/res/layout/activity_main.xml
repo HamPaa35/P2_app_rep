@@ -6,52 +6,80 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
+    <ImageButton
         android:id="@+id/inventorybtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
         android:background="#00000000"
         android:onClick="openInventory"
-        android:text="Inventory"
+        android:scaleType="centerCrop"
+        android:src="@drawable/inventory"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/settingsbtn" />
 
-    <Button
+    <ImageButton
         android:id="@+id/settingsbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:background="#00000000"
         android:onClick="openSettings"
-        android:text="Settings"
+        android:scaleType="centerCrop"
+        android:src="@drawable/settings"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonStatistics" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/addbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="49dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:layout_marginBottom="4dp"
         android:layout_marginEnd="8dp"
         android:background="#00000000"
         android:onClick="openAddItem"
+        android:src="@android:drawable/ic_input_add"
         android:text="Add"
         app:layout_constraintBottom_toTopOf="@+id/settingsbtn"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonStatistics"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
         android:background="#00000000"
         android:onClick="openStatistics"
-        android:text="Statistics"
+        android:scaleType="centerCrop"
+        android:src="@drawable/statistics"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonStatistics"
+        app:srcCompat="@drawable/home" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="100dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:background="#00000000"
+        android:text="Overview"
+        android:textAlignment="center"
+        android:textColor="@color/colorTextHeadlines"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView" />
 
 </android.support.constraint.ConstraintLayout>

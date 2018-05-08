@@ -58,7 +58,7 @@
             android:id="@+id/overviewbtn"
             android:layout_width="55dp"
             android:layout_height="55dp"
-            android:layout_centerHorizontal="true"
+            android:layout_toEndOf="@+id/buttonStatistics"
             android:background="#00000000"
             android:elevation="0dp"
             android:onClick="openOverview"
@@ -71,7 +71,7 @@
             android:id="@+id/buttonStatistics"
             android:layout_width="55dp"
             android:layout_height="55dp"
-            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
             android:background="#00000000"
             android:onClick="openStatistics"
             android:scaleType="centerCrop"
@@ -81,15 +81,35 @@
 
         <ImageButton
             android:id="@+id/settingsbtn"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:background="#00000000"
+            android:layout_width="54dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
 
+            android:layout_marginEnd="14dp"
+            android:background="#00000000"
             android:onClick="openSettings"
             android:scaleType="centerCrop"
             android:src="@drawable/settings"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/buttonStatistics" />
+
+        <ImageView
+            android:id="@+id/inventoryImageView"
+            android:layout_width="55dp"
+            android:scaleType="centerCrop"
+            android:layout_height="55dp"
+            android:layout_toEndOf="@+id/overviewbtn"
+            app:srcCompat="@drawable/inventory" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="112dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="2dp"
+            android:layout_toEndOf="@+id/inventoryImageView"
+            android:background="#00000000"
+            android:text="Inventory"
+            android:textColor="@color/colorTextHeadlines" />
 
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
