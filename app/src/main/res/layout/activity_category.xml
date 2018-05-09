@@ -24,7 +24,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:textAlignment="textStart"
-            android:textColor="@android:color/black"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -34,7 +33,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:textAlignment="textEnd"
-            android:textColor="@android:color/black"
             android:textStyle="bold" />
 
         <TextView
@@ -52,7 +50,6 @@
             android:layout_alignParentEnd="true"
             android:layout_below="@id/textView2"
             android:textAlignment="textEnd"
-            android:textColor="@android:color/black"
             android:textStyle="bold" />
 
     </RelativeLayout>
