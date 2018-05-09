@@ -37,6 +37,8 @@
         android:background="#00000000"
         android:onClick="addNewCategory"
         android:text="add new category"
+        android:textColor="@color/colorTextHeadlines"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

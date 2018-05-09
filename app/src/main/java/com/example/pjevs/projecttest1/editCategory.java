@@ -22,7 +22,7 @@ public class editCategory extends AppCompatActivity {
     EditText catClosedExsp;
     Spinner storageDropper;
 
-
+    //Ints needed in order to get the right item from the list
     private int catPosition;
     private Category catToBeEdited;
 
@@ -45,7 +45,6 @@ public class editCategory extends AppCompatActivity {
         catClosedExsp.setText(catToBeEdited.getTypicalExpirationClosed());
 
         storageDropper();
-
     }
 
     public void storageDropper() {

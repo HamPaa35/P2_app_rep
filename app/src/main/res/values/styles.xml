@@ -8,7 +8,7 @@
         <item name="android:colorBackground">@color/colorWindowBackground</item>
         <item name="android:textColor">@color/colorText</item>
         <item name="actionMenuTextColor">@color/colorTextHeadlines</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorTextHeadlines</item>
     </style>
 
 </resources>

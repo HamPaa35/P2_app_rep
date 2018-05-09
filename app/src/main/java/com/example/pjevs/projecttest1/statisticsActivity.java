@@ -12,7 +12,7 @@ public class statisticsActivity extends AppCompatActivity {
     TextView consumedStats;
     TextView percentageConsumed;
 
-    int percentage;
+    private float percentage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +26,19 @@ public class statisticsActivity extends AppCompatActivity {
         consumedStats = findViewById(R.id.textViewConsumedStats);
         percentageConsumed = findViewById(R.id.textPercentage);
 
-        percentage = ItemClass.consumedCounter/(ItemClass.trashedCounter + ItemClass.consumedCounter)*100;
-
         trashedStats.setText("Items trashed: " + ItemClass.trashedCounter);
         consumedStats.setText("Items consumed: " + ItemClass.consumedCounter);
-        percentageConsumed.setText("Consumed VS trashed items: " + percentage);
+
+        if (ItemClass.consumedCounter == 0){
+            percentage = 100;
+        }
+        else{
+            int trashPlusConsumed = 1 + 1;
+            int consumedDivTrash = 1/trashPlusConsumed;
+            percentage = consumedDivTrash * 100;
+        }
+
+        percentageConsumed.setText("Consumed VS trashed items: " + percentage + "%");
 
     }
 
