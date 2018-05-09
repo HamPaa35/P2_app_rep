@@ -9,12 +9,14 @@
 
     <TextView
         android:id="@+id/Date"
-        android:layout_width="wrap_content"
+        android:layout_width="386dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="35dp"
+        android:background="#424752"
         android:text="Select date"
+        android:textAlignment="center"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,15 +85,14 @@
 
     <EditText
         android:id="@+id/addCategoryName"
-        android:layout_width="wrap_content"
+        android:layout_width="381dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:layout_marginEnd="85dp"
-        android:layout_marginStart="84dp"
+        android:background="#424752"
         android:ems="10"
         android:hint="Item name"
-
         android:inputType="text"
+        android:textAlignment="center"
         android:textColor="@color/colorText"
         android:textColorHint="@color/colorText"
         app:layout_constraintBottom_toTopOf="@+id/categoryPicker"
@@ -110,6 +111,7 @@
         android:textColor="@color/colorText"
         android:textOff="Closed"
         android:textOn="Open"
+        android:background="#424752"
         app:layout_constraintBottom_toTopOf="@+id/cancelBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
