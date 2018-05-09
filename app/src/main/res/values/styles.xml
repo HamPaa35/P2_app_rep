@@ -9,6 +9,7 @@
         <item name="android:textColor">@color/colorText</item>
         <item name="actionMenuTextColor">@color/colorTextHeadlines</item>
         <item name="colorAccent">@color/colorTextHeadlines</item>
+        <item name="android:background">@android:color/transparent</item>
     </style>
 
 </resources>

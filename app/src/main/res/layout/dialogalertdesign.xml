@@ -51,6 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="Name"
+            android:textColor="@color/colorTextHeadlines"
             android:textSize="24sp" />
 
         <Button

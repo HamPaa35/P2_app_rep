@@ -51,6 +51,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:text="Name"
+            android:textColor="@color/colorTextHeadlines"
             android:textSize="24sp" />
     </RelativeLayout>
 

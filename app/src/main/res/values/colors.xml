@@ -3,6 +3,7 @@
     <color name="colorPrimary">#2E3239</color>
     <color name="colorPrimaryDark">#2E3239</color>
     <color name="colorWindowBackground">#2E3239</color>
+    <color name="colorSpinnerBackground">#424752</color>
     <color name="colorTextHeadlines">#ffba00</color>
     <color name="colorText">#99cc99</color>
     <color name="colorAccent">#FF4081</color>
