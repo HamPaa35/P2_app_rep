@@ -121,6 +121,20 @@ public class Category extends FileManager implements Serializable {
         isFavorite = favorite;
     }
 
+    public static ArrayList<Category> getFavCatArrList() {
+        ArrayList<Category> favCatArrList = new ArrayList<>();
+
+        for(Category category : categoryList){
+
+            if(category.getFavorite()){
+                favCatArrList.add(category);
+            }
+
+        }
+
+        return favCatArrList;
+    }
+
     @Override
     public String toString() {
         String category = ("Name " + name + "Typical expiration when opened: " + TypicalExpirationOpen +
