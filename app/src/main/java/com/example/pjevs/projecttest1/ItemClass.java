@@ -124,17 +124,15 @@ public class ItemClass extends FileManager implements Serializable{
         ItemClass.itemList = itemList;
     }
 
-    /*public static int getPercentageOfItemsConsumed(){
+    public static int getPercentageOfItemsConsumed(){
         int percentage;
-        if (consumedCounter == 0){
+        if (ItemClass.consumedCounter == 0 && ItemClass.trashedCounter == 0) {
             percentage = 100;
-            return percentage;
+        } else if (ItemClass.consumedCounter == 0 && ItemClass.trashedCounter == 1) {
+            percentage = 0;
+        } else {
+            percentage = ItemClass.consumedCounter*100/(ItemClass.consumedCounter+ItemClass.trashedCounter);
         }
-         else{
-            int trashPlusConsumed = trashedCounter + consumedCounter;
-            int consumedDivTrash = consumedCounter/trashPlusConsumed;
-            percentage = consumedDivTrash * 100;
-            return percentage;
-        }
-    }*/
+        return percentage;
+    }
 }
