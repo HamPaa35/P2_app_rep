@@ -26,7 +26,7 @@ public class editItem extends AppCompatActivity {
     ArrayList<String> storageListArrString = Storage.getStorageToStringArrList();
     String[] storageListString = storageListArrString.toArray(new String[storageListArrString.size()]);
 
-    //From here : Attributes to DatePicker in TextView
+    //The Views used in the activity
     private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     private EditText itemName;
@@ -36,16 +36,14 @@ public class editItem extends AppCompatActivity {
     private Button finishButton;
     private Switch openClosed;
 
+    //Intents from the item list
     int itemPosition;
     private ItemClass itemToBeEdited;
-    //To here : Attributes to DatePicker in TextView
 
-    //From here : Attributes to categoryPicker
+    //The different spinners from the dropdown
     Spinner categoryDropper;
     Spinner storageDropper;
 
-
-    //To Here : Attributes to categoryPicker
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,11 +96,8 @@ public class editItem extends AppCompatActivity {
                 }
         };
 
-
         categoryDropper();
         storageDropper();
-
-
     }
 
     //To here : DatePicker in TextView
@@ -134,10 +129,8 @@ public class editItem extends AppCompatActivity {
     public void finnishButton(View view) {
         ItemClass addedItem = new ItemClass(itemName(), categoryDropper.getSelectedItem().toString(), expirationDate(), storageDropper.getSelectedItem().toString(), checkSwitch(), categoryDropper.getSelectedItemPosition(), storageDropper.getSelectedItemPosition());
         ItemClass.getItemList().remove(itemPosition);
+        FileManager.saveItemData(this);
         openInventory();
-        //Intent i = new Intent(this, inventory.class);
-        //i.putExtra("AddedItem", test);
-        //startActivity(i);
     }
 
     public void openInventory() {

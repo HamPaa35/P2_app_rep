@@ -6,28 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".inventory">
 
-    <Button
-        android:id="@+id/overviewbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="8dp"
-        android:onClick="openOverview"
-        android:text="Overview"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/settingsbtn" />
-
-    <Button
-        android:id="@+id/addbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="49dp"
-        android:layout_marginBottom="68dp"
-        android:layout_marginEnd="8dp"
-        android:onClick="openAddItem"
-        android:text="Add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <ListView
         android:id="@+id/foodList"
         android:layout_width="match_parent"
@@ -38,33 +16,104 @@
         android:scrollbars="horizontal"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/settingsbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginBottom="16dp"
+    <ImageButton
+        android:id="@+id/addbtn"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="80dp"
         android:layout_marginEnd="8dp"
-        android:onClick="openSettings"
-        android:text="Settings"
+        android:background="#00000000"
+        android:onClick="openAddItem"
+
+        android:scaleType="centerCrop"
+        android:src="@android:drawable/ic_input_add"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonStatistics" />
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <ImageButton
+        android:id="@+id/overviewbtn"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_toEndOf="@+id/buttonStatistics"
+        android:background="#00000000"
+        android:elevation="0dp"
+        android:onClick="openOverview"
+        android:scaleType="centerCrop"
+        android:src="@drawable/home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonStatistics" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="112dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_toEndOf="@+id/inventoryImageView"
+        android:background="#00000000"
+        android:text="Inventory"
+        android:textColor="@color/colorTextHeadlines"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/inventoryImageView" />
 
     <include
         android:id="@+id/include2"
         layout="@layout/activity_item"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/buttonStatistics"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="8dp"
+        android:background="#00000000"
         android:onClick="openStatistics"
-        android:text="Statistics"
+        android:scaleType="centerCrop"
+        android:src="@drawable/statistics"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <ImageButton
+        android:id="@+id/settingsbtn"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_alignParentEnd="true"
+
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="#00000000"
+        android:onClick="openSettings"
+        android:scaleType="centerCrop"
+        android:src="@drawable/settings"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/inventoryImageView"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_toEndOf="@+id/overviewbtn"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/overviewbtn"
+        app:srcCompat="@drawable/inventory" />
+
+    <Button
+        android:id="@+id/buttonSort"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="23dp"
+        android:text="Sort"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toStartOf="@+id/addbtn" />
+
+
 </android.support.constraint.ConstraintLayout>

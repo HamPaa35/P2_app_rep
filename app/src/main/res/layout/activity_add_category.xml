@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <Spinner
         android:id="@+id/storageCategorySpinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_height="39dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@android:drawable/btn_dropdown"
+        android:background="@drawable/spinner_"
+        android:popupBackground="@color/colorSpinnerBackground"
         android:spinnerMode="dropdown"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.401" />
+        app:layout_constraintTop_toBottomOf="@+id/categoryExpirationClosed" />
 
     <Button
         android:id="@+id/finishBtn"
@@ -28,8 +26,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
+        android:background="#00000000"
         android:onClick="finnishButton"
-        android:text="Finish"
+        android:text="Save Category"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -38,12 +37,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginStart="148dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:background="#00000000"
         android:onClick="closeAddCategory"
         android:text="Cancel"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/finishBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -52,9 +53,13 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="85dp"
         android:layout_marginStart="84dp"
+        android:layout_marginTop="88dp"
+        android:background="@color/colorSpinnerBackground"
         android:ems="10"
         android:hint="Category name"
         android:inputType="text"
+        android:textColor="@color/colorText"
+        android:textColorHint="@color/colorText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,9 +72,11 @@
         android:layout_marginEnd="84dp"
         android:layout_marginStart="85dp"
         android:layout_marginTop="16dp"
+        android:background="@color/colorSpinnerBackground"
         android:ems="10"
         android:hint="Typical opened expiration time"
         android:inputType="number"
+        android:textColorHint="@color/colorText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addCategoryName" />
@@ -81,11 +88,31 @@
         android:layout_marginEnd="84dp"
         android:layout_marginStart="85dp"
         android:layout_marginTop="16dp"
+        android:background="@color/colorSpinnerBackground"
         android:ems="10"
         android:hint="Typical closed expiration time"
         android:inputType="number"
+        android:textColorHint="@color/colorText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/categoryExpirationOpen" />
+
+    <TextView
+        android:id="@+id/newCategoryHeadline"
+        android:layout_width="269dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="New Category"
+        android:textColor="@color/colorTextHeadlines"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>

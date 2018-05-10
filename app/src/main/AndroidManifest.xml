@@ -5,7 +5,7 @@
     <application
         android:name=".customApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/app"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -28,9 +28,6 @@
         <activity
             android:name=".additem"
             android:label="Add new item" />
-        <activity
-            android:name=".Test"
-            android:label="test af DB" />
         <activity
             android:name=".editItem"
             android:label="Edit your item" />

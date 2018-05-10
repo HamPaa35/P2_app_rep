@@ -22,6 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="12dp"
+            android:background="#00000000"
             android:text="Cancel" />
 
         <Button
@@ -30,7 +31,8 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/cancelBtnCategories"
             android:layout_centerHorizontal="true"
-            android:text="Edit" />
+            android:background="#00000000"
+            android:text="Edith" />
 
         <Button
             android:id="@+id/delBtnCategories"
@@ -38,6 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignTop="@+id/cancelBtnCategories"
+            android:background="#00000000"
             android:text="Delete" />
 
         <TextView
@@ -48,6 +51,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:text="Name"
+            android:textColor="@color/colorTextHeadlines"
             android:textSize="24sp" />
     </RelativeLayout>
 

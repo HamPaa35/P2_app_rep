@@ -12,8 +12,6 @@ import java.util.ArrayList;
 
 public class categoryListAdapter extends ArrayAdapter<Category> {
 
-    private static final String TAG = "itemListAdapter";
-
     private Context mContext;
     int mResources;
 
@@ -22,6 +20,7 @@ public class categoryListAdapter extends ArrayAdapter<Category> {
       mContext = context;
       mResources = resource;
   }
+
   //Here the activity_Item is passed the right information to display in the inventory and the text is set
   @NonNull
     @Override
@@ -46,4 +45,4 @@ public class categoryListAdapter extends ArrayAdapter<Category> {
 
       return convertView;
   }
-    }
+}

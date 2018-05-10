@@ -25,7 +25,8 @@ public class Category extends FileManager implements Serializable {
 
         categoryList.add(this);
     }
-// Getter- and setter-methods
+
+    // Getter- and setter-methods
     public String getName() {
         return name;
     }
@@ -62,8 +63,8 @@ public class Category extends FileManager implements Serializable {
         return categoryList;
     }
 
-    public static void setItemList(ArrayList<Category> itemList) {
-        Category.categoryList = itemList;
+    public static void setCategoryList(ArrayList<Category> catList) {
+        Category.categoryList = catList;
     }
 
     public static ArrayList<String> getCategoryToStringArrList(){

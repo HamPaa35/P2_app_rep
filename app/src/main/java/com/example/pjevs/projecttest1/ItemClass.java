@@ -15,8 +15,8 @@ public class ItemClass extends FileManager implements Serializable{
     private String openClosed;
     private int spinnerCatPos;
     private int spinnerStorPos;
-    static int consumedCounter = 0;
-    static int trashedCounter = 0;
+    static int consumedCounter;
+    static int trashedCounter;
     private static ArrayList<ItemClass> itemList = new ArrayList<>();
     //These constructors needs to be cleaned up at some point
 
@@ -123,4 +123,18 @@ public class ItemClass extends FileManager implements Serializable{
     public static void setItemList(ArrayList<ItemClass> itemList) {
         ItemClass.itemList = itemList;
     }
+
+    /*public static int getPercentageOfItemsConsumed(){
+        int percentage;
+        if (consumedCounter == 0){
+            percentage = 100;
+            return percentage;
+        }
+         else{
+            int trashPlusConsumed = trashedCounter + consumedCounter;
+            int consumedDivTrash = consumedCounter/trashPlusConsumed;
+            percentage = consumedDivTrash * 100;
+            return percentage;
+        }
+    }*/
 }
