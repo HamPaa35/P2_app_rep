@@ -11,6 +11,7 @@ public class Category extends FileManager implements Serializable {
     private String TypicalExpirationClosed;
     private String storageMethod;
     private int spinnerStorPos;
+    private Boolean isFavorite = false;
     private static ArrayList<Category> categoryList = new ArrayList<Category>();
     private static ArrayList<String> categoryListArrString = Category.getCategoryToStringArrList();
     private static String[] categoryListString = categoryListArrString.toArray(new String[categoryListArrString.size()]);
@@ -22,6 +23,27 @@ public class Category extends FileManager implements Serializable {
         this.TypicalExpirationClosed = TypicalExpirationClosed;
         this.storageMethod = storageMethod;
         this.spinnerStorPos = spinnerStorPos;
+
+        categoryList.add(this);
+    }
+
+    public Category (String name, String TypicalExpirationOpen, String TypicalExpirationClosed, Storage storageMethod, int spinnerStorPos){
+        this.name = name;
+        this.TypicalExpirationOpen = TypicalExpirationOpen;
+        this.TypicalExpirationClosed = TypicalExpirationClosed;
+        this.storageMethod = storageMethod.getName();
+        this.spinnerStorPos = spinnerStorPos;
+
+        categoryList.add(this);
+    }
+
+    public Category (String name, String TypicalExpirationOpen, String TypicalExpirationClosed, String storageMethod, int spinnerStorPos, boolean isFavorite){
+        this.name = name;
+        this.TypicalExpirationOpen = TypicalExpirationOpen;
+        this.TypicalExpirationClosed = TypicalExpirationClosed;
+        this.storageMethod = storageMethod;
+        this.spinnerStorPos = spinnerStorPos;
+        this.isFavorite = isFavorite;
 
         categoryList.add(this);
     }
@@ -89,6 +111,14 @@ public class Category extends FileManager implements Serializable {
 
     public void setSpinnerStorPos(int spinnerStorPos) {
         this.spinnerStorPos = spinnerStorPos;
+    }
+
+    public Boolean getFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(Boolean favorite) {
+        isFavorite = favorite;
     }
 
     @Override

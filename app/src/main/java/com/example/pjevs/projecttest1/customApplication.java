@@ -32,7 +32,7 @@ public class customApplication extends Application {
             Category meat = new Category("Meat", "5", "7", "Fridge", 0);
             Category peas = new Category("Peas", "30", "35", "Freezer", 1);
 
-            ItemClass tutorialItem = new ItemClass("Tutorial item", meat, "", fridge, "Closed", 2, meat.getSpinnerStorPos());
+            ItemClass tutorialItem = new ItemClass("Tutorial item", meat, "", fridge, "Closed", 0, bread.getSpinnerStorPos());
 
             FileManager.saveCatData(this);
             FileManager.saveItemData(this);

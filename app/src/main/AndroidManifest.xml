@@ -12,7 +12,9 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="Overview">
+            android:label="Overview"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,34 +23,54 @@
         </activity>
         <activity
             android:name=".inventory"
-            android:label="Inventory" />
+            android:label="Inventory"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".settings"
-            android:label="Settings" />
+            android:label="Settings"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".additem"
-            android:label="Add new item" />
+            android:label="Add new item"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".editItem"
-            android:label="Edit your item" />
+            android:label="Edit your item"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".GeneralSettings"
-            android:label="General settings" />
+            android:label="General settings"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Notifications"
-            android:label="Notification settings" />
+            android:label="Notification settings"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".AddCategoryActivity"
-            android:label="Add new category" />
+            android:label="Add new category"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".CategoriesActivity"
-            android:label="All categories" />
+            android:label="All categories"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".statisticsActivity"
-            android:label="Waste statistics"/>
+            android:label="Waste statistics"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".editCategory"
             android:label="Edit your category"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             >
 
         </activity>
