@@ -140,5 +140,9 @@ public class inventory extends AppCompatActivity {
         Intent intent = new Intent(this, statisticsActivity.class);
         startActivity(intent);
     }
-
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    public void sort(View view){
+        ItemClass.sortTheItemList();
+    }
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }

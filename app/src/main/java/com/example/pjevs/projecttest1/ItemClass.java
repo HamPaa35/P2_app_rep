@@ -2,6 +2,8 @@ package com.example.pjevs.projecttest1;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 
 public class ItemClass extends FileManager implements Serializable{
@@ -123,6 +125,17 @@ public class ItemClass extends FileManager implements Serializable{
     public static void setItemList(ArrayList<ItemClass> itemList) {
         ItemClass.itemList = itemList;
     }
+
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    public static void sortTheItemList (){
+        Collections.sort(ItemClass.itemList, new Comparator<ItemClass>() {
+            @Override
+            public int compare(ItemClass o1, ItemClass o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
+    }
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     public static int getPercentageOfItemsConsumed(){
         int percentage;
