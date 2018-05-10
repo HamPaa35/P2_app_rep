@@ -8,13 +8,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 
 
 public class inventory extends AppCompatActivity {
@@ -140,9 +137,22 @@ public class inventory extends AppCompatActivity {
         Intent intent = new Intent(this, statisticsActivity.class);
         startActivity(intent);
     }
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    public void sort(View view){
-        ItemClass.sortTheItemList();
+
+    public void sortAlfabebetically(View view){
+        ItemClass.sortTheItemListAlphabetically();
+        FileManager.saveItemData(getApplicationContext());
+        adapter.notifyDataSetChanged();
     }
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    public void sortByCategory(View view){
+        ItemClass.sortTheItemListByCategory();
+        FileManager.saveItemData(getApplicationContext());
+        adapter.notifyDataSetChanged();
+    }
+
+    public void sortByDate(View view){
+        ItemClass.sortTheItemListByDate();
+        FileManager.saveItemData(getApplicationContext());
+        adapter.notifyDataSetChanged();
+    }
 }

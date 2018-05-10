@@ -126,8 +126,7 @@ public class ItemClass extends FileManager implements Serializable{
         ItemClass.itemList = itemList;
     }
 
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    public static void sortTheItemList (){
+    public static void sortTheItemListAlphabetically(){
         Collections.sort(ItemClass.itemList, new Comparator<ItemClass>() {
             @Override
             public int compare(ItemClass o1, ItemClass o2) {
@@ -135,13 +134,30 @@ public class ItemClass extends FileManager implements Serializable{
             }
         });
     }
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    public static void sortTheItemListByCategory(){
+        Collections.sort(ItemClass.itemList, new Comparator<ItemClass>() {
+            @Override
+            public int compare(ItemClass o1, ItemClass o2) {
+                return o1.getItemCategory().compareTo(o2.getItemCategory());
+            }
+        });
+    }
+
+    public static void sortTheItemListByDate(){
+        Collections.sort(ItemClass.itemList, new Comparator<ItemClass>() {
+            @Override
+            public int compare(ItemClass o1, ItemClass o2) {
+                return o1.getExpirationDate().compareTo(o2.getExpirationDate());
+            }
+        });
+    }
 
     public static int getPercentageOfItemsConsumed(){
         int percentage;
-        if (ItemClass.consumedCounter == 0 && ItemClass.trashedCounter == 0) {
+        if (consumedCounter == 1 && trashedCounter == 0) {
             percentage = 100;
-        } else if (ItemClass.consumedCounter == 0 && ItemClass.trashedCounter == 1) {
+        } else if (trashedCounter == 1 && consumedCounter == 0) {
             percentage = 0;
         } else {
             percentage = ItemClass.consumedCounter*100/(ItemClass.consumedCounter+ItemClass.trashedCounter);
