@@ -8,21 +8,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.Locale;
 
 public class CategoriesActivity extends AppCompatActivity {
 
     categoryListAdapter adapter;
+    ImageButton favoriteButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categories);
         final ListView categoryListView = (ListView) findViewById(R.id.categoryList);
+        favoriteButton = findViewById(R.id.imageButtonFavorite);
 
         FileManager.loadCatData(getApplicationContext());
 
@@ -98,5 +98,9 @@ public class CategoriesActivity extends AppCompatActivity {
         i.putExtra("Category to edit", Category.getCategoryList().get(catPosition));
         i.putExtra("Category position", catPosition);
         startActivity(i);
+    }
+
+    public void onFavoriteClicked(View view){
+        favoriteButton.setImageResource(android.R.drawable.btn_star_big_on);
     }
 }
