@@ -48,10 +48,10 @@
 
     <Button
         android:id="@+id/GeneralSettingsButton"
-        android:layout_width="377dp"
+        android:layout_width="0dp"
         android:layout_height="63dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@color/colorSpinnerBackground"
         android:onClick="openGeneralSettings"
@@ -63,10 +63,10 @@
 
     <Button
         android:id="@+id/NotificationsButton"
-        android:layout_width="377dp"
+        android:layout_width="0dp"
         android:layout_height="63dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:background="@color/colorSpinnerBackground"
         android:onClick="openNotifications"
@@ -79,10 +79,10 @@
 
     <Button
         android:id="@+id/CategoryButton"
-        android:layout_width="377dp"
+        android:layout_width="0dp"
         android:layout_height="63dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:background="@color/colorSpinnerBackground"
         android:onClick="openCategoriesActivity"

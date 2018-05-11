@@ -155,9 +155,9 @@ public class ItemClass extends FileManager implements Serializable{
 
     public static int getPercentageOfItemsConsumed(){
         int percentage;
-        if (consumedCounter == 1 && trashedCounter == 0) {
+        if (consumedCounter == 1) {
             percentage = 100;
-        } else if (trashedCounter == 1 && consumedCounter == 0) {
+        } else if (consumedCounter == 0) {
             percentage = 0;
         } else {
             percentage = ItemClass.consumedCounter*100/(ItemClass.consumedCounter+ItemClass.trashedCounter);
