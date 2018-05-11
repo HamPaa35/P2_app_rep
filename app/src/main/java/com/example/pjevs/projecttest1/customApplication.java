@@ -67,7 +67,7 @@ public class customApplication extends Application {
             Category WhippingCream = new Category("Whipping Cream", "10 days", "10 days",fridge ,0 );
             Category LactoseFreeMilk = new Category("Lactose Free Milk", "4-5 days", "30 days",fridge ,0 );
             Category CannedBeans = new Category("Canned Beans", "2,5 years", "2,5 years", cupBoard, 2);
-            Category MarinatedHerring = new Category("Marinated Herring", "", "", , );
+            Category MarinatedHerring = new Category("Marinated Herring", "10 days", "6 months",fridge ,0 );
 
 
 
