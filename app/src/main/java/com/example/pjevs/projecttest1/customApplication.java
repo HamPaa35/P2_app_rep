@@ -64,7 +64,7 @@ public class customApplication extends Application {
             Category Yoghurt = new Category("Yoghurt", "4-6 days", "20 days", fridge,0 );
             Category Butter = new Category("Butter", "2 months", "2 months", fridge,0 );
             Category Milk = new Category("Milk", "3-4 days", "10 days", fridge, 0);
-
+            Category WhippingCream = new Category("Whipping Cream", "10 days", "10 days",fridge ,0 );
 
 
 
