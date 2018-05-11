@@ -7,6 +7,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -107,6 +108,17 @@ public class editItem extends AppCompatActivity {
         categoryDropper.setAdapter(categoryAdapter);
 
         categoryDropper.setSelection(itemToBeEdited.getSpinnerCatPos());
+
+        categoryDropper.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View v, int pos, long id) {
+                storageDropper.setSelection(Category.getCategoryList().get(categoryDropper.getSelectedItemPosition()).getSpinnerStorPos());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }});
     }
 
     public String expirationDate (){

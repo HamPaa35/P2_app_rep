@@ -34,16 +34,22 @@ public class MainActivity extends AppCompatActivity {
         categoryListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //dialog(position);
+                favCategoryPushed(position);
             }
         });
 
     }
 
-    public void openInventory(View view){
+    private void favCategoryPushed(int catPosition) {
+        Intent i = new Intent(this, additem.class);
+        i.putExtra("Category spinner position", Category.getFavCatArrList().get(catPosition).getSpinnerCatPos());
+        startActivity(i);
+    }
+
+    public void openInventory(View view) {
         Intent intent = new Intent(this, inventory.class);
         startActivity(intent);
-}
+    }
 
     public void openSettings(View view){
         Intent intent = new Intent(this, settings.class);
@@ -52,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void openAddItem(View view){
         Intent intent = new Intent(getApplicationContext(), additem.class);
+        intent.putExtra("Category spinner position", 0);
         startActivity(intent);
     }
 

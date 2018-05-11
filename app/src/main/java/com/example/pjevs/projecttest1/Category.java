@@ -10,6 +10,7 @@ public class Category extends FileManager implements Serializable {
     private String TypicalExpirationOpen;
     private String TypicalExpirationClosed;
     private String storageMethod;
+    private int spinnerCatPos;
     private int spinnerStorPos;
     private Boolean isFavorite = false;
     private static ArrayList<Category> categoryList = new ArrayList<Category>();
@@ -121,12 +122,21 @@ public class Category extends FileManager implements Serializable {
         isFavorite = favorite;
     }
 
+    public int getSpinnerCatPos() {
+        return spinnerCatPos;
+    }
+
+    public void setSpinnerCatPos(int spinnerCatPos) {
+        this.spinnerCatPos = spinnerCatPos;
+    }
+
     public static ArrayList<Category> getFavCatArrList() {
         ArrayList<Category> favCatArrList = new ArrayList<>();
 
         for(Category category : categoryList){
 
             if(category.getFavorite()){
+                category.setSpinnerCatPos(categoryList.indexOf(category));
                 favCatArrList.add(category);
             }
 

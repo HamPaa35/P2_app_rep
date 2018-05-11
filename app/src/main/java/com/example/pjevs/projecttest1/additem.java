@@ -7,6 +7,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -36,6 +37,8 @@ public class additem extends AppCompatActivity {
     Spinner storageDropdown;
     Spinner categoryDropdown;
 
+    int catPosition;
+
     //This is used for an if else statement further down
     private String expirationDate = "";
 
@@ -43,6 +46,9 @@ public class additem extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_additem);
+
+        Intent favCatPositions = getIntent();
+        catPosition = (Integer) favCatPositions.getSerializableExtra("Category spinner position");
 
         //The views are connected to the Views in the Activity
         itemName = (EditText) findViewById(R.id.addCategoryName);
@@ -103,6 +109,29 @@ public class additem extends AppCompatActivity {
         ArrayAdapter<String> categoryAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, categoryListString);
         categoryDropdown.setPrompt("Pick a category");
         categoryDropdown.setAdapter(categoryAdapter);
+        categoryDropdown.setSelection(catPosition);
+        categoryDropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View v,
+                                       int pos, long id) {
+                storageDropdown.setSelection(Category.getCategoryList().get(categoryDropdown.getSelectedItemPosition()).getSpinnerStorPos());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+
+
+            }});
+    }
+
+    public String expirationDate (){
+        if(expirationDate.equals("")){
+            return Category.getCategoryList().get(categoryDropdown.getSelectedItemPosition()).getTypicalExpirationOpen();
+        }
+        else{
+            return expirationDate;
+        }
     }
 
     //This function tells what is shown in the storingDropdown
@@ -112,11 +141,12 @@ public class additem extends AppCompatActivity {
         storageDropdown.setPrompt("Pick a storage method");
         storageDropdown.setAdapter(storageAdapter);
         storageDropdown.setSelection(Category.getCategoryList().get(categoryDropdown.getSelectedItemPosition()).getSpinnerStorPos());
+
     }
 
     //Takes the info added to the category and adds it to the array and database
     public void finnishButton(View view){
-        ItemClass addedItem = new ItemClass(itemName(), categoryDropdown.getSelectedItem().toString(), expirationDate, storageDropdown.getSelectedItem().toString(), checkSwitch(), categoryDropdown.getSelectedItemPosition(), storageDropdown.getSelectedItemPosition());
+        ItemClass addedItem = new ItemClass(itemName(), categoryDropdown.getSelectedItem().toString(), expirationDate(), storageDropdown.getSelectedItem().toString(), checkSwitch(), categoryDropdown.getSelectedItemPosition(), storageDropdown.getSelectedItemPosition());
         FileManager.saveItemData(this);
         openInventory();
     }
