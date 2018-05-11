@@ -10,6 +10,8 @@ import java.io.File;
 import java.lang.reflect.Type;
 import java.nio.file.FileAlreadyExistsException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class customApplication extends Application {
 
@@ -66,7 +68,7 @@ public class customApplication extends Application {
             Category Milk = new Category("Milk", "3-4 days", "10 days", fridge, 0);
             Category WhippingCream = new Category("Whipping Cream", "10 days", "10 days",fridge ,0 );
 
-
+            sortTheCategoryListAlphabetically();
 
             ItemClass tutorialItem = new ItemClass("Tutorial item", meat, "", fridge, "Closed", 0, bread.getSpinnerStorPos());
 
@@ -77,6 +79,14 @@ public class customApplication extends Application {
 
             FileManager.saveSetup(this);
         }
+    }
+    public static void sortTheCategoryListAlphabetically(){
+        Collections.sort(Category.getCategoryList(), new Comparator<Category>() {
+            @Override
+            public int compare(Category o1, Category o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
     }
 }
 
