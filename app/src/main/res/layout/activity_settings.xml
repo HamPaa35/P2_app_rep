@@ -23,14 +23,14 @@
         android:id="@+id/addbtn"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:layout_marginBottom="80dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
         android:background="#00000000"
         android:onClick="openAddItem"
 
         android:scaleType="centerCrop"
         android:src="@android:drawable/ic_input_add"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageButton
@@ -113,20 +113,22 @@
         android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
         android:scaleType="centerCrop"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/inventoryButton"
         app:srcCompat="@drawable/settings" />
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="108dp"
+        android:layout_width="138dp"
         android:layout_height="56dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="8dp"
         android:background="#00000000"
         android:text="Settings"
         android:textColor="@color/colorTextHeadlines"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView2" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/inventoryButton" />
 
 </android.support.constraint.ConstraintLayout>

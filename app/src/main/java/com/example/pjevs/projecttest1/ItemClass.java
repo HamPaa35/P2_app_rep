@@ -2,6 +2,8 @@ package com.example.pjevs.projecttest1;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 
 public class ItemClass extends FileManager implements Serializable{
@@ -124,17 +126,42 @@ public class ItemClass extends FileManager implements Serializable{
         ItemClass.itemList = itemList;
     }
 
-    /*public static int getPercentageOfItemsConsumed(){
+    public static void sortTheItemListAlphabetically(){
+        Collections.sort(ItemClass.itemList, new Comparator<ItemClass>() {
+            @Override
+            public int compare(ItemClass o1, ItemClass o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
+    }
+
+    public static void sortTheItemListByCategory(){
+        Collections.sort(ItemClass.itemList, new Comparator<ItemClass>() {
+            @Override
+            public int compare(ItemClass o1, ItemClass o2) {
+                return o1.getItemCategory().compareTo(o2.getItemCategory());
+            }
+        });
+    }
+
+    public static void sortTheItemListByDate(){
+        Collections.sort(ItemClass.itemList, new Comparator<ItemClass>() {
+            @Override
+            public int compare(ItemClass o1, ItemClass o2) {
+                return o1.getExpirationDate().compareTo(o2.getExpirationDate());
+            }
+        });
+    }
+
+    public static int getPercentageOfItemsConsumed(){
         int percentage;
-        if (consumedCounter == 0){
+        if (consumedCounter == 1 && trashedCounter == 0) {
             percentage = 100;
-            return percentage;
+        } else if (trashedCounter == 1 && consumedCounter == 0) {
+            percentage = 0;
+        } else {
+            percentage = ItemClass.consumedCounter*100/(ItemClass.consumedCounter+ItemClass.trashedCounter);
         }
-         else{
-            int trashPlusConsumed = trashedCounter + consumedCounter;
-            int consumedDivTrash = consumedCounter/trashPlusConsumed;
-            percentage = consumedDivTrash * 100;
-            return percentage;
-        }
-    }*/
+        return percentage;
+    }
 }

@@ -15,14 +15,14 @@ import android.widget.TextView;
 public class CategoriesActivity extends AppCompatActivity {
 
     categoryListAdapter adapter;
-    ImageButton favoriteButton;
+    ImageButton favButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categories);
         final ListView categoryListView = (ListView) findViewById(R.id.categoryList);
-        favoriteButton = findViewById(R.id.imageButtonFavorite);
 
         FileManager.loadCatData(getApplicationContext());
 
@@ -46,8 +46,11 @@ public class CategoriesActivity extends AppCompatActivity {
         Button editBtn = (Button) promptView.findViewById(R.id.editBtnCategories);
         Button cancelBtn = (Button) promptView.findViewById(R.id.cancelBtnCategories);
         Button delBtn = (Button) promptView.findViewById(R.id.delBtnCategories);
+        favButton = (ImageButton) promptView.findViewById(R.id.imageButtonFavorite);
 
         dialogName.setText(Category.getCategoryList().get(catPosition).getName());
+
+        checkFavorite(catPosition);
 
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +73,15 @@ public class CategoriesActivity extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
                 FileManager.saveCatData(getApplicationContext());
                 openCategoriesActivity();
+            }
+        });
+
+        favButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onFavoriteClicked(catPosition);
+                checkFavorite(catPosition);
+                FileManager.saveCatData(getApplicationContext());
             }
         });
 
@@ -100,7 +112,21 @@ public class CategoriesActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void onFavoriteClicked(View view){
-        favoriteButton.setImageResource(android.R.drawable.btn_star_big_on);
+    private void checkFavorite(int catItemPos){
+        if(Category.getCategoryList().get(catItemPos).getFavorite()){
+            favButton.setImageResource(android.R.drawable.btn_star_big_on);
+        }
+        else{
+            favButton.setImageResource(android.R.drawable.btn_star_big_off);
+        }
+    }
+
+    private void onFavoriteClicked(int catItemPos){
+        if(Category.getCategoryList().get(catItemPos).getFavorite()){
+            Category.getCategoryList().get(catItemPos).setFavorite(false);
+        }
+        else{
+            Category.getCategoryList().get(catItemPos).setFavorite(true);
+        }
     }
 }

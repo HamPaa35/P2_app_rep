@@ -9,25 +9,26 @@
     <ListView
         android:id="@+id/foodList"
         android:layout_width="match_parent"
-        android:layout_height="448dp"
+        android:layout_height="0dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="8dp"
         android:scrollbars="horizontal"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/button7" />
 
     <ImageButton
         android:id="@+id/addbtn"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:background="#00000000"
         android:onClick="openAddItem"
 
         android:scaleType="centerCrop"
         android:src="@android:drawable/ic_input_add"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/settingsbtn"
         app:layout_constraintEnd_toEndOf="parent" />
 
 
@@ -48,16 +49,17 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="112dp"
+        android:layout_width="138dp"
         android:layout_height="55dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="8dp"
         android:layout_toEndOf="@+id/inventoryImageView"
         android:background="#00000000"
         android:text="Inventory"
         android:textColor="@color/colorTextHeadlines"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/inventoryImageView" />
+        app:layout_constraintEnd_toStartOf="@+id/settingsbtn"
+        app:layout_constraintStart_toEndOf="@+id/overviewbtn" />
 
     <include
         android:id="@+id/include2"
@@ -71,12 +73,13 @@
         android:layout_height="55dp"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
         android:background="#00000000"
         android:onClick="openStatistics"
         android:scaleType="centerCrop"
         android:src="@drawable/statistics"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/settingsbtn"
@@ -98,22 +101,53 @@
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="8dp"
         android:layout_toEndOf="@+id/overviewbtn"
         android:scaleType="centerCrop"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintStart_toEndOf="@+id/overviewbtn"
         app:srcCompat="@drawable/inventory" />
 
     <Button
         android:id="@+id/buttonSort"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:layout_marginEnd="23dp"
-        android:text="Sort"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toStartOf="@+id/addbtn" />
+        android:layout_marginTop="8dp"
+        android:background="@color/colorSpinnerBackground"
+        android:onClick="sortAlfabebetically"
+        android:text="Sort by name"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button7"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorSpinnerBackground"
+        android:onClick="sortByCategory"
+        android:text="Sort by category"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/button7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/include2" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorSpinnerBackground"
+        android:onClick="sortByDate"
+        android:text="Sort by date"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/foodList"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/foodList"
+        app:layout_constraintTop_toTopOf="@+id/include2" />
 
 
 </android.support.constraint.ConstraintLayout>

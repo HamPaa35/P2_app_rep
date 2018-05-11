@@ -16,6 +16,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+
 //This class is controlling what is shown on the "additem" activity
 public class additem extends AppCompatActivity {
 
@@ -122,6 +124,19 @@ public class additem extends AppCompatActivity {
     public void openInventory(){
         Intent intent = new Intent(this, inventory.class);
         startActivity(intent);
+    }
+
+    public String timeRemaining(Date then) {
+        Date now = new Date();
+        long diff = then.getTime() - now.getTime();
+        String remaining = "";
+        if (diff >= 86400000) {
+            long days = diff / 86400000;
+            remaining += "" + days + "days";
+            diff -= days * 86400000;
+        }
+        //... similar math for hours, minutes
+        return remaining;
     }
 
 }

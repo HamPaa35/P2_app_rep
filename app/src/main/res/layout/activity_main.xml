@@ -36,7 +36,7 @@
         android:id="@+id/addbtn"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:background="#00000000"
         android:onClick="openAddItem"
@@ -66,21 +66,55 @@
         android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
         android:scaleType="centerCrop"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buttonStatistics"
         app:srcCompat="@drawable/home" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="100dp"
+        android:layout_width="138dp"
         android:layout_height="55dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="8dp"
         android:background="#00000000"
         android:text="Overview"
         android:textAlignment="center"
         android:textColor="@color/colorTextHeadlines"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView" />
+        app:layout_constraintEnd_toStartOf="@+id/inventorybtn"
+        app:layout_constraintStart_toEndOf="@+id/buttonStatistics" />
+
+    <ListView
+        android:id="@+id/catFavList"
+        android:layout_width="match_parent"
+        android:layout_height="408dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="8dp"
+        android:scrollbars="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/activity_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Favorite categories"
+        android:textColor="@color/colorTextHeadlines"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/include"
+        app:layout_constraintStart_toEndOf="@+id/include"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
