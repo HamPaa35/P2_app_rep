@@ -125,6 +125,15 @@ public class additem extends AppCompatActivity {
             }});
     }
 
+    public String expirationDate (){
+        if(expirationDate.equals("")){
+            return Category.getCategoryList().get(categoryDropdown.getSelectedItemPosition()).getTypicalExpirationOpen();
+        }
+        else{
+            return expirationDate;
+        }
+    }
+
     //This function tells what is shown in the storingDropdown
     public void storageDropdown(){
         storageDropdown = findViewById(R.id.storageSpinner);
@@ -137,7 +146,7 @@ public class additem extends AppCompatActivity {
 
     //Takes the info added to the category and adds it to the array and database
     public void finnishButton(View view){
-        ItemClass addedItem = new ItemClass(itemName(), categoryDropdown.getSelectedItem().toString(), expirationDate, storageDropdown.getSelectedItem().toString(), checkSwitch(), categoryDropdown.getSelectedItemPosition(), storageDropdown.getSelectedItemPosition());
+        ItemClass addedItem = new ItemClass(itemName(), categoryDropdown.getSelectedItem().toString(), expirationDate(), storageDropdown.getSelectedItem().toString(), checkSwitch(), categoryDropdown.getSelectedItemPosition(), storageDropdown.getSelectedItemPosition());
         FileManager.saveItemData(this);
         openInventory();
     }
