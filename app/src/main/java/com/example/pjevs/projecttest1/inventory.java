@@ -125,6 +125,7 @@ public class inventory extends AppCompatActivity {
 
     public void openAddItem(View view){
         Intent intent = new Intent(getApplicationContext(), additem.class);
+        intent.putExtra("Category spinner position", 0);
         startActivity(intent);
     }
 
