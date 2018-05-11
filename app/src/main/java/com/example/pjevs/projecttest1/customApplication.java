@@ -50,7 +50,7 @@ public class customApplication extends Application {
             Category bukoPikant = new Category("Buko Pikant", "5 days", "2 months", fridge , 0);
             Category bukoNaturel = new Category("Buko Naturel", "5 days", "2 months", fridge , 0);
             Category bukoMushroom = new Category("Buko Mushroom", "8 days", "3 months", fridge, 0);
-            Category bukoShrimps = new Category("Buko Mushrooms", "8 days", "4 months", fridge, 0);
+            Category bukoShrimps = new Category("Buko Shrimps", "8 days", "4 months", fridge, 0);
             Category ThiseChiliCheese = new Category("Thise Chili Cheese", "1,5 months", "1,5 months", fridge, 0);
             Category LandanaChiliCheese = new Category("Landana Chili Cheese", "3,5 months", "3,5 months", fridge, 0);
             Category CoopGratedCheddar = new Category("Coop Grated Cheddar", "2 months", "2 months", fridge, 0);
@@ -70,6 +70,34 @@ public class customApplication extends Application {
             Category LactoseFreeMilk = new Category("Lactose Free Milk", "4-5 days", "30 days",fridge ,0 );
             Category CannedBeans = new Category("Canned Beans", "2,5 years", "2,5 years", cupBoard, 2);
             Category MarinatedHerring = new Category("Marinated Herring", "10 days", "6 months",fridge ,0 );
+            Category Shrimps = new Category("Shrimps", "3-5 days", "1 month",fridge ,0 );
+            Category FishCakes = new Category("Fish Cakes", "4 days", "1 month",fridge ,0 );
+            Category Havarti = new Category("Havarti", "1-2 weeks", "4 months", fridge,0 );
+            Category EcoHavarti = new Category("Eco Havarti", "1-2 weeks", "2 months", fridge ,0 );
+            Category Buns = new Category("Buns", "3-7 days", "7 days", cupBoard,2 );
+            Category RyeBread = new Category("Rye Bread", "3-4 days", "7 days",cupBoard ,2 );
+            Category ToastBread = new Category("Toast Bread", "3-4", "7 days", cupBoard,2 );
+            Category Oatmeal = new Category("Oatmeal", "1 year", "1 year", cupBoard, 2);
+            Category Crispbread = new Category("Crispbread", "6 months", "6 months", cupBoard,2 );
+            Category SupermarkedCake = new Category("Supermarked Cake", "5 days", "2 months", cupBoard, 2);
+            Category Sugar = new Category("Sugar", "Unlimited", "Unlimited",cupBoard ,2 );
+            Category PowderedSugar = new Category("Powdered Sugar", "2,5 years", "2,5 years",cupBoard ,2 );
+            Category WheatFlour = new Category("Wheat Flour", "1 year", "1 year",cupBoard ,2 );
+            Category Nutella = new Category("Nutella", "10 months", "10 months",cupBoard ,2 );
+            Category LayingOnChocolate = new Category("Laying-On Chocolate", "1 year, 2 months", "1 year, 2 months", fridge ,0 );
+            Category SpicesSeasoning = new Category("Spices", "3-4 years", "3-4 years",cupBoard ,2 );
+            Category CanMackerelFillet = new Category("Can Mackerel Fillet", "7 days", "4-5 years",cupBoard ,2 );
+            Category CanRoe = new Category("Can Roe", "2 days", "2-3 years",cupBoard ,2 );
+            Category Rice = new Category("Rice", "4 months", "4 months", cupBoard,2 );
+            Category EcoSpaghetti = new Category("Eco Spaghetti", "6 months", "6 months", cupBoard,2 );
+            Category WholemealSpaghetti = new Category("Wholemeal Spaghetti", "2,5 months", "2,5 months",cupBoard ,2 );
+            Category CoopSpaghetti = new Category("Coop Spaghetti", "2,5 years", "2,5 years",cupBoard ,2 );
+
+
+
+
+
+
 
             sortTheCategoryListAlphabetically();
 
