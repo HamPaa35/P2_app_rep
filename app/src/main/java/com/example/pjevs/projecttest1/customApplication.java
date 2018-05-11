@@ -71,18 +71,6 @@ public class customApplication extends Application {
             Category CannedBeans = new Category("Canned Beans", "2,5 years", "2,5 years", cupBoard, 2);
             Category MarinatedHerring = new Category("Marinated Herring", "10 days", "6 months",fridge ,0 );
 
-
-
-
-
-
-
-
-
-
-
-
-
             sortTheCategoryListAlphabetically();
 
             ItemClass tutorialItem = new ItemClass("Tutorial item", meat, "", fridge, "Closed", 0, bread.getSpinnerStorPos());
