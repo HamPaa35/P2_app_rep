@@ -27,7 +27,7 @@
         android:onClick="openAddItem"
 
         android:scaleType="centerCrop"
-        android:src="@android:drawable/ic_input_add"
+        android:src="@drawable/add_button"
         app:layout_constraintBottom_toTopOf="@+id/settingsbtn"
         app:layout_constraintEnd_toEndOf="parent" />
 
