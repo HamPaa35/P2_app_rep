@@ -92,7 +92,32 @@ public class customApplication extends Application {
             Category EcoSpaghetti = new Category("Eco Spaghetti", "180", "180", cupBoard,2 );
             Category WholemealSpaghetti = new Category("Wholemeal Spaghetti", "75", "75",cupBoard ,2 );
             Category CoopSpaghetti = new Category("Coop Spaghetti", "912", "912",cupBoard ,2 );
-            
+            Category Pasta = new Category("Pasta", "1095", "1095", cupBoard ,2 );
+            Category Pickles = new Category("Pickles", "730", "730",fridge ,0 );
+            Category Gherkins = new Category("Gherkins", "730", "730",fridge ,0 );
+            Category Beets = new Category("Beets", "730", "730",fridge ,0 );
+            Category CannedCorn = new Category("Canned Corn", "2", "1095",cupBoard ,2 );
+            Category CannedPotatoes = new Category("Canned Potatoes", "2", "730",fridge ,0 );
+            Category Remoulade = new Category("Remoulade", "105", "105", fridge,0 );
+            Category Mayo = new Category("Mayo", "120", "120", fridge,0 );
+            Category CoopKetchup = new Category("Coop Ketchup", "270", "270", fridge,0 );
+            Category HeinzKetchup = new Category("Heinz Ketchup", "335", "335", fridge,0 );
+            Category BeauvaisKetchup = new Category("Beauvais Ketchup", "120", "60", fridge, 0);
+            Category Mustard = new Category("Mustard", "150", "150", fridge, 0);
+            Category CoopSourCreame = new Category("Coop Sour Cream", "240", "240", fridge, 0);
+            Category XtraSourCream = new Category("Xtra Sour Cream", "300", "300", fridge, 0);
+            Category CoopThousandIsland = new Category("Coop Thousand Island", "240", "240", fridge, 0);
+            Category XtraThousandIsland = new Category("Xtra Thousand Island", "270", "270", fridge, 0);
+            Category GarlicDressing = new Category("Garlic Dressing", "270", "270", fridge, 0);
+            Category PastaSauce = new Category("Pasta Sauce", "730", "730", cupBoard, 2);
+            Category CocaCola = new Category("Coca Cola", "5", "180", fridge, 0);
+            Category EcoOrangeJuice = new Category("Eco Orange Juice", "5", "300", fridge, 0);
+            Category RynkebyOrangeJuice = new Category("Rynkeby Orange Juice", "5", "210", fridge, 0);
+            Category CoopOrangeJuice = new Category("Coop Orange Juice", "5", "30", fridge, 0);
+            Category EcoAppleJuice = new Category("Eco Apple Juice", "5", "300", fridge, 0);
+            Category RynkebyAppleJuice = new Category("Rynkeby Apple Juice", "5", "210", fridge, 0);
+            Category CoopAppleJuice = new Category("Coop Apple Juice", "5", "30", fridge, 0);
+
             sortTheCategoryListAlphabetically();
 
             ItemClass tutorialItem = new ItemClass("Tutorial item", meat, "", fridge, "Closed", 0, bread.getSpinnerStorPos());
