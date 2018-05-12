@@ -47,11 +47,21 @@ public class AddCategoryActivity extends AppCompatActivity {
     }
 
     public String getCategoryExpirationOpen(){
-        return categoryExpirationOpen.getText().toString();
+        if(categoryExpirationOpen.getText().toString().equals("")){
+            return "0";
+        }
+        else {
+            return categoryExpirationOpen.getText().toString();
+        }
     }
 
     public String getCategoryExpirationClosed(){
-        return getCategoryExpirationClosed.getText().toString();
+        if (getCategoryExpirationClosed.getText().toString().equals("")){
+            return"0";
+        }
+        else{
+            return getCategoryExpirationClosed.getText().toString();
+        }
     }
 
     //This function tells what is shown in the storingDropdown

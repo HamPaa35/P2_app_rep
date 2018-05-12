@@ -40,8 +40,8 @@ public class categoryListAdapter extends ArrayAdapter<Category> {
       TextView tvStorage = (TextView) convertView.findViewById(R.id.textView4);
 
       tvName.setText(name);
-      tvDateOpen.setText(expirationDateOpen + " opened");
-      tvDateClosed.setText(expirationDateClosed + " closed");
+      tvDateOpen.setText(expirationDateOpen + " days opened");
+      tvDateClosed.setText(expirationDateClosed + " days closed");
       tvStorage.setText(itemStorage);
 
       return convertView;

@@ -15,6 +15,8 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -125,9 +127,23 @@ public class additem extends AppCompatActivity {
             }});
     }
 
-    public String expirationDate (){
+    public String expirationDate () throws ParseException {
         if(expirationDate.equals("")){
-            return Category.getCategoryList().get(categoryDropdown.getSelectedItemPosition()).getTypicalExpirationOpen();
+            //return Category.getCategoryList().get(categoryDropdown.getSelectedItemPosition()).getTypicalExpirationOpen();
+            SimpleDateFormat dateParser = new SimpleDateFormat("dd/MM/yyyy");
+
+                Date cTime = Calendar.getInstance().getTime();
+
+                SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String formattedDate = df.format(cTime);
+
+                Date myDate = dateParser.parse(formattedDate);
+                Calendar c = Calendar.getInstance();
+                c.setTime(myDate);
+                c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + getCatDays());
+                Date newDate = c.getTime();
+                String newFormattedDate = dateParser.format(newDate);
+                return newFormattedDate;
         }
         else{
             return expirationDate;
@@ -145,7 +161,7 @@ public class additem extends AppCompatActivity {
     }
 
     //Takes the info added to the category and adds it to the array and database
-    public void finnishButton(View view){
+    public void finnishButton(View view) throws ParseException {
         ItemClass addedItem = new ItemClass(itemName(), categoryDropdown.getSelectedItem().toString(), expirationDate(), storageDropdown.getSelectedItem().toString(), checkSwitch(), categoryDropdown.getSelectedItemPosition(), storageDropdown.getSelectedItemPosition());
         FileManager.saveItemData(this);
         openInventory();
@@ -156,17 +172,17 @@ public class additem extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public String timeRemaining(Date then) {
-        Date now = new Date();
-        long diff = then.getTime() - now.getTime();
-        String remaining = "";
-        if (diff >= 86400000) {
-            long days = diff / 86400000;
-            remaining += "" + days + "days";
-            diff -= days * 86400000;
+    public int getCatDays(){
+        if (checkSwitch().equals("Open")){
+            String exspOpenTemp;
+            exspOpenTemp = Category.getCategoryList().get(categoryDropdown.getSelectedItemPosition()).getTypicalExpirationOpen();
+            return Integer.parseInt(exspOpenTemp);
         }
-        //... similar math for hours, minutes
-        return remaining;
+        else{
+            String exspClosedTemp;
+            exspClosedTemp = Category.getCategoryList().get(categoryDropdown.getSelectedItemPosition()).getTypicalExpirationClosed();
+            return Integer.parseInt(exspClosedTemp);
+        }
     }
 
 }
