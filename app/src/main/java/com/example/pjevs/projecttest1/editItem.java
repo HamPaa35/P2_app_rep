@@ -10,14 +10,18 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 public class editItem extends AppCompatActivity {
 
@@ -96,6 +100,53 @@ public class editItem extends AppCompatActivity {
                 expirationDatePicked = date;
                 }
         };
+
+        openClosed.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(expirationDatePicked.equals("") && !expirationDate.equals("") && isChecked){
+                    SimpleDateFormat dateParser = new SimpleDateFormat("dd/MM/yyyy");
+
+                    Date cTime = Calendar.getInstance().getTime();
+
+                    SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                    String formattedDate = df.format(cTime);
+
+                    Date myDate = null;
+                    try {
+                        myDate = dateParser.parse(formattedDate);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    Calendar c = Calendar.getInstance();
+                    c.setTime(myDate);
+                    c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + Integer.parseInt(Category.getCategoryList().get(categoryDropper.getSelectedItemPosition()).getTypicalExpirationOpen()));
+                    Date newDate = c.getTime();
+                    String newFormattedDate = dateParser.format(newDate);
+                    expirationDatePicked = newFormattedDate;
+                }
+                else if(expirationDatePicked.equals("") && !expirationDate.equals("") && !isChecked){
+                    SimpleDateFormat dateParser = new SimpleDateFormat("dd/MM/yyyy");
+
+                    Date cTime = Calendar.getInstance().getTime();
+
+                    SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                    String formattedDate = df.format(cTime);
+
+                    Date myDate = null;
+                    try {
+                        myDate = dateParser.parse(formattedDate);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    Calendar c = Calendar.getInstance();
+                    c.setTime(myDate);
+                    c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + Integer.parseInt(Category.getCategoryList().get(categoryDropper.getSelectedItemPosition()).getTypicalExpirationClosed()));
+                    Date newDate = c.getTime();
+                    String newFormattedDate = dateParser.format(newDate);
+                    expirationDatePicked = newFormattedDate;
+                }
+            }
+        });
 
         categoryDropper();
         storageDropper();
