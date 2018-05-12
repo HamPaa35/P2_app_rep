@@ -27,12 +27,12 @@ public class customApplication extends Application {
         Storage freezer = new Storage("Freezer");
         Storage cupBoard = new Storage("Cupboard");
 
-        Category bread = new Category("Bread", "5", "7", "Cupboard", 2);
+        Category bread = new Category("Bread", "5 days", "7 days", "Cupboard", 2);
 
         if(!setupState) {
 
-            Category meat = new Category("Meat", "5", "7", "Fridge", 0);
-            Category peas = new Category("Peas", "30", "35", "Freezer", 1);
+            Category meat = new Category("Meat", "5 days", "7 days", "Fridge", 0);
+            Category peas = new Category("Peas", "30 days", "35 days", "Freezer", 1);
             Category ColdCuts = new Category("Cold Cuts", "1-4 days", "14 days", "Fridge", 0);
             Category ThreeStarColdCuts = new Category("3-star cold cuts", "4-8 days", "1 month", fridge, 0);
             Category pate = new Category("pâté", "7 days", "14 days", fridge, 0);
@@ -92,13 +92,7 @@ public class customApplication extends Application {
             Category EcoSpaghetti = new Category("Eco Spaghetti", "6 months", "6 months", cupBoard,2 );
             Category WholemealSpaghetti = new Category("Wholemeal Spaghetti", "2,5 months", "2,5 months",cupBoard ,2 );
             Category CoopSpaghetti = new Category("Coop Spaghetti", "2,5 years", "2,5 years",cupBoard ,2 );
-
-
-
-
-
-
-
+            
             sortTheCategoryListAlphabetically();
 
             ItemClass tutorialItem = new ItemClass("Tutorial item", meat, "", fridge, "Closed", 0, bread.getSpinnerStorPos());

@@ -32,7 +32,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:background="@color/colorSpinnerBackground"
-            android:text="Edith" />
+            android:text="Edit" />
 
         <Button
             android:id="@+id/delBtnCategories"
