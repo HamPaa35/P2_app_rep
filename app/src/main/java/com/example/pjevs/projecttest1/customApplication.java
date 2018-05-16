@@ -35,15 +35,15 @@ public class customApplication extends Application {
             Category peas = new Category("Peas", "30", "35", "Freezer", 1);
             Category ColdCuts = new Category("Cold Cuts", "4", "14", "Fridge", 0);
             Category ThreeStarColdCuts = new Category("3-star cold cuts", "4", "30", fridge, 0);
-            Category pate = new Category("pâté", "7", "14", fridge, 0);
+            Category pate = new Category("Pâté", "7", "14", fridge, 0);
             Category MackerelSalad = new Category("Mackerel Salad", "5", "30", fridge,0);
             Category FrozenVegetables = new Category("Frozen Vegetables", "1", "730", freezer, 1);
             Category FrenchFries = new Category("French Fries", "1", "365", freezer, 1 );
             Category FrozenRolls = new Category("Frozen rolls", "1", "365", freezer, 1);
             Category Cocoa = new Category("Cocoa", "3", "90", fridge, 1 );
             Category Jam = new Category("Jam", "547", "547", cupBoard, 2);
-            Category IrmaBearnaiseSauce = new Category("Irma Bearnaise Sauce", "270", "270", cupBoard, 2);
-            Category IrmaCreamSauce = new Category("Irma Cream Sauce", "300", "300", cupBoard, 2);
+            Category IrmaBearnaiseSauce = new Category("Bearnaise Sauce", "270", "270", cupBoard, 2);
+            Category IrmaCreamSauce = new Category("Cream Sauce", "300", "300", cupBoard, 2);
             Category Riberhus = new Category("Cheese Riberhus", "7", "45", fridge, 0);
             Category bukoCheese = new Category("Cheese Buko", "5-8", "60",fridge , 0 );
             Category ThiseChiliCheese = new Category("Thise Chili Cheese", "45", "45", fridge, 0);
@@ -82,7 +82,7 @@ public class customApplication extends Application {
             Category Rice = new Category("Rice", "120", "120", cupBoard,2 );
             Category EcoSpaghetti = new Category("Eco Spaghetti", "180", "180", cupBoard,2 );
             Category WholemealSpaghetti = new Category("Wholemeal Spaghetti", "75", "75",cupBoard ,2 );
-            Category CoopSpaghetti = new Category("Coop Spaghetti", "912", "912",cupBoard ,2 );
+            Category CoopSpaghetti = new Category("Spaghetti", "912", "912",cupBoard ,2 );
             Category Pasta = new Category("Pasta", "1095", "1095", cupBoard ,2 );
             Category Pickles = new Category("Pickles", "730", "730",fridge ,0 );
             Category Gherkins = new Category("Gherkins", "730", "730",fridge ,0 );
@@ -91,9 +91,7 @@ public class customApplication extends Application {
             Category CannedPotatoes = new Category("Canned Potatoes", "2", "730",fridge ,0 );
             Category Remoulade = new Category("Remoulade", "105", "105", fridge,0 );
             Category Mayo = new Category("Mayo", "120", "120", fridge,0 );
-            Category CoopKetchup = new Category("Coop Ketchup", "270", "270", fridge,0 );
-            Category HeinzKetchup = new Category("Heinz Ketchup", "335", "335", fridge,0 );
-            Category BeauvaisKetchup = new Category("Beauvais Ketchup", "120", "60", fridge, 0);
+            Category BeauvaisKetchup = new Category("Ketchup", "120", "60", fridge, 0);
             Category Mustard = new Category("Mustard", "150", "150", fridge, 0);
             Category CoopSourCreame = new Category("Sour Cream", "240", "240", fridge, 0);
             Category CoopThousandIsland = new Category("Thousand Island", "240", "240", fridge, 0);
@@ -101,11 +99,9 @@ public class customApplication extends Application {
             Category PastaSauce = new Category("Pasta Sauce", "730", "730", cupBoard, 2);
             Category CocaCola = new Category("Coca Cola", "5", "180", fridge, 0);
             Category EcoOrangeJuice = new Category("Eco Orange Juice", "5", "300", fridge, 0);
-            Category RynkebyOrangeJuice = new Category("Rynkeby Orange Juice", "5", "210", fridge, 0);
-            Category CoopOrangeJuice = new Category("Coop Orange Juice", "5", "30", fridge, 0);
+            Category CoopOrangeJuice = new Category("Orange Juice", "5", "30", fridge, 0);
             Category EcoAppleJuice = new Category("Eco Apple Juice", "5", "300", fridge, 0);
-            Category RynkebyAppleJuice = new Category("Rynkeby Apple Juice", "5", "210", fridge, 0);
-            Category CoopAppleJuice = new Category("Coop Apple Juice", "5", "30", fridge, 0);
+            Category CoopAppleJuice = new Category("Apple Juice", "5", "30", fridge, 0);
 
             sortTheCategoryListAlphabetically();
 
