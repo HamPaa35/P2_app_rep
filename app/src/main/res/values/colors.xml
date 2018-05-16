@@ -7,4 +7,5 @@
     <color name="colorTextHeadlines">#ffba00</color>
     <color name="colorText">#99cc99</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="separator">#5e6574</color>
 </resources>

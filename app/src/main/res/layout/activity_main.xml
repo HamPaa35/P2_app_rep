@@ -93,6 +93,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="8dp"
         android:scrollbars="horizontal"
+        android:divider="#5e6574"
+        android:dividerHeight="2dp"
         app:layout_constraintBottom_toTopOf="@+id/addbtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
