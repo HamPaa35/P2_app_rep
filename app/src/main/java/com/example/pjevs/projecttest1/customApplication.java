@@ -31,12 +31,12 @@ public class customApplication extends Application {
 
         if(!setupState) {
 
+            Category choose = new Category("[Choose Category]", "0", "0", fridge, 0);
             Category meat = new Category("Meat (Ground)", "0", "4", fridge, 0);
             Category marinatedMeat = new Category("Meat (Marinated)", "0", "5", fridge, 0);
             Category VacumedMeat = new Category("Meat (Vacuumed)", "0", "7", fridge, 0);
             Category peas = new Category("Peas", "30", "35", "Freezer", 1);
             Category ColdCuts = new Category("Cold Cuts", "4", "14", "Fridge", 0);
-            Category ThreeStarColdCuts = new Category("3-star cold cuts", "4", "30", fridge, 0);
             Category pate = new Category("Pâté", "7", "14", fridge, 0);
             Category MackerelSalad = new Category("Mackerel Salad", "5", "30", fridge,0);
             Category FrozenVegetables = new Category("Frozen Vegetables", "1", "730", freezer, 1);
