@@ -31,7 +31,7 @@ public class customApplication extends Application {
 
         if(!setupState) {
 
-            Category choose = new Category("[Choose Category]", "0", "0", fridge, 0);
+            Category choose = new Category(" Choose Category ", "0", "0", fridge, 0);
             Category meat = new Category("Meat (Ground)", "0", "4", fridge, 0);
             Category marinatedMeat = new Category("Meat (Marinated)", "0", "5", fridge, 0);
             Category VacumedMeat = new Category("Meat (Vacuumed)", "0", "7", fridge, 0);
